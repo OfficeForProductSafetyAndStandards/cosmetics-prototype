@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/cosmetics/product-sale-date-check-answer" method="post" class="form">
+                {% from "radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "sale-before-eu-exit",
+                name: "sale-before-eu-exit",
+                fieldset: {
+                    legend: {
+                    text: "Was the product on sale before the UK left the EU?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                hint: {
+                    text: "The UK left the EU on March 29 2019, if your product was on sale on in the UK before then, it was on sale in the EU."
+                },
+                items: [
+                    {
+                    value: "true",
+                    text: "Yes"
+                    },
+                    {
+                    value: "false",
+                    text: "No"
+                    }
+                ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
