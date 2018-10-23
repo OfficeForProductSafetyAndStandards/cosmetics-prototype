@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Log in to register your cosmetics product</h1>
+            <p>
+                If you don’t already have an account, <a href=''>create an account</a>.
+            </p>
+            {% from "input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+            label: {
+                text: "Email address"
+            },
+            id: "email",
+            name: "email"
+            }) }}
+
+            {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            id: "password",
+            name: "password"
+            }) }}
+
+            <p>
+                <a href='#'>Reset password</a>
+            </p>
+
+            {% from "button/macro.njk" import govukButton %}
+
+            {{ govukButton({
+            text: "Log in",
+            href: "#next"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
