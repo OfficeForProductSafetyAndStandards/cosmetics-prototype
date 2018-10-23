@@ -34,4 +34,19 @@ router.post('/cosmetics/cpnp-reference-submit', function (req, res) {
   }
 })
 
+// Branching on whether scraped CPNP product data is correct
+router.post('/cosmetics/check-cpnp-product-correct', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let productDataIsCorrect = req.session.data['correct-product']
+
+  if (productDataIsCorrect === 'false') {
+    res.redirect('/cosmetics/search-again')
+  } else {
+    res.redirect('/cosmetics/check-product-details')
+  }
+})
+
 module.exports = router
