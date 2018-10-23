@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">When was the product first notified?</h1>
+            <p>
+                To verify the product is yours, give the date the product was notified.
+            </p>
+
+            {% from "date-input/macro.njk" import govukDateInput %}
+
+            {{ govukDateInput({
+                id: "dob",
+                namePrefix: "dob",
+                fieldset: {},
+                hint: {
+                text: "For example, 31 12 2009"
+                }
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/cpnp-reference"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
