@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Check your product details</h1>
+
+            {% from "table/macro.njk" import govukTable %}
+
+            {{ govukTable({
+            caption: "Responsible organisation or person",
+            firstCellIsHeader: true,
+            rows: [
+                [
+                {
+                    text: "Name:"
+                },
+                {
+                    text: "Cosmetics Company Ltd."
+                },
+                {
+                    html: "<a href='#'>Change</a>"
+                }
+                ],
+                [
+                {
+                    text: "Email address:"
+                },
+                {
+                    text: "info@example.com"
+                },
+                {
+                    html: "<a href='#'>Change</a>"
+                }
+                ],
+                [
+                {
+                    text: "Phone number:"
+                },
+                {
+                    text: "07000 000000"
+                },
+                {
+                    html: "<a href='#'>Change</a>"
+                }
+                ]
+            ]
+            }) }}
+
+            {{ govukTable({
+                caption: "Product information",
+                firstCellIsHeader: true,
+                rows: [
+                    [
+                    {
+                        text: "Name:"
+                    },
+                    {
+                        text: "Brand Name Hair Dye"
+                    },
+                    {
+                        html: "<a href='#'>Change</a>"
+                    }
+                    ],
+                    [
+                    {
+                        text: "Brand:"
+                    },
+                    {
+                        text: "Cosmetics Brand"
+                    },
+                    {
+                        html: "<a href='#'>Change</a>"
+                    }
+                    ],
+                    [
+                    {
+                        text: "Ingredients:"
+                    },
+                    {
+                        text: "Ingredients list"
+                    },
+                    {
+                        html: "<a href='#'>Change</a>"
+                    }
+                    ]
+                ]
+                }) }}
+
+                <h3 class="govuk-heading-m">
+                    Now register your product
+                </h3>
+                <p>
+                    By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
+                </p>
+                {{ govukButton({
+                    text: "Accept and register product",
+                    href: "/cosmetics/confirmation"
+                }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
