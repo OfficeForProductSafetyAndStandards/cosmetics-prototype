@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Your registered cosmetics</h1>
+
+          <p>
+              <a href='#next'>Register a new product</a>
+          </p>
+
+          {% from "table/macro.njk" import govukTable %}
+
+        {{ govukTable({
+        caption: "Draft cosmetics",
+        firstCellIsHeader: false,
+        head: [
+            {
+                text: "Product"
+            },
+            {
+                text: "Started on"
+            },
+            {
+                text: ""
+            }
+        ],
+        rows: [
+            [
+            {
+                text: "Product 1"
+            },
+            {
+                text: "1/1/1990"
+            },
+            {
+                html: "<a href='#'>Continue</a>"
+            }
+            ],
+            [
+            {
+                text: "Product 2"
+            },
+            {
+                text: "1/1/1990"
+            },
+            {
+                html: "<a href='#'>Continue</a>"
+            }
+            ]
+        ]
+        }) }}
+
+        {{ govukTable({
+            caption: "Registered cosmetics",
+            firstCellIsHeader: false,
+            head: [
+                {
+                    text: "Product"
+                },
+                {
+                    text: "Submitted on"
+                },
+                {
+                    text: ""
+                }
+            ],
+            rows: [
+                [
+                {
+                    text: "Product 1"
+                },
+                {
+                    text: "1/1/1990"
+                },
+                {
+                    html: "<a href='#'>Continue</a>"
+                }
+                ],
+                [
+                {
+                    text: "Product 2"
+                },
+                {
+                    text: "1/1/1990"
+                },
+                {
+                    html: "<a href='#'>Continue</a>"
+                }
+                ]
+            ]
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
