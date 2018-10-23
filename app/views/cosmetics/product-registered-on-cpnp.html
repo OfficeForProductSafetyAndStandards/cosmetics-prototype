@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+                <form action="/cosmetics/product-regsistered-on-cpnp-check" method="post" class="form">
+                    {% from "radios/macro.njk" import govukRadios %}
+    
+                    {{ govukRadios({
+                    idPrefix: "registered-on-cpnp",
+                    name: "registered-on-cpnp",
+                    fieldset: {
+                        legend: {
+                        text: "Has this product been registered on the Cosmetics Product Notification Portal?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                        }
+                    },
+                    items: [
+                        {
+                        value: "true",
+                        text: "Yes"
+                        },
+                        {
+                        value: "false",
+                        text: "No"
+                        }
+                    ]
+                    }) }}
+    
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
