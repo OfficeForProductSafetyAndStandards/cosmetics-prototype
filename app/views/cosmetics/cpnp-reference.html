@@ -54,6 +54,13 @@
                     text: "Continue"
                 }) }}
             </form>
+
+            {% from "details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+            summaryText: "How to find the CPNP product number",
+            text: "Text to guide user through retrieving CPNP reference number"
+            }) }}
         </div>
     </div>
 
