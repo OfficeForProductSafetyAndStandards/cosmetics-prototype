@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/cosmetics/cpnp-reference-submit" method="post" class="form">
+                {% from "radios/macro.njk" import govukRadios %}
+                {% from "input/macro.njk" import govukInput %}
+
+                {% set productReferenceHtml %}
+                {{ govukInput({
+                id: "cpnp-product-reference",
+                name: "cpnp-product-reference",
+                classes: "govuk-!-width-one-third",
+                label: {
+                    text: "CPNP product number"
+                }
+                }) }}
+                {% endset -%}
+
+                {{ govukRadios({
+                    idPrefix: "cpnp-reference-conditional",
+                    name: "cpnp-reference",
+                    fieldset: {
+                        legend: {
+                        text: "Do you have the CPNP product number?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "true",
+                            text: "Yes",
+                            conditional: {
+                                html: productReferenceHtml
+                            }
+                        },
+                        {
+                            value: "false",
+                            text: "No"
+                        }
+                    }
+                ]
+                ) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
