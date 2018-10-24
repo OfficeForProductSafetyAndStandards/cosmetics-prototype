@@ -7,7 +7,7 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Log in to register your cosmetics product</h1>
             <p>
-                If you don’t already have an account, <a href='/cosmetics/create-account'>create an account</a>.
+                If you don’t already have an account, <a href='/cosmetics/account/create-account'>create an account</a>.
             </p>
             {% from "input/macro.njk" import govukInput %}
 
@@ -37,7 +37,7 @@
 
             {{ govukButton({
                 text: "Log in",
-                href: "/cosmetics/your-notifications"
+                href: "/cosmetics/account/your-notifications"
             }) }}
         </div>
     </div>
