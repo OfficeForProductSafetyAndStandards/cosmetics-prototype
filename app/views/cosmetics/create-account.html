@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Create an account</h1>
+
+            {% from "input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+                label: {
+                    text: "Full name"
+                },
+                id: "name",
+                name: "name"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address"
+                },
+                id: "email",
+                name: "email",
+                type: "email"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Phone number"
+                },
+                hint: {
+                    text: "We’ll send you a security code by text message"
+                },
+                id: "phone",
+                name: "phone"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Password"
+                },
+                hint: {
+                    text: "At least 8 characters"
+                },
+                id: "password",
+                name: "password",
+                type: "password"
+            }) }}
+
+            {{ govukButton({
+                text: "Log in",
+                href: "/cosmetics/account-verification"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
