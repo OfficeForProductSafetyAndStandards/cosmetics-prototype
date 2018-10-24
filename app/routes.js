@@ -100,7 +100,7 @@ router.post('/cosmetics/search-again-answer', function (req, res) {
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {
   if (req.cookies['requireNewRp'] === 'true') {
-    res.redirect('/cosmetics/responsible-person-name')
+    res.redirect('/cosmetics/responsible-person/responsible-person-name')
   } else {
     res.redirect('/cosmetics/check-product-details')
   }
