@@ -81,6 +81,21 @@ router.post('/cosmetics/product-regsistered-on-cpnp-check', function (req, res) 
   }
 })
 
+// Branching on whether product has been registered on CPNP
+router.post('/cosmetics/search-again-answer', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let searchAgain = req.session.data['search-again']
+
+  if (searchAgain === 'false') {
+    res.redirect('/cosmetics/manual')
+  } else {
+    res.redirect('/cosmetics/product-notify-date')
+  }
+})
+
 // Either send to product details check, or to section to add new RP depending on 
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {
