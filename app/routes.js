@@ -31,7 +31,7 @@ router.post('/cosmetics/product-sale-date-check-answer', function (req, res) {
     if (onSaleBeforeEuExit === 'false') {
       res.redirect('/cosmetics/import/product-registered-on-cpnp')
     } else {
-      res.redirect('/cosmetics/product-notify-date')
+      res.redirect('/cosmetics/scraped-data/product-notify-date')
     }
   })
 
@@ -45,9 +45,9 @@ router.post('/cosmetics/cpnp-reference-submit', function (req, res) {
   let cpnpProductReference = req.session.data['cpnp-product-reference']
 
   if (hasCpnpReferenceNumber === 'false') {
-    res.redirect('/cosmetics/no-product-reference')
+    res.redirect('/cosmetics/scraped-data/no-product-reference')
   } else {
-    res.redirect('/cosmetics/cpnp-product')
+    res.redirect('/cosmetics/scraped-data/cpnp-product')
   }
 })
 
@@ -60,7 +60,7 @@ router.post('/cosmetics/check-cpnp-product-correct', function (req, res) {
   let productDataIsCorrect = req.session.data['correct-product']
 
   if (productDataIsCorrect === 'false') {
-    res.redirect('/cosmetics/search-again')
+    res.redirect('/cosmetics/scraped-data/search-again')
   } else {
     res.redirect('/cosmetics/check-responsible-person')
   }
@@ -92,7 +92,7 @@ router.post('/cosmetics/search-again-answer', function (req, res) {
   if (searchAgain === 'false') {
     res.redirect('/cosmetics/manual')
   } else {
-    res.redirect('/cosmetics/product-notify-date')
+    res.redirect('/cosmetics/scraped-data/product-notify-date')
   }
 })
 
