@@ -29,7 +29,7 @@ router.post('/cosmetics/product-sale-date-check-answer', function (req, res) {
     let onSaleBeforeEuExit = req.session.data['sale-before-eu-exit']
   
     if (onSaleBeforeEuExit === 'false') {
-      res.redirect('/cosmetics/product-registered-on-cpnp')
+      res.redirect('/cosmetics/import/product-registered-on-cpnp')
     } else {
       res.redirect('/cosmetics/product-notify-date')
     }
@@ -75,9 +75,9 @@ router.post('/cosmetics/product-regsistered-on-cpnp-check', function (req, res) 
   let productRegisteredOnCpnp = req.session.data['registered-on-cpnp']
 
   if (productRegisteredOnCpnp === 'false') {
-    res.redirect('/cosmetics/cpnp-advice')
+    res.redirect('/cosmetics/import/cpnp-advice')
   } else {
-    res.redirect('/cosmetics/cpnp-export-upload')
+    res.redirect('/cosmetics/import/cpnp-export-upload')
   }
 })
 
