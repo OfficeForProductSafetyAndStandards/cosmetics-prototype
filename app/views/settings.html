@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Cosmetics Portal Prototype Settings</h1>
+
+            <form action="/settings-update" method="post">
+                {% from "radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                    idPrefix: "require-new-responsible-person",
+                    name: "require-new-responsible-person",
+                    fieldset: {
+                    legend: {
+                        text: "Require new Responsible Person info?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--m"
+                    }
+                    },
+                    hint: {
+                    text: "This setting chooses whether you will be asked to add a new UK based Responsible Person for scraped/uploaded exports from CPNP"
+                    },
+                    items: [
+                    {
+                        value: "true",
+                        text: "Yes"
+                    },
+                    {
+                        value: "false",
+                        text: "No"
+                    }
+                    ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Update"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
