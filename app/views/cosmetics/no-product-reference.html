@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Without the CPNP product number, you’ll need to manually enter the details of the product </h1>
+
+            <p>
+                    If you can find the product number, it will be much simpler to complete your product registration.
+            </p>
+
+            <h3 class="govuk-heading-m">How to find your CPNP product number</h3>
+            <ol class="govuk-list govuk-list--number">
+                <li>Log in to your CPNP account</li>
+                <li>Under ‘Products’, click ‘My notifications’</li>
+                <li>
+                    Find the notification for this product
+                    <ol class="govuk-list govuk-list">
+                        <li>
+                            a.  On the left side of the screen is ‘CPNP Ref.’ with a 7 digit number
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+
+            <p>
+                If you have found the number, <a href='/cosmetics/cpnp-reference'>add your CPNP reference number</a> to make notification simpler.
+            </p>
+
+            <h3 class="govuk-heading-m">If you can’t find your CPNP reference</h3>
+            <p>
+                <a href='cosmetics/manual'>Continue without CPNP product number</a>
+            </p>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}

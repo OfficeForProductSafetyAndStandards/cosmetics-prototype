@@ -45,7 +45,7 @@ router.post('/cosmetics/cpnp-reference-submit', function (req, res) {
   let cpnpProductReference = req.session.data['cpnp-product-reference']
 
   if (hasCpnpReferenceNumber === 'false') {
-    res.redirect('/cosmetics/no-product-found')
+    res.redirect('/cosmetics/no-product-reference')
   } else {
     res.redirect('/cosmetics/cpnp-product')
   }
