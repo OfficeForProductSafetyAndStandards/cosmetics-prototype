@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {% from "radios/macro.njk" import govukRadios %}
+            {{ govukRadios({
+            idPrefix: "physical-form",
+            name: "physical-form",
+            fieldset: {
+                legend: {
+                text: "What is the physical form of the product?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+                }
+            },
+            items: [
+                {
+                value: "solid",
+                text: "Solid or pressed powder"
+                },
+                {
+                value: "loose",
+                text: "Loose powder"
+                },
+                {
+                value: "paste",
+                text: "Cream or paste"
+                },
+                {
+                value: "liquid",
+                text: "Liquid"
+                },
+                {
+                value: "foam",
+                text: "Foam"
+                },
+                {
+                value: "spray",
+                text: "Spray"
+                },
+                {
+                value: "other",
+                text: "Other"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/applicators"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
