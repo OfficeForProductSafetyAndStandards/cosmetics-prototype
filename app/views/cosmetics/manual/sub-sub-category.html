@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {% from "radios/macro.njk" import govukRadios %}
+            {{ govukRadios({
+            idPrefix: "physical-form",
+            name: "physical-form",
+            fieldset: {
+                legend: {
+                text: "What category of [[ level 2 ]] is the product?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+                }
+            },
+            items: [
+                {
+                    value: "level-3",
+                    text: "[[ List of level 3 categories ]]"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/manual/formulation"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
