@@ -29,7 +29,7 @@ router.post('/cosmetics/product-sale-date-check-answer', function (req, res) {
     let onSaleBeforeEuExit = req.session.data['sale-before-eu-exit']
   
     if (onSaleBeforeEuExit === 'false') {
-      res.redirect('/cosmetics/import/product-registered-on-cpnp')
+      res.redirect('/cosmetics/intending-to-sell-in-eu')
     } else {
       res.redirect('/cosmetics/scraped-data/product-notify-date')
     }
@@ -93,6 +93,21 @@ router.post('/cosmetics/search-again-answer', function (req, res) {
     res.redirect('/cosmetics/manual')
   } else {
     res.redirect('/cosmetics/scraped-data/product-notify-date')
+  }
+})
+
+// Branching on whether product has been registered on CPNP
+router.post('/cosmetics/intending-to-sell-in-eu', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let intendingToSellInEu = req.session.data['intending-to-sell-in-eu']
+
+  if (intendingToSellInEu === 'false') {
+    res.redirect('/cosmetics/manual')
+  } else {
+    res.redirect('/cosmetics/import/product-registered-on-cpnp')
   }
 })
 

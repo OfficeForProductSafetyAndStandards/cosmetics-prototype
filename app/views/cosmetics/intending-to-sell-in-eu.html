@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/cosmetics/intending-to-sell-in-eu" method="post" class="form">
+                {% from "radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                idPrefix: "intending-to-sell-in-eu",
+                name: "intending-to-sell-in-eu",
+                fieldset: {
+                    legend: {
+                    text: "Are you or an affiliated organisation intending to sell this product in the EU?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                items: [
+                    {
+                    value: "true",
+                    text: "Yes"
+                    },
+                    {
+                    value: "false",
+                    text: "No"
+                    }
+                ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
