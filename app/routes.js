@@ -135,7 +135,7 @@ router.post('/cosmetics/multiple-shades', function (req, res) {
   let multipleShades = req.session.data['multiple-shades']
 
   if (multipleShades === 'false') {
-    res.redirect('/cosmetics/manual/no-longer-manufactured')
+    res.redirect('/cosmetics/manual/product-manufactured-in-uk')
   } else {
     res.redirect('/cosmetics/manual/list-shades')
   }

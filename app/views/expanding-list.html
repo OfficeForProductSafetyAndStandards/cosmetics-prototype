@@ -1,0 +1,32 @@
+{% macro expandingList(options) %}
+    {% from "input/macro.njk" import govukInput %}
+    {% set show = true %}
+    {% set another = options["another"] %} 
+
+    {% if show %}
+        {{ govukInput({
+            label: {
+                text: options["label"]
+            },
+            id: "list-entry",
+            name: "list-entry"
+        }) }}
+        {% from "button/macro.njk" import govukButton %}
+        {{ govukButton({
+            text: "Remove",
+            href: "#"
+        }) }}
+    {% endif %}
+
+    {% if another %}
+        {{ expandingList({
+            another: false
+        }) }}
+    {% else %}
+        <br />
+        {% from "button/macro.njk" import govukButton %}
+        {{ govukButton({
+            text: "Add another"
+        }) }}
+    {% endif %}
+{% endmacro %}
