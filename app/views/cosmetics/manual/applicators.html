@@ -11,46 +11,45 @@
             name: "physical-form",
             fieldset: {
                 legend: {
-                text: "What is the physical form of the product?",
+                text: "Does the product come one in these applicators or packages?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
                 }
             },
             items: [
                 {
-                value: "solid",
-                text: "Solid or pressed powder"
+                value: "wipe",
+                text: "Wipe, sponge, patch or pad"
                 },
                 {
-                value: "loose",
-                text: "Loose powder"
-                },
-                {
-                value: "paste",
-                text: "Cream or paste"
-                },
-                {
-                value: "liquid",
-                text: "Liquid"
-                },
-                {
-                value: "foam",
-                text: "Foam"
+                value: "encapsulated",
+                text: "Encapsulated products"
                 },
                 {
                 value: "spray",
-                text: "Spray"
+                text: "Pressurised spray container "
+                },
+                {
+                value: "pressurised",
+                text: "Non-spray pressurised container "
                 },
                 {
                 value: "other",
                 text: "Other"
+                },
+                {
+                divider: "or"
+                },
+                {
+                value: "none",
+                text: "No applicator or special packaging"
                 }
             ]
             }) }}
 
             {{ govukButton({
                 text: "Continue",
-                href: "/cosmetics/manual/applicators"
+                href: "/cosmetics/manual/category"
             }) }}
         </div>
     </div>
