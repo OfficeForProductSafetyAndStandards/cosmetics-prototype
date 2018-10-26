@@ -195,7 +195,7 @@ router.post('/cosmetics/notification-type', function (req, res) {
   let notificationType = req.session.data['notification-type']
 
   if (notificationType === 'predefined') {
-    res.redirect('/cosmetics/manual/predefined')
+    res.redirect('/cosmetics/manual/predefined-placeholder')
   } else if (notificationType === 'exact') {
     res.redirect('/cosmetics/manual/exact')
   } else {
