@@ -156,6 +156,21 @@ router.post('/cosmetics/manufactured-in-uk', function (req, res) {
   }
 })
 
+// Branching on whether product contains toxic products
+router.post('/cosmetics/contains-toxic-products', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let containsToxicProducts = req.session.data['contains-toxic-products']
+
+  if (containsToxicProducts === 'false') {
+    res.redirect('/cosmetics/manual/nanomaterials')
+  } else {
+    res.redirect('/cosmetics/manual/list-toxic-products')
+  }
+})
+
 // Either send to product details check, or to section to add new RP depending on 
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {
