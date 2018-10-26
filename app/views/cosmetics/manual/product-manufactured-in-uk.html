@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/cosmetics/manufactured-in-uk" method="post" class="form">
+                {% from "radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                idPrefix: "manufactured-in-uk",
+                name: "manufactured-in-uk",
+                fieldset: {
+                    legend: {
+                    text: "Is the product manufactured in the UK?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                items: [
+                    {
+                    value: "true",
+                    text: "Yes"
+                    },
+                    {
+                    value: "false",
+                    text: "No"
+                    }
+                ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}

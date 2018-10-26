@@ -141,6 +141,21 @@ router.post('/cosmetics/multiple-shades', function (req, res) {
   }
 })
 
+// Branching on whether product was manufactured in the UK
+router.post('/cosmetics/manufactured-in-uk', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let manufacturedInUk = req.session.data['manufactured-in-uk']
+
+  if (manufacturedInUk === 'false') {
+    res.redirect('/cosmetics/manual/toxic-products')
+  } else {
+    res.redirect('/cosmetics/manual/import-from')
+  }
+})
+
 // Either send to product details check, or to section to add new RP depending on 
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {
