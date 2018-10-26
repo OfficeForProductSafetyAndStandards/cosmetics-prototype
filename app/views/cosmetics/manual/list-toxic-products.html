@@ -5,16 +5,26 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">List the shades</h1>
+            <h1 class="govuk-heading-xl">List all carcinogenic, mutagenic or toxic for reproduction substances</h1>
 
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}
                 {{ govukInput({
                     label: {
-                        text: options["label"]
+                        text: "Substance name"
                     },
-                    id: "list-entry",
-                    name: "list-entry"
+                    hint: {
+                        text: "Use the ‘International Nomenclature of Cosmetic Ingredients’ name"
+                    },
+                    id: "substance-name",
+                    name: "substance-name"
+                }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Chemical Abstracts Service registry number"
+                    },
+                    id: "registry-number",
+                    name: "registry-number"
                 }) }}
             {% endset %}
 
@@ -28,7 +38,7 @@
             <br />
             {{ govukButton({
                 text: "Continue",
-                href: "/cosmetics/manual/product-manufactured-in-uk"
+                href: "/cosmetics/manual/nanomaterials"
             }) }}
         </div>
     </div>
