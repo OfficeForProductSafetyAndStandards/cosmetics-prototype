@@ -150,9 +150,9 @@ router.post('/cosmetics/manufactured-in-uk', function (req, res) {
   let manufacturedInUk = req.session.data['manufactured-in-uk']
 
   if (manufacturedInUk === 'false') {
-    res.redirect('/cosmetics/manual/toxic-products')
-  } else {
     res.redirect('/cosmetics/manual/import-from')
+  } else {
+    res.redirect('/cosmetics/manual/toxic-products')
   }
 })
 
