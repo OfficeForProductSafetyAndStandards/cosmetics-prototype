@@ -171,6 +171,21 @@ router.post('/cosmetics/contains-toxic-products', function (req, res) {
   }
 })
 
+// Branching on whether product contains nanomaterials
+router.post('/cosmetics/contains-nanomaterials', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let containsNanomaterials = req.session.data['contains-nanomaterials']
+
+  if (containsNanomaterials === 'false') {
+    res.redirect('/cosmetics/manual/physical-form')
+  } else {
+    res.redirect('/cosmetics/manual/add-nanomaterials')
+  }
+})
+
 // Either send to product details check, or to section to add new RP depending on 
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {

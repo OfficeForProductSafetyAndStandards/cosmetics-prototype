@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Does the product contain any nanomaterials?</h1>
+            <p>
+                A 'nanomaterial' is:
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>insoluble or biopersistent</li>
+                    <li>intentionally manufactured</li>
+                    <li>has one or more external dimensions, or an internal structure, with a size ranging from 1nm to 100 nm</li>
+                  </ul>
+            </p>
+            <form action="/cosmetics/contains-nanomaterials" method="post" class="form">
+                {% from "radios/macro.njk" import govukRadios %}
+                {{ govukRadios({
+                idPrefix: "contains-nanomaterials",
+                name: "contains-nanomaterials",
+                items: [
+                    {
+                    value: "true",
+                    text: "Yes"
+                    },
+                    {
+                    value: "false",
+                    text: "No"
+                    }
+                ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
