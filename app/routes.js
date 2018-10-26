@@ -81,7 +81,7 @@ router.post('/cosmetics/product-regsistered-on-cpnp-check', function (req, res) 
   }
 })
 
-// Branching on whether product has been registered on CPNP
+// Branching on whether to search again after incorrect product info found
 router.post('/cosmetics/search-again-answer', function (req, res) {
   // Get the answer from session data
   // The name between the quotes is the same as the 'name' attribute on the input elements
@@ -96,7 +96,7 @@ router.post('/cosmetics/search-again-answer', function (req, res) {
   }
 })
 
-// Branching on whether product has been registered on CPNP
+// Branching on whether user will be selling product in the EU
 router.post('/cosmetics/intending-to-sell-in-eu', function (req, res) {
   // Get the answer from session data
   // The name between the quotes is the same as the 'name' attribute on the input elements
@@ -108,6 +108,21 @@ router.post('/cosmetics/intending-to-sell-in-eu', function (req, res) {
     res.redirect('/cosmetics/manual/product-name')
   } else {
     res.redirect('/cosmetics/import/product-registered-on-cpnp')
+  }
+})
+
+// Branching on whether product is single or multi component
+router.post('/cosmetics/single-component', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let singleComponentProduct = req.session.data['single-component']
+
+  if (singleComponentProduct === 'false') {
+    res.redirect('/cosmetics/manual/multi-component-placeholder')
+  } else {
+    res.redirect('/cosmetics/manual/number-of-shades')
   }
 })
 
