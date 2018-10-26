@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Where are you importing the product from?</h1>
+
+            {% from "input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+            id: "responsible-person-name",
+            hint: {
+                text: "Country"
+            },
+            name: "responsible-person-name"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/manual/responsible-person/toxic-products"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
