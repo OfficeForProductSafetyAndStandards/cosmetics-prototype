@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">List the shades</h1>
+
+            {% set listEntryHtml %}
+                {% from "input/macro.njk" import govukInput %}
+                {{ govukInput({
+                    label: {
+                        text: "Ingredient"
+                    },
+                    hint: {
+                        text: "Use the ‘International Nomenclature of Cosmetic Ingredients’ name"
+                    },
+                    id: "list-entry",
+                    name: "list-entry"
+                }) }}
+                {% from "radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                idPrefix: "notification-type",
+                name: "notification-type",
+                fieldset: {
+                    legend: {
+                    text: "Concentration",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                    }
+                },
+                items: [
+                    {
+                        value: "le-0-point-1",
+                        text: "Less than or equal to 0.1%"
+                    },
+                    {
+                        value: "0-to-1",
+                        text: "0.1% to 1%"
+                    },
+                    {
+                        value: "1-to-5",
+                        text: "1.1% to 5%"
+                    },
+                    {
+                        value: "5-to-10",
+                        text: "5.1% to 10%"
+                    },
+                    {
+                        value: "10-to-25",
+                        text: "10.1% to 25%"
+                    },
+                    {
+                        value: "25-to-50",
+                        text: "25.1% to 50%"
+                    },
+                    {
+                        value: "50-to-75",
+                        text: "50.1% to 75%"
+                    },
+                    {
+                        value: "75-to-100",
+                        text: "75.1% to 100%"
+                    }
+                ]
+                }) }}
+            {% endset %}
+
+
+            {% from "expanding-list.html" import expandingList %}
+            {{
+                expandingList({
+                    listEntryHtml: listEntryHtml
+                })
+            }}
+            <br />
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/manual/label-image"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
