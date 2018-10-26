@@ -126,6 +126,21 @@ router.post('/cosmetics/single-component', function (req, res) {
   }
 })
 
+// Branching on whether product comes in more than one shade
+router.post('/cosmetics/multiple-shades', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let multipleShades = req.session.data['multiple-shades']
+
+  if (multipleShades === 'false') {
+    res.redirect('/cosmetics/manual/no-longer-manufactured')
+  } else {
+    res.redirect('/cosmetics/manual/list-shades')
+  }
+})
+
 // Either send to product details check, or to section to add new RP depending on 
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {
