@@ -90,7 +90,7 @@ router.post('/cosmetics/search-again-answer', function (req, res) {
   let searchAgain = req.session.data['search-again']
 
   if (searchAgain === 'false') {
-    res.redirect('/cosmetics/manual')
+    res.redirect('/cosmetics/manual/product-name')
   } else {
     res.redirect('/cosmetics/scraped-data/product-notify-date')
   }
@@ -105,7 +105,7 @@ router.post('/cosmetics/intending-to-sell-in-eu', function (req, res) {
   let intendingToSellInEu = req.session.data['intending-to-sell-in-eu']
 
   if (intendingToSellInEu === 'false') {
-    res.redirect('/cosmetics/manual')
+    res.redirect('/cosmetics/manual/product-name')
   } else {
     res.redirect('/cosmetics/import/product-registered-on-cpnp')
   }
