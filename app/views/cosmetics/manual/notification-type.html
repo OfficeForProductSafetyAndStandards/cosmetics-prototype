@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/cosmetics/notification-type" method="post" class="form">
+                {% from "radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                idPrefix: "notification-type",
+                name: "notification-type",
+                fieldset: {
+                    legend: {
+                    text: "How do you want to give the formulation of the product?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                items: [
+                    {
+                    value: "predefined",
+                    text: "Predefined frame formulation"
+                    },
+                    {
+                    value: "exact",
+                    text: "Exact concentrations"
+                    },
+                    {
+                    value: "ranges",
+                    text: "Concentration ranges"
+                    }
+                ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}

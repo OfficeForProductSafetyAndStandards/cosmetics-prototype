@@ -186,6 +186,23 @@ router.post('/cosmetics/contains-nanomaterials', function (req, res) {
   }
 })
 
+// Branching on which formulation type the user picks
+router.post('/cosmetics/notification-type', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let notificationType = req.session.data['notification-type']
+
+  if (notificationType === 'predefined') {
+    res.redirect('/cosmetics/manual/predefined')
+  } else if (notificationType === 'exact') {
+    res.redirect('/cosmetics/manual/exact')
+  } else {
+    res.redirect('/cosmetics/manual/ranges')
+  }
+})
+
 // Either send to product details check, or to section to add new RP depending on 
 // value of settings cookie.
 router.get('/cosmetics/check-responsible-person', function(req, res) {
