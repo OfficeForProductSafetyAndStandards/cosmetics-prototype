@@ -10,9 +10,6 @@
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}
                 {{ govukInput({
-                    label: {
-                        text: options["label"]
-                    },
                     id: "list-entry",
                     name: "list-entry"
                 }) }}

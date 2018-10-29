@@ -1,29 +1,19 @@
 {% macro expandingList(options) %}
     {% from "input/macro.njk" import govukInput %}
 
-    {{ options["listEntryHtml"] | safe }}
-    {% from "button/macro.njk" import govukButton %}
-    {{ govukButton({
-        text: "Remove",
-        href: "#"
-    }) }}
+    <script src="/public/javascripts/expanding-list.js"></script>
 
-    {{ options["listEntryHtml"] | safe }}
-    {% from "button/macro.njk" import govukButton %}
-    {{ govukButton({
-        text: "Remove",
-        href: "#"
-    }) }}
-
-    {% if another %}
-        {{ expandingList({
-            another: false
-        }) }}
-    {% else %}
-        <br />
-        {% from "button/macro.njk" import govukButton %}
-        {{ govukButton({
-            text: "Add another"
-        }) }}
-    {% endif %}
+    <div id="expanding-list">
+        <div class="list-entry">
+            {{ options["listEntryHtml"] | safe }}
+            {% from "button/macro.njk" import govukButton %}
+            <button onClick="remove(event)" class="govuk-button">
+                Remove
+            </button>
+        </div>
+    </div>
+    <br />
+    <button onClick="addAnother()" class="govuk-button">
+        Add another
+    </button>
 {% endmacro %}
