@@ -5,6 +5,12 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            {% from "back-link/macro.njk" import govukBackLink %}
+
+            {{ govukBackLink({
+                text: "Back",
+                href: "/cosmetics"
+            }) }}
             <h1 class="govuk-heading-xl">Log in to notify your cosmetics product</h1>
             <p>
                 If you don’t already have an account, <a href='/cosmetics/account/create-account'>create an account</a>.
