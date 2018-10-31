@@ -5,6 +5,12 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+                {% from "back-link/macro.njk" import govukBackLink %}
+
+                {{ govukBackLink({
+                    text: "Back",
+                    href: "/cosmetics/scraped-data/cpnp-product"
+                }) }}
                 <form action="/cosmetics/search-again-answer" method="post" class="form">
                     {% from "radios/macro.njk" import govukRadios %}
     

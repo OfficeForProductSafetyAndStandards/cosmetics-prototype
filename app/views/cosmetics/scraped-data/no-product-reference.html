@@ -5,6 +5,12 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            {% from "back-link/macro.njk" import govukBackLink %}
+
+            {{ govukBackLink({
+                text: "Back",
+                href: "/cosmetics/scraped-data/cpnp-reference"
+            }) }}
             <h1 class="govuk-heading-xl">Without the CPNP product number, you’ll need to manually enter the details of the product </h1>
 
             <p>
