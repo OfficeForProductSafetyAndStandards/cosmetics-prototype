@@ -5,6 +5,12 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            {% from "back-link/macro.njk" import govukBackLink %}
+
+            {{ govukBackLink({
+                text: "Back",
+                href: "/cosmetics/manual/responsible-person/responsible-person-email"
+            }) }}
             <h1 class="govuk-heading-xl">Phone number of the responsible organisation or person</h1>
 
             {% from "input/macro.njk" import govukInput %}

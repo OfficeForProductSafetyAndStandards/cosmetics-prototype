@@ -5,6 +5,10 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            {{ govukBackLink({
+                text: "Back",
+                href: "/cosmetics/manual/formulation"
+            }) }}
             <form action="/cosmetics/notification-type" method="post" class="form">
                 {% from "radios/macro.njk" import govukRadios %}
 
