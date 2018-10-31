@@ -23,14 +23,13 @@
                     id: "list-entry",
                     name: "list-entry"
                 }) }}
-                {{ govukInput({
-                    label: {
-                        text: "Concentration"
-                    },
-                    classes: "govuk-input--width-5",
-                    id: "list-entry",
-                    name: "list-entry"
-                }) }}
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="name">
+                        Concentration
+                    </label>
+                    <input class="govuk-input govuk-input--width-5 with-unit" id="name" name="name" type="number">
+                    <span>%</span>
+                </div>
                 {% from "radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({

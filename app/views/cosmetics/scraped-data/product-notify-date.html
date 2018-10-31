@@ -16,16 +16,63 @@
                 To verify the product is yours, give the date the product was notified.
             </p>
 
-            {% from "date-input/macro.njk" import govukDateInput %}
-
-            {{ govukDateInput({
-                id: "dob",
-                namePrefix: "dob",
-                fieldset: {},
-                hint: {
-                text: "For example, 31 12 2009"
-                }
-            }) }}
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+                    <span id="dob-hint" class="govuk-hint">
+                        For example, 31 12 2009 12 34 53
+                    </span>
+                    <div class="govuk-date-input" id="dob">
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="dob-day">
+									Day
+								</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="dob-month">
+									Month
+								</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="dob-year">
+									Year
+								</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="dob-hour">
+									Hour
+								</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-hour" name="dob-hour" type="number" pattern="[0-9]*">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="dob-minute">
+									Minute
+								</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-minute" name="dob-minute" type="number" pattern="[0-9]*">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="dob-second">
+									Second
+								</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-second" name="dob-second" type="number" pattern="[0-9]*">
+							</div>
+						</div>
+                    </div>
+                </fieldset>
+            </div>
 
             {{ govukButton({
                 text: "Continue",
