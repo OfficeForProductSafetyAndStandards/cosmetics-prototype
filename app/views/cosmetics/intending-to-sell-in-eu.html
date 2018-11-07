@@ -19,7 +19,7 @@
                 name: "intending-to-sell-in-eu",
                 fieldset: {
                     legend: {
-                    text: "Are you or an affiliated organisation intending to sell this product in the EU?",
+                    text: "Has this product been notified on EU Cosmetic Product Notification Portal (CPNP)?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--xl"
                     }
@@ -30,8 +30,12 @@
                     text: "Yes"
                     },
                     {
-                    value: "false",
-                    text: "No"
+                    value: "toAdvice",
+                    text: "No, but this product will be notified on CPNP"
+                    },
+                    {
+                    value: "toManual",
+                    text: "No, this product won’t be sold in the EU"
                     }
                 ]
                 }) }}

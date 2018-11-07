@@ -41,10 +41,12 @@ router.post('/cosmetics/intending-to-sell-in-eu', function (req, res) {
 
   let intendingToSellInEu = req.session.data['intending-to-sell-in-eu']
 
-  if (intendingToSellInEu === 'false') {
+  if (intendingToSellInEu === 'toManual') {
     res.redirect('/cosmetics/manual/product-name')
+  } else if (intendingToSellInEu === 'toAdvice') {
+    res.redirect('/cosmetics/import/cpnp-advice')
   } else {
-    res.redirect('/cosmetics/import/product-registered-on-cpnp')
+    res.redirect('/cosmetics/import/cpnp-export-upload')
   }
 })
 
