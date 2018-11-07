@@ -16,84 +16,78 @@
             {% from "table/macro.njk" import govukTable %}
 
             {{ govukTable({
-            caption: "Responsible organisation or person",
-            firstCellIsHeader: true,
-            rows: [
-                [
-                {
-                    text: "Name:"
-                },
-                {
-                    text: "Cosmetics Company Ltd."
-                },
-                {
-                    html: "<a href='#'>Change</a>"
-                }
-                ],
-                [
-                {
-                    text: "Email address:"
-                },
-                {
-                    text: "info@example.com"
-                },
-                {
-                    html: "<a href='#'>Change</a>"
-                }
-                ],
-                [
-                {
-                    text: "Phone number:"
-                },
-                {
-                    text: "07000 000000"
-                },
-                {
-                    html: "<a href='#'>Change</a>"
-                }
-                ]
-            ]
-            }) }}
-
-            {{ govukTable({
-                caption: "Product information",
+                caption: "Responsible Person",
                 firstCellIsHeader: true,
                 rows: [
                     [
-                    {
-                        text: "Name:"
-                    },
-                    {
-                        text: "Brand Name Hair Dye"
-                    },
-                    {
-                        html: "<a href='#'>Change</a>"
-                    }
+                        {
+                            text: "Name"
+                        },
+                        {
+                            text: "[Responsible Person name]"
+                        },
+                        {
+                            html: "<a href='#'>Change</a>"
+                        }
                     ],
                     [
-                    {
-                        text: "Brand:"
-                    },
-                    {
-                        text: "Cosmetics Brand"
-                    },
-                    {
-                        html: "<a href='#'>Change</a>"
-                    }
+                        {
+                            text: "Email address"
+                        },
+                        {
+                            text: "[Responsible Person email]"
+                        },
+                        {
+                            html: "<a href='#'>Change</a>"
+                        }
                     ],
                     [
-                    {
-                        text: "Ingredients:"
-                    },
-                    {
-                        text: "Ingredients list"
-                    },
-                    {
-                        html: "<a href='#'>Change</a>"
-                    }
+                        {
+                            text: "Phone number"
+                        },
+                        {
+                            text: "[Responsible Person phone]"
+                        },
+                        {
+                            html: "<a href='#'>Change</a>"
+                        }
+                    ],
+                    [
+                        {
+                            text: "Address"
+                        },
+                        {
+                            text: "[Responsible Person address line 1]\n[Responsible Person address line 2]\n[Responsible Person address line 3]\n[Responsible Person address line 4]"
+                        },
+                        {
+                            html: "<a href='#'>Change</a>"
+                        }
                     ]
                 ]
-                }) }}
+            }) }}
+
+            {{ govukTable({
+                caption: "Cosmetics",
+                firstCellIsHeader: true,
+                rows: [
+                [{text: "Product name"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Number of components"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Imported"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Imported from"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Carcinogenic, mutagenic or toxic for reproduction"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Substances"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Contains nanomaterials"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Nanomaterials"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Instructions for us"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Exposure"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Cosmetic category"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "[level 1] type"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "[level 1] type"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Formulation"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Label image"},{text: "[file name]"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Packaging photo"},{text: "[file name]"},{html: "<a href='#'>Change</a>"}]
+                ]
+            }) }}
 
                 <h3 class="govuk-heading-m">
                     Now notify your product
