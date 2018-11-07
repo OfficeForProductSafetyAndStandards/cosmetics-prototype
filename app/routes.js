@@ -140,6 +140,22 @@ router.post('/cosmetics/notification-type', function (req, res) {
   }
 })
 
+// Branching on whether the user thinks the EU Responsible Person will approve their request 
+// for becoming the UK responsible person.
+router.post('/cosmetics/will-eu-rp-approve-answer', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let willEuRpApprove = req.session.data['will-eu-rp-approve']
+
+  if (willEuRpApprove === 'false') {
+    res.redirect('/cosmetics/claim-existing/get-eu-rp-approval')
+  } else {
+    res.redirect('/cosmetics/claim-existing/eu-rp-email-address')
+  }
+})
+
 // After user logs in checks if they've already set a responsible person or need 
 // to enter a new one
 router.get('/cosmetics/enter-responsible-person', function(req, res) {

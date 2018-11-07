@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/landing-page">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/cosmetics/intending-to-sell-in-eu" method="post" class="form">
+                    {% from "radios/macro.njk" import govukRadios %}
+    
+                    {{ govukRadios({
+                    idPrefix: "intending-to-sell-in-eu",
+                    name: "intending-to-sell-in-eu",
+                    fieldset: {
+                        legend: {
+                        text: "Which UK Responsible Person are you representing?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "1",
+                            text: "[Responsible Person 1]"
+                        },
+                        {
+                            value: "2",
+                            text: "[Responsible Person 2]"
+                        },
+                        {
+                            value: "new",
+                            text: "A new responsible person"
+                        }
+                    ]
+                    }) }}
+    
+                    {{ govukButton({
+                        text: "Continue",
+                        href: "/cosmetics/claim-existing/will-eu-rp-approve"
+                    }) }}
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

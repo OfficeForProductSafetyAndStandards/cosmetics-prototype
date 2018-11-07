@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">Check your answers before notifying</h1>
+                
+                {% from "table/macro.njk" import govukTable %}
+
+                {{ govukTable({
+                    caption: "Responsible Person",
+                    firstCellIsHeader: true,
+                    rows: [
+                        [
+                            {
+                                text: "Name"
+                            },
+                            {
+                                text: "[Responsible Person name]"
+                            },
+                            {
+                                html: "<a href='#'>Change</a>"
+                            }
+                        ],
+                        [
+                            {
+                                text: "Email address"
+                            },
+                            {
+                                text: "[Responsible Person email]"
+                            },
+                            {
+                                html: "<a href='#'>Change</a>"
+                            }
+                        ],
+                        [
+                            {
+                                text: "Phone number"
+                            },
+                            {
+                                text: "[Responsible Person phone]"
+                            },
+                            {
+                                html: "<a href='#'>Change</a>"
+                            }
+                        ],
+                        [
+                            {
+                                text: "Address"
+                            },
+                            {
+                                text: "[Responsible Person address line 1]\n[Responsible Person address line 2]\n[Responsible Person address line 3]\n[Responsible Person address line 4]"
+                            },
+                            {
+                                html: "<a href='#'>Change</a>"
+                            }
+                        ]
+                    ]
+                }) }}
+
+                {{ govukTable({
+                    caption: "Cosmetics",
+                    firstCellIsHeader: true,
+                    rows: [
+                        [
+                            {
+                                text: "Cosmetics products"
+                            },
+                            {
+                                html: "<a href='#'>Download list of products</a>"
+                            }
+                        ]
+                    ]
+                }) }}
+
+                <h2 class="govuk-heading-l">Now confirm that these cosmetics should be associated with this UK Responsible Person</h2>
+                <p>
+                    By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
+                </p>
+
+                {{ govukButton({
+                    text: "Accept and submit UK Responsible Person information",
+                    href: "/cosmetics/confirmation"
+                }) }}
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

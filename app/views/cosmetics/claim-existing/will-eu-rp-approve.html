@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/claim-existing/which-responsible-person">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/cosmetics/will-eu-rp-approve-answer" method="post" class="form">
+                    {% from "radios/macro.njk" import govukRadios %}
+    
+                    {{ govukRadios({
+                    idPrefix: "will-eu-rp-approve",
+                    name: "will-eu-rp-approve",
+                    fieldset: {
+                        legend: {
+                            text: "Will the EU Responsible Person approve your request to take responsibility for their products in the UK?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--xl"
+                        }
+                    },
+                    hint: {
+                        text: "The EU Responsible Person will need to approve your request to take responsibility for their products in the UK. An email will be sent to their registered email address to request this approval."
+                    },
+                    items: [
+                        {
+                            value: "true",
+                            text: "Yes, I believe so"
+                        },
+                        {
+                            value: "false",
+                            text: "No"
+                        }
+                    ]
+                    }) }}
+    
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
