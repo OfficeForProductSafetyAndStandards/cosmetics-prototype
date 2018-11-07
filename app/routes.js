@@ -62,7 +62,7 @@ router.post('/cosmetics/check-cpnp-product-correct', function (req, res) {
   if (productDataIsCorrect === 'false') {
     res.redirect('/cosmetics/scraped-data/search-again')
   } else {
-    res.redirect('/cosmetics/check-responsible-person')
+    res.redirect('/cosmetics/check-product-details')
   }
 })
 
@@ -203,14 +203,22 @@ router.post('/cosmetics/notification-type', function (req, res) {
   }
 })
 
-// Either send to product details check, or to section to add new RP depending on 
-// value of settings cookie.
-router.get('/cosmetics/check-responsible-person', function(req, res) {
-  if (req.cookies['requireNewRp'] === 'true') {
-    res.redirect('/cosmetics/responsible-person/responsible-person-name')
+// After user logs in checks if they've already set a responsible person or need 
+// to enter a new one
+router.get('/cosmetics/enter-responsible-person', function(req, res) {
+  if (req.cookies['responsiblePersonExists'] === 'true') {
+    res.redirect('/cosmetics/account/your-notifications')
   } else {
-    res.redirect('/cosmetics/check-product-details')
+    res.redirect('/cosmetics/responsible-person/responsible-person-name')
   }
+})
+
+// Sets a cookie to mark that the user has entered a responsible person and 
+// redirects to the login landing page
+router.get('/cosmetics/responsible-person-entered', function(req, res) {
+  res.cookie('responsiblePersonExists', true)
+  console.log()
+  res.redirect('/cosmetics/account/your-notifications')
 })
 
 module.exports = router
