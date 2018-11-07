@@ -150,7 +150,7 @@ router.post('/cosmetics/will-eu-rp-approve-answer', function (req, res) {
   let willEuRpApprove = req.session.data['will-eu-rp-approve']
 
   if (willEuRpApprove === 'false') {
-    res.redirect('/cosmetics/claim-existing/get-eu-rp-approval')
+    res.redirect('/cosmetics/claim-existing/bulk-upload')
   } else {
     res.redirect('/cosmetics/claim-existing/eu-rp-email-address')
   }
