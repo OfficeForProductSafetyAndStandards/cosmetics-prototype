@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/multiple-shades">Back</a>
+{% endblock %}
+
 {% block content %}
 <div class="govuk-width-container">  
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            {% from "back-link/macro.njk" import govukBackLink %}
-
-            {{ govukBackLink({
-                text: "Back",
-                href: "/cosmetics/manual/single-multi-component"
-            }) }}
             <form action="/cosmetics/multiple-shades" method="post" class="form">
                 {% from "radios/macro.njk" import govukRadios %}
 

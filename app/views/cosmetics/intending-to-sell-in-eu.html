@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/landing-page">Back</a>
+{% endblock %}
+
 {% block content %}
 <div class="govuk-width-container">  
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            {% from "back-link/macro.njk" import govukBackLink %}
-
-            {{ govukBackLink({
-                text: "Back",
-                href: "/cosmetics/landing-page"
-            }) }}
             <form action="/cosmetics/intending-to-sell-in-eu" method="post" class="form">
                 {% from "radios/macro.njk" import govukRadios %}
 

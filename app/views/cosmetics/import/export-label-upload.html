@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
 
-{% block content %}
-{% from "back-link/macro.njk" import govukBackLink %}
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/import/cpnp-export-upload">Back</a>
+{% endblock %}
 
-{{ govukBackLink({
-    text: "Back",
-    href: "/cosmetics/import/cpnp-export-upload"
-}) }}
+{% block content %}
 <div class="govuk-width-container">  
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
