@@ -9,7 +9,14 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Does the product contain any substances that are known or presumed to be carcinogenic, mutagenic or toxic for reproduction?</h1>
+            {% from "component-title.html" import componentTitle %}
+            {{
+                componentTitle({
+                    title: "Does the cosmetic contain any substances that are known or presumed to be carcinogenic, mutagenic or toxic for reproduction?",
+                    componentTitle: "Do any of the components contain substances that are known or presumed to be carcinogenic, mutagenic or toxic for reproduction?",
+                    componentList: data['componentList']
+                })
+            }}   
             <p>
                 <a href='#'>View substances known or presumed to be carcinogenic, mutagenic or toxic for reproduction (opens in a new tab)</a>.
             </p>

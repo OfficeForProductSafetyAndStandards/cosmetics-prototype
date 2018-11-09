@@ -61,7 +61,7 @@ router.post('/cosmetics/single-component', function (req, res) {
   if (singleComponentProduct === 'false') {
     res.redirect('/cosmetics/manual/multi-component')
   } else {
-    res.clearCookie('componentList')
+    req.session.data['componentList'] = []
     res.redirect('/cosmetics/manual/number-of-shades')
   }
 })
@@ -189,6 +189,7 @@ router.post('/cosmetics/list-components', function(req, res) {
   })
 
   res.cookie('componentList', components)
+  req.session.data['componentList'] = components
   
   res.redirect('/cosmetics/manual/components-mixed')
 })
@@ -203,6 +204,8 @@ router.get('/cosmetics/component-done', function(req, res) {
   // Drop first element
   components.shift()
   res.cookie('componentList', components)
+
+  req.session.data['componentList'] = components
 
   // If there are components left to enter data for, return to start of loop. 
   // Otherwise proceed.

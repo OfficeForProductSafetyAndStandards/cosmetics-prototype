@@ -9,7 +9,14 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">List ingredients and concentration</h1>
+            {% from "component-title.html" import componentTitle %}
+            {{
+                componentTitle({
+                    title: "Upload the exact concentration of ingredients",
+                    componentTitle: "Upload the exact concentration of ingredients for {{component}}",
+                    componentList: data['componentList']
+                })
+            }}   
 
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}

@@ -1,0 +1,16 @@
+{% macro componentTitle(options) %}
+    {% if options.componentList|length %}
+        <h1 class='govuk-heading-xl'>
+            {{ 
+                options.componentTitle
+                    .replace(
+                        '{{component}}', 
+                        options.componentList[0]) 
+            }}
+        </h1>
+    {% else %}
+        <h1 class='govuk-heading-xl'>
+            {{ options.title }}
+        </h1>
+    {% endif %}
+{% endmacro %}

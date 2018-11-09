@@ -9,7 +9,14 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">List the shades</h1>
+            {% from "component-title.html" import componentTitle %}
+            {{
+                componentTitle({
+                    title: "List the shades",
+                    componentTitle: "List the shades for {{component}}",
+                    componentList: data['componentList']
+                })
+            }}    
 
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}
