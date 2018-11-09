@@ -59,8 +59,9 @@ router.post('/cosmetics/single-component', function (req, res) {
   let singleComponentProduct = req.session.data['single-component']
 
   if (singleComponentProduct === 'false') {
-    res.redirect('/cosmetics/manual/multi-component-placeholder')
+    res.redirect('/cosmetics/manual/multi-component')
   } else {
+    res.clearCookie('componentList')
     res.redirect('/cosmetics/manual/number-of-shades')
   }
 })
@@ -174,6 +175,42 @@ router.get('/cosmetics/responsible-person-entered', function(req, res) {
   res.cookie('responsiblePersonExists', true)
   console.log()
   res.redirect('/cosmetics/landing-page')
+})
+
+// Sets a cookie containing a list of the components the user has added for 
+// this product
+router.post('/cosmetics/list-components', function(req, res) {
+  var components = Object.keys(req.session.data)
+    .filter(function(key) {
+      return key.startsWith("list-entry")
+    })
+    .map(function(key) {
+      return req.session.data[key]
+  })
+
+  res.cookie('componentList', components)
+  
+  res.redirect('/cosmetics/manual/components-mixed')
+})
+
+// User is sent to this endpoint at end of multi component loop. If they have 
+// components left to fill in info for they are sent back to the start of the 
+// loop. Otherwise they proceed to the label image.
+// For single component this method will just head to the label image 
+router.get('/cosmetics/component-done', function(req, res) {
+  var components = req.cookies['componentList']
+  
+  // Drop first element
+  components.shift()
+  res.cookie('componentList', components)
+
+  // If there are components left to enter data for, return to start of loop. 
+  // Otherwise proceed.
+  if (components.length) {
+    res.redirect('/cosmetics/manual/number-of-shades')
+  } else {
+    res.redirect('/cosmetics/manual/label-image')
+  }
 })
 
 module.exports = router
