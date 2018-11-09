@@ -122,7 +122,7 @@ router.post('/cosmetics/contains-nanomaterials', function (req, res) {
   if (containsNanomaterials === 'false') {
     res.redirect('/cosmetics/manual/physical-form')
   } else {
-    res.redirect('/cosmetics/manual/add-nanomaterials')
+    res.redirect('/cosmetics/manual/which-nanomaterials')
   }
 })
 
@@ -156,6 +156,71 @@ router.post('/cosmetics/will-eu-rp-approve-answer', function (req, res) {
     res.redirect('/cosmetics/claim-existing/bulk-upload')
   } else {
     res.redirect('/cosmetics/claim-existing/eu-rp-email-address')
+  }
+})
+
+// Branching on whether the product contains a nanomaterial authorized for use 
+// as a UV filter.
+router.post('/cosmetics/uv-filter-check', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let nanomaterial = req.session.data['nanomaterial']
+
+  if (   nanomaterial === 'titanium-dioxide'
+      || nanomaterial === 'zinc-oxide'
+      || nanomaterial === 'tris-biphenyl-traizine'
+    ) {
+    res.redirect('/cosmetics/manual/uv-filter')
+  } else {
+    res.redirect('/cosmetics/colourant-check')
+  }
+})
+
+// Branching on whether the product contains a nanomaterial authorized for use 
+// as a colourant.
+router.get('/cosmetics/colourant-check', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let nanomaterial = req.session.data['nanomaterial']
+
+  if (nanomaterial === 'carbon-black') {
+    res.redirect('/cosmetics/manual/colourant')
+  } else {
+    res.redirect('/cosmetics/manual/other-nanomaterials')
+  }
+})
+
+// Branching on whether the nanomaterialis used as a UV filter
+router.post('/cosmetics/uv-filter-answer', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let uvFilter = req.session.data['uv-filter']
+
+  if (uvFilter === 'false') {
+    res.redirect('/cosmetics/manual/other-nanomaterials')
+  } else {
+    res.redirect('/cosmetics/manual/application')
+  }
+})
+
+// Branching on whether the nanomaterialis used as a colourant
+router.post('/cosmetics/colourant-answer', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let colourant = req.session.data['colourant']
+
+  if (colourant === 'false') {
+    res.redirect('/cosmetics/manual/other-nanomaterials')
+  } else {
+    res.redirect('/cosmetics/manual/application')
   }
 })
 

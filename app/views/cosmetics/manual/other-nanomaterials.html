@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/manual/which-nanomaterials">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Upload information about the nanomaterials</h1>
+            <p>
+                You must provide information about any nanomaterials that aren’t already approved for use in cosmetic products, including:
+            </p>
+
+            <ul class="govuk-list">
+                <li>
+                    identification of the nanomaterial
+                </li>
+                <li>
+                    the specification of the nanomaterial including size of particles, physical and chemical properties
+                </li>
+                <li>
+                    an estimate of the quantity of nanomaterial contained in cosmetic products intended to be placed on the market per year
+                </li>
+                <li>
+                    the toxicological profile of the nanomaterial
+                </li>
+                <li>
+                    the safety data of the nanomaterial relating to the category of cosmetic product
+                </li>
+                <li>
+                    the likely exposure conditions
+                </li>
+            </ul>
+
+            <p>
+                <a href='#'>Read guidance about documentation for approval of nanomaterials in cosmetic products (opens in a new tab).</a>
+            </p>
+
+            <p>
+                Your documentation must be either as a single ‘pdf’ or ‘zip’ file.
+            </p>
+
+            {% from "file-upload/macro.njk" import govukFileUpload %}
+
+            {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/manual/application"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
