@@ -9,38 +9,32 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="/cosmetics/multiple-shades" method="post" class="form">
-                {% from "component-title.html" import componentTitle %}
-                {{
-                    componentTitle({
-                        title: "Is the cosmetic sold in more than 1 shade?",
-                        componentTitle: "Is {{component}} sold in more than 1 shade?",
-                        componentList: data['componentList']
-                    })
-                }}             
-
-
-                {% from "radios/macro.njk" import govukRadios %}
-
-                {{ govukRadios({
-                idPrefix: "multiple-shades",
-                name: "multiple-shades",
-                items: [
-                    {
-                    value: "true",
-                    text: "Yes"
-                    },
-                    {
-                    value: "false",
-                    text: "No"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            {% from "component-title.html" import componentTitle %}
+            {{
+                componentTitle({
+                    title: "Is the cosmetic sold in more than 1 shade?",
+                    componentTitle: "Is {{component}} sold in more than 1 shade?",
+                    componentList: data['componentList']
+                })
+            }}
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "true",
+                            route: "/cosmetics/manual/list-shades"
+                        },
+                        {
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/manual/product-manufactured-in-uk"
+                        }
+                    ],
+                    name: "multiple-shades"
+                })
+            }}
         </div>
     </div>
 

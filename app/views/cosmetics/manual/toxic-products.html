@@ -23,27 +23,24 @@
             <p>
                 Apart from exceptional cases these substances are banned for use in cosmetic products. <a href='#'>Read about exceptions (opens in a new tab)</a>.
             </p>
-            <form action="/cosmetics/contains-toxic-products" method="post" class="form">
-                {% from "radios/macro.njk" import govukRadios %}
-                {{ govukRadios({
-                idPrefix: "contains-toxic-products",
-                name: "contains-toxic-products",
-                items: [
-                    {
-                    value: "true",
-                    text: "Yes"
-                    },
-                    {
-                    value: "false",
-                    text: "No"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "true",
+                            route: "/cosmetics/manual/list-toxic-products"
+                        },
+                        {
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/manual/nanomaterials"
+                        }
+                    ],
+                    name: "contains-toxic-products"
+                })
+            }}
         </div>
     </div>
 

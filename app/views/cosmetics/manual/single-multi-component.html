@@ -9,35 +9,25 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="/cosmetics/single-component" method="post" class="form">
-                {% from "radios/macro.njk" import govukRadios %}
-
-                {{ govukRadios({
-                idPrefix: "single-component",
-                name: "single-component",
-                fieldset: {
-                    legend: {
-                    text: "Will the product be sold as a single component?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
-                    }
-                },
-                items: [
-                    {
-                    value: "true",
-                    text: "Yes"
-                    },
-                    {
-                    value: "false",
-                    text: "No, it will be sold as multi-component product"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            <h1 class="govuk-heading-xl">Will the product be sold as a single component?</h1>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "single",
+                            route: "/cosmetics/manual/number-of-shades"
+                        },
+                        {
+                            text: "No, it will be sold as multi-component product",
+                            value: "multi",
+                            route: "/cosmetics/manual/multi-component"
+                        }
+                    ],
+                    name: "single-or-multi-component"
+                })
+            }}
         </div>
     </div>
 

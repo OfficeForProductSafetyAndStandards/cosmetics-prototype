@@ -10,27 +10,24 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Is the nanomaterial used as a UV filter?</h1>
-            <form action="/cosmetics/uv-filter-answer" method="post" class="form">
-                {% from "radios/macro.njk" import govukRadios %}
-                {{ govukRadios({
-                idPrefix: "uv-filter",
-                name: "uv-filter",
-                items: [
-                    {
-                    value: "true",
-                    text: "Yes"
-                    },
-                    {
-                    value: "false",
-                    text: "No"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "true",
+                            route: "/cosmetics/manual/application"
+                        },
+                        {
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/manual/other-nanomaterials"
+                        }
+                    ],
+                    name: "uv-filter"
+                })
+            }}
         </div>
     </div>
 

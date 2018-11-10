@@ -9,39 +9,30 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="/cosmetics/notification-type" method="post" class="form">
-                {% from "radios/macro.njk" import govukRadios %}
-
-                {{ govukRadios({
-                idPrefix: "notification-type",
-                name: "notification-type",
-                fieldset: {
-                    legend: {
-                    text: "How do you want to give the formulation of the product?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
-                    }
-                },
-                items: [
-                    {
-                    value: "predefined",
-                    text: "Predefined frame formulation"
-                    },
-                    {
-                    value: "exact",
-                    text: "Exact concentrations"
-                    },
-                    {
-                    value: "ranges",
-                    text: "Concentration ranges"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            <h1 class="govuk-heading-xl">How do you want to give the formulation of the product?</h1>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Predefined frame formulation",
+                            value: "predefined",
+                            route: "/cosmetics/manual/predefined-placeholder"
+                        },
+                        {
+                            text: "Exact concentrations",
+                            value: "exact",
+                            route: "/cosmetics/manual/exact"
+                        },
+                        {
+                            text: "Concentration ranges",
+                            value: "ranges",
+                            route: "/cosmetics/manual/ranges"
+                        }
+                    ],
+                    name: "formulation-type"
+                })
+            }}
         </div>
     </div>
 

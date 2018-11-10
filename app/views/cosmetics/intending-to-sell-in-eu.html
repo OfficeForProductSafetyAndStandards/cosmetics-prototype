@@ -9,39 +9,31 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="/cosmetics/intending-to-sell-in-eu" method="post" class="form">
-                {% from "radios/macro.njk" import govukRadios %}
-
-                {{ govukRadios({
-                idPrefix: "intending-to-sell-in-eu",
-                name: "intending-to-sell-in-eu",
-                fieldset: {
-                    legend: {
-                    text: "Has this product been notified on EU Cosmetic Product Notification Portal (CPNP)?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
-                    }
-                },
-                items: [
-                    {
-                    value: "true",
-                    text: "Yes"
-                    },
-                    {
-                    value: "toAdvice",
-                    text: "No, but this product will be notified on CPNP"
-                    },
-                    {
-                    value: "toManual",
-                    text: "No, this product won’t be sold in the EU"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            <h1 class="govuk-heading-xl">Has this product been notified on EU Cosmetic Product Notification Portal (CPNP)?</h1>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "yes",
+                            route: "/cosmetics/import/cpnp-export-upload"
+                        },
+                        {
+                            text: "No, but this product will be notified on CPNP",
+                            value: "planned",
+                            route: "/cosmetics/import/cpnp-advice"
+                        },
+                        {
+                            text: "No, this product won’t be sold in the EU",
+                            value: "no",
+                            route: "/cosmetics/manual/product-name"
+                        }
+                    ],
+                    name: "notified-to-eu"
+                })
+            }}
+            {% from "radios/macro.njk" import govukRadios %}
         </div>
     </div>
 

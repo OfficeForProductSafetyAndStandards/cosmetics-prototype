@@ -25,27 +25,24 @@
                     <li>has one or more external dimensions, or an internal structure, with a size ranging from 1nm to 100 nm</li>
                   </ul>
             </p>
-            <form action="/cosmetics/contains-nanomaterials" method="post" class="form">
-                {% from "radios/macro.njk" import govukRadios %}
-                {{ govukRadios({
-                idPrefix: "contains-nanomaterials",
-                name: "contains-nanomaterials",
-                items: [
-                    {
-                    value: "true",
-                    text: "Yes"
-                    },
-                    {
-                    value: "false",
-                    text: "No"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "true",
+                            route: "/cosmetics/manual/which-nanomaterials"
+                        },
+                        {
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/manual/physical-form"
+                        }
+                    ],
+                    name: "contains-nanomaterials"
+                })
+            }}
         </div>
     </div>
 

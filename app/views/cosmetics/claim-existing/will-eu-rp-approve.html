@@ -9,38 +9,25 @@
     <main class="govuk-main-wrapper">  
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/cosmetics/will-eu-rp-approve-answer" method="post" class="form">
-                    {% from "radios/macro.njk" import govukRadios %}
-    
-                    {{ govukRadios({
-                    idPrefix: "will-eu-rp-approve",
-                    name: "will-eu-rp-approve",
-                    fieldset: {
-                        legend: {
-                            text: "Will the EU Responsible Person approve your request to take responsibility for their products in the UK?",
-                            isPageHeading: true,
-                            classes: "govuk-fieldset__legend--xl"
-                        }
-                    },
-                    hint: {
-                        text: "The EU Responsible Person will need to approve your request to take responsibility for their products in the UK. An email will be sent to their registered email address to request this approval."
-                    },
-                    items: [
-                        {
-                            value: "true",
-                            text: "Yes, I believe so"
-                        },
-                        {
-                            value: "false",
-                            text: "No"
-                        }
-                    ]
-                    }) }}
-    
-                    {{ govukButton({
-                        text: "Continue"
-                    }) }}
-                </form>
+                <h1 class="govuk-heading-xl">Will the EU Responsible Person approve your request to take responsibility for their products in the UK?</h1>
+                {% from "radio-route.html" import radioRoute %}
+                {{
+                    radioRoute({
+                        options: [
+                            {
+                                text: "Yes, I believe so",
+                                value: "true",
+                                route: "/cosmetics/claim-existing/eu-rp-email-address"
+                            },
+                            {
+                                text: "No",
+                                value: "false",
+                                route: "/cosmetics/claim-existing/bulk-upload"
+                            }
+                        ],
+                        name: "will-eu-rp-approve"
+                    })
+                }}
             </div>
         </div>
     </main>

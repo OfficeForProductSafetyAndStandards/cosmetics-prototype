@@ -9,47 +9,47 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="/cosmetics/uv-filter-check" method="post">
-                {% from "component-title.html" import componentTitle %}
-                {{
-                    componentTitle({
-                        title: "Which nanomaterials does the cosmetic contain?",
-                        componentTitle: "Which nanomaterials does {{component}} contain?",
-                        componentList: data['componentList']
-                    })
-                }}   
-                {% from "radios/macro.njk" import govukRadios %}
-                {{ govukRadios({
-                idPrefix: "nanomaterial",
-                name: "nanomaterial",
-                items: [
-                    {
-                    value: "titanium-dioxide",
-                    text: "Titanium dioxide"
-                    },
-                    {
-                    value: "zinc-oxide",
-                    text: "Zinc oxide"
-                    },
-                    {
-                    value: "tris-biphenyl-traizine",
-                    text: "Tris-biphenyl triazine"
-                    },
-                    {
-                    value: "carbon-black",
-                    text: "Carbon black"
-                    },
-                    {
-                    value: "other",
-                    text: "Other nanomaterials"
-                    }
-                ]
-                }) }}
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
+            {% from "component-title.html" import componentTitle %}
+            {{
+                componentTitle({
+                    title: "Which nanomaterials does the cosmetic contain?",
+                    componentTitle: "Which nanomaterials does {{component}} contain?",
+                    componentList: data['componentList']
+                })
+            }}   
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Titanium dioxide",
+                            value: "titanium-dioxide",
+                            route: "/cosmetics/manual/uv-filter"
+                        },
+                        {
+                            text: "Zinc oxide",
+                            value: "zinc-oxide",
+                            route: "/cosmetics/manual/uv-filter"
+                        },
+                        {
+                            text: "Tris-biphenyl triazine",
+                            value: "tris-biphenyl-traizine",
+                            route: "/cosmetics/manual/uv-filter"
+                        },
+                        {
+                            text: "Carbon black",
+                            value: "carbon-black",
+                            route: "/cosmetics/manual/colourant"
+                        },
+                        {
+                            text: "Other nanomaterials",
+                            value: "other",
+                            route: "/cosmetics/manual/other-nanomaterials"
+                        }
+                    ],
+                    name: "nanomaterial"
+                })
+            }}
         </div>
     </div>
 
