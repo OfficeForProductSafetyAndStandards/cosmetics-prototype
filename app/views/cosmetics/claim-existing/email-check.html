@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">Share data about cosmetics previously notified with { UK responsible person }?</h1>
+                <p>
+                    <a href="#">Download list of cosmetics</a>
+                </p>
+                <p>
+                        [ username ] will be able to see the names of all cosmetics previously notified by [ EU responsible person name ]
+                </p>
+                {% from "radio-route.html" import radioRoute %}
+                {{
+                    radioRoute({
+                        options: [
+                            {
+                                text: "Yes, I will share the names of these cosmetics",
+                                value: "true",
+                                route: "/cosmetics/claim-existing/email-validated"
+                            },
+                            {
+                                text: "No, I do not want this person to have access to names of these cosmetics",
+                                value: "false",
+                                route: "/cosmetics/landing-page"
+                            }
+                        ],
+                        name: "approve-eu-email"
+                    })
+                }}
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
