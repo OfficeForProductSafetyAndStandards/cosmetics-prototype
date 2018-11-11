@@ -12,11 +12,15 @@
             {% from "component-title.html" import componentTitle %}
             {{
                 componentTitle({
-                    title: "Upload the exact concentration of ingredients",
-                    componentTitle: "Upload the exact concentration of ingredients for {{component}}",
+                    title: "Exact concentration of ingredients",
+                    componentTitle: "Exact concentration ranges of ingredients for  {{component}}",
                     componentList: data['componentList']
                 })
-            }}   
+            }}
+
+            <p>
+                    For each ingredient use the ‘International Nomenclature of Cosmetic Ingredients’ name, find a reference for substance name and reference numbers on the <a href="#">Cosmetic ingredient database (opens in a new tab)</a>.
+            </p>
 
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}
@@ -37,33 +41,6 @@
                     <input class="govuk-input govuk-input--width-5 with-unit" id="name" name="name" type="number">
                     <span>%</span>
                 </div>
-                {% from "radios/macro.njk" import govukRadios %}
-
-                {{ govukRadios({
-                idPrefix: "notification-type",
-                name: "notification-type",
-                fieldset: {
-                    legend: {
-                    text: "What is the pH of the ingredient?",
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--s"
-                    }
-                },
-                items: [
-                    {
-                    value: "lower-than-3",
-                    text: "Lower than 3"
-                    },
-                    {
-                    value: "between-3-and-10",
-                    text: "Between 3 and 10"
-                    },
-                    {
-                    value: "higher-than-10",
-                    text: "Higher than 10"
-                    }
-                ]
-                }) }}
             {% endset %}
 
 

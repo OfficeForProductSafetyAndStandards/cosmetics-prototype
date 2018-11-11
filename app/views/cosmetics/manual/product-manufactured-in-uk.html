@@ -9,20 +9,19 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Is the product manufactured in the UK?</h1>
+            <h1 class="govuk-heading-xl">Is the cosmetic imported into the UK?</h1>
                 {% from "radio-route.html" import radioRoute %}
                 {{
                     radioRoute({
                         options: [
                             {
                                 text: "Yes",
-                                value: "false",
-                                route: "/cosmetics/manual/toxic-products"
-                            },
-                            {
-                                text: "No",
                                 value: "true",
                                 route: "/cosmetics/manual/import-from"
+                            },{
+                                text: "No",
+                                value: "false",
+                                route: "/cosmetics/manual/toxic-products"
                             }
                         ],
                         name: "product-imported"

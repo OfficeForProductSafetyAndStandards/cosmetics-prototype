@@ -10,15 +10,14 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">List all carcinogenic, mutagenic or toxic for reproduction substances</h1>
-
+            <p>
+                    For each substance use the Use the ‘International Nomenclature of Cosmetic Ingredients’ name, find a reference for substance name and reference numbers on the <a href="#">Cosmetic ingredient database (opens in a new tab)</a>.
+            </p>
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}
                 {{ govukInput({
                     label: {
                         text: "Substance name"
-                    },
-                    hint: {
-                        text: "Use the ‘International Nomenclature of Cosmetic Ingredients’ name"
                     },
                     id: "substance-name",
                     name: "substance-name"

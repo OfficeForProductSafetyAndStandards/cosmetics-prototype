@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/check-exact-method">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+                {% from "component-title.html" import componentTitle %}
+                {{
+                    componentTitle({
+                        title: "Upload the concentration ranges of ingredients",
+                        componentTitle: "Upload the concentration ranges of ingredients for {{component}}",
+                        componentList: data['componentList']
+                    })
+                }}
+            <p>
+                    For each ingredient give the ‘International Nomenclature of Cosmetic Ingredients’ name and concentration as a percentage.
+            </p>
+            {% from "file-upload/macro.njk" import govukFileUpload %}
+
+            {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "file-upload-1",
+            label: {
+                text: "FIle type can be a ‘PDF’ or ‘TXT’."
+            }
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/manual/label-image"
+            }) }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}

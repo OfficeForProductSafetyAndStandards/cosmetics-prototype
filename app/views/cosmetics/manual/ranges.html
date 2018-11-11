@@ -17,15 +17,15 @@
                     componentList: data['componentList']
                 })
             }}   
+            <p>
+                    For each ingredient use the ‘International Nomenclature of Cosmetic Ingredients’ name, find a reference for substance name and reference numbers on the <a href="#">Cosmetic ingredient database (opens in a new tab)</a>.
+            </p>
 
             {% set listEntryHtml %}
                 {% from "input/macro.njk" import govukInput %}
                 {{ govukInput({
                     label: {
                         text: "Ingredient"
-                    },
-                    hint: {
-                        text: "Use the ‘International Nomenclature of Cosmetic Ingredients’ name"
                     },
                     id: "list-entry",
                     name: "list-entry"

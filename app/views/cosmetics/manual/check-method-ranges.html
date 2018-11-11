@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/notification-type">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">  
+    <main class="govuk-main-wrapper">  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Do you want to upload a document with the concentration ranges of ingredients?</h1>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "file",
+                            route: "/cosmetics/manual/ranges-file"
+                        },
+                        {
+                            text: "No, enter concentration ranges manually",
+                            value: "manual",
+                            route: "/cosmetics/manual/ranges"
+                        }
+                    ],
+                    name: "exact-type"
+                })
+            }}
+        </div>
+    </div>
+
+</main>
+</div>
+
+{% endblock %}
