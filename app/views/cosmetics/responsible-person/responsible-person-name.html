@@ -9,21 +9,34 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Name of the responsible organisation or person</h1>
+            <h1 class="govuk-heading-xl">Name of the UK Responsible Person</h1>
 
             <p>
-                If you’re adding an organisation, it must be a UK registered company.
+                Provide details of the Responsible Person you represent. You can add another Responsible Person later.
             </p>
 
             <p>
-                If you’re adding a person, they must have a UK address.
+                A Responsible Person can be an organisation or an individual. The Responsible Person must: 
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>ensure the cosmetic complies with relevant regulation</li>
+                <li>be based in the UK</li>
+            </ul>
+            <p>
+                The Responsible Person will be the manufacturer of the cosmetic, the organisation it is manufactured for, or the importer if the cosmetic if it is manufactured outside the UK. 
+            </p>
+            <p>
+                <a href="#">Read about the how to be a Responsible Person.</a>
             </p>
 
             {% from "input/macro.njk" import govukInput %}
 
             {{ govukInput({
             id: "responsible-person-name",
-            name: "responsible-person-name"
+            name: "responsible-person-name",
+            label: {
+                text: "UK registered company name or full name of individual"
+            }
             }) }}
 
             {{ govukButton({
