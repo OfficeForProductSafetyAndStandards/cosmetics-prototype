@@ -11,6 +11,8 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Upload your CPNP notification file</h1>
 
+            <p><a href='#'>Find out how to download you CPNP product file</a></p>
+
             {% from "file-upload/macro.njk" import govukFileUpload %}
 
             {{ govukFileUpload({
@@ -25,8 +27,6 @@
                 text: "Continue",
                 href: "/cosmetics/import/export-label-upload"
             }) }}
-
-            <p><a href='#'>Find out how to download you CPNP product file</a></p>
         </div>
     </div>
 

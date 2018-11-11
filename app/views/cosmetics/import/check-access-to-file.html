@@ -9,9 +9,9 @@
     <main class="govuk-main-wrapper">  
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Has this product been notified on EU Cosmetic Product Notification Portal (CPNP)?</h1>
+            <h1 class="govuk-heading-xl">Do you have access to files from CPNP?</h1>
             <p>
-                To make notifying simpler you can use files from CPNP once you’ve notified the EU.
+                    If you can download a ‘ZIP’ file from CPNP, it has all the information needed to notify the cosmetic in the UK.
             </p>
             {% from "radio-route.html" import radioRoute %}
             {{
@@ -19,18 +19,13 @@
                     options: [
                         {
                             text: "Yes",
-                            value: "yes",
-                            route: "/cosmetics/import/check-access-to-file"
+                            value: "true",
+                            route: "/cosmetics/import/cpnp-export-upload"
                         },
                         {
-                            text: "No, but this product will be notified on CPNP",
-                            value: "planned",
-                            route: "/cosmetics/import/cpnp-advice"
-                        },
-                        {
-                            text: "No, this product won’t be sold in the EU",
-                            value: "no",
-                            route: "/cosmetics/manual/product-name"
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/import/no-cpnp-access"
                         }
                     ],
                     name: "notified-to-eu"
