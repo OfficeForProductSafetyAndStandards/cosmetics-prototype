@@ -1,5 +1,5 @@
 {% macro componentTitle(options) %}
-    {% if options.componentList|length %}
+    {% if (options.isMultiComponent == 'multi') and (options.componentList|length) %}
         <h1 class='govuk-heading-xl'>
             {{ 
                 options.componentTitle

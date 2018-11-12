@@ -43,18 +43,24 @@ router.post('/cosmetics/list-components', function(req, res) {
 // loop. Otherwise they proceed to the label image.
 // For single component this method will just head to the label image 
 router.get('/cosmetics/component-done', function(req, res) {
-  var components = req.cookies['componentList']
+  if (req.session.data['single-or-multi-component'] === 'multi') {
+    var components = req.cookies['componentList']
   
-  // Drop first element
-  components.shift()
-  res.cookie('componentList', components)
+    // Drop first element
+    if (components) {
+      components.shift()
+    }
+    res.cookie('componentList', components)
 
-  req.session.data['componentList'] = components
+    req.session.data['componentList'] = components
 
-  // If there are components left to enter data for, return to start of loop. 
-  // Otherwise proceed.
-  if (components.length) {
-    res.redirect('/cosmetics/manual/number-of-shades')
+    // If there are components left to enter data for, return to start of loop. 
+    // Otherwise proceed.
+    if (components && components.length) {
+      res.redirect('/cosmetics/manual/number-of-shades')
+    } else {
+      res.redirect('/cosmetics/manual/label-image')
+    }
   } else {
     res.redirect('/cosmetics/manual/label-image')
   }

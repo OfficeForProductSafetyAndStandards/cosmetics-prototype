@@ -14,7 +14,8 @@
                 componentTitle({
                     title: "Which nanomaterials does the cosmetic contain?",
                     componentTitle: "Which nanomaterials does {{component}} contain?",
-                    componentList: data['componentList']
+                    componentList: data['componentList'], 
+                    isMultiComponent: data['single-or-multi-component']
                 })
             }}   
             {% from "radio-route.html" import radioRoute %}
