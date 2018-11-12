@@ -31,18 +31,19 @@
 
             {% from "input/macro.njk" import govukInput %}
 
-            {{ govukInput({
-            id: "responsible-person-name",
-            name: "responsible-person-name",
-            label: {
-                text: "UK registered company name or full name of individual"
-            }
-            }) }}
+            <form action="/cosmetics/responsible-person/responsible-person-address" method="get">
+                {{ govukInput({
+                id: "responsible-person-name",
+                name: "responsible-person-name",
+                label: {
+                    text: "UK registered company name or full name of individual"
+                }
+                }) }}
 
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/responsible-person/responsible-person-address"
-            }) }}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
         </div>
     </div>
 

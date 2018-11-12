@@ -5,42 +5,50 @@
 {% endblock %}
 
 {% block content %}
+<script src="/public/javascripts/radio-route.js"></script>
 <div class="govuk-width-container">  
     <main class="govuk-main-wrapper">  
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/cosmetics/intending-to-sell-in-eu" method="post" class="form">
-                    {% from "radios/macro.njk" import govukRadios %}
-    
-                    {{ govukRadios({
-                    idPrefix: "intending-to-sell-in-eu",
-                    name: "intending-to-sell-in-eu",
-                    fieldset: {
-                        legend: {
-                        text: "Which UK Responsible Person are you representing?",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--xl"
-                        }
-                    },
-                    items: [
-                        {
-                            value: "1",
-                            text: "[Responsible Person 1]"
-                        },
-                        {
-                            value: "2",
-                            text: "[Responsible Person 2]"
-                        },
-                        {
-                            value: "new",
-                            text: "A new responsible person"
-                        }
-                    ]
-                    }) }}
+                <form id="route-form" action="/radio-route" method="post" onsubmit="routeToRadioChoice(event)">                        
+                    <h1 class="govuk-heading-xl">Which UK Responsible Person are you representing?</h1>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input 
+                                        class="govuk-radios__input" 
+                                        id="which-rp-1" 
+                                        name="which-rp" 
+                                        type="radio" 
+                                        value="1"
+                                        data-route="/cosmetics/claim-existing/will-eu-rp-approve">
+                                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                                        {% from "dataWithDefault.html" import dataWithDefault %}
+                                        {{ dataWithDefault({
+                                            value: data['responsible-person-name'],
+                                            default: 'Example responsible person'
+                                        })}}
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input 
+                                        class="govuk-radios__input" 
+                                        id="which-rp-new" 
+                                        name="which-rp" 
+                                        type="radio" 
+                                        value="new"
+                                        data-route="/cosmetics/responsible-person/responsible-person-name">
+                                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                                        A new responsible person
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
     
                     {{ govukButton({
-                        text: "Continue",
-                        href: "/cosmetics/claim-existing/will-eu-rp-approve"
+                        text: "Continue"
                     }) }}
                 </form>
             </div>

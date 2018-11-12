@@ -1,0 +1,7 @@
+{% macro dataWithDefault(options) %}
+    {% if options.value|length %}
+        {{options.value}}
+    {% else %}
+        {{options.default}}
+    {% endif %}
+{% endmacro %}
