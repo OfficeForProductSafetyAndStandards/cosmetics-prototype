@@ -12,16 +12,16 @@
             <h1 class="govuk-heading-xl">Phone number of the UK Responsible Person</h1>
 
             {% from "input/macro.njk" import govukInput %}
+            <form action="/cosmetics/responsible-person-entered" method="get">
+                {{ govukInput({
+                id: "responsible-person-phone",
+                name: "responsible-person-phone"
+                }) }}
 
-            {{ govukInput({
-            id: "responsible-person-phone",
-            name: "responsible-person-phone"
-            }) }}
-
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/responsible-person-entered"
-            }) }}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
         </div>
     </div>
 

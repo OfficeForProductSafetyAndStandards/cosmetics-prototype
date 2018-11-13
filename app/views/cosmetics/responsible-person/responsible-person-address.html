@@ -13,50 +13,51 @@
 
             {% from "input/macro.njk" import govukInput %}
 
-            {{ govukInput({
-            label: {
-                text: "Building and street"
-            },
-            id: "address-line-1",
-            name: "address-line-1"
-            }) }}
+            <form action="/cosmetics/responsible-person/responsible-person-email" method="get">
+                {{ govukInput({
+                label: {
+                    text: "Building and street"
+                },
+                id: "address-line-1",
+                name: "address-line-1"
+                }) }}
 
-            {% from "input/macro.njk" import govukInput %}
+                {% from "input/macro.njk" import govukInput %}
 
-            {{ govukInput({
-            id: "address-line-2",
-            name: "address-line-2"
-            }) }}
+                {{ govukInput({
+                id: "address-line-2",
+                name: "address-line-2"
+                }) }}
 
-            {{ govukInput({
-            label: {
-                text: "Town or city"
-            },
-            id: "address-town-city",
-            name: "address-town-city"
-            }) }}
+                {{ govukInput({
+                label: {
+                    text: "Town or city"
+                },
+                id: "address-town-city",
+                name: "address-town-city"
+                }) }}
 
-            {{ govukInput({
-            label: {
-                text: "County"
-            },
-            id: "address-county",
-            name: "address-county"
-            }) }}
+                {{ govukInput({
+                label: {
+                    text: "County"
+                },
+                id: "address-county",
+                name: "address-county"
+                }) }}
 
-            {{ govukInput({
-            label: {
-                text: "Postcode"
-            },
-            id: "address-postcode",
-            name: "address-postcode",
-            classes: "govuk-input--width-10"
-            }) }}
+                {{ govukInput({
+                label: {
+                    text: "Postcode"
+                },
+                id: "address-postcode",
+                name: "address-postcode",
+                classes: "govuk-input--width-10"
+                }) }}
 
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/responsible-person/responsible-person-email"
-            }) }}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
         </div>
     </div>
 

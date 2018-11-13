@@ -10,80 +10,80 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Check your answers before notifying</h1>
-
-            {% from "table/macro.njk" import govukTable %}
-
-            {{ govukTable({
-                caption: "Responsible Person",
-                firstCellIsHeader: true,
-                rows: [
-                    [
-                        {
-                            text: "Name"
-                        },
-                        {
-                            text: "[Responsible Person name]"
-                        },
-                        {
-                            html: "<a href='#'>Change</a>"
-                        }
-                    ],
-                    [
-                        {
-                            text: "Email address"
-                        },
-                        {
-                            text: "[Responsible Person email]"
-                        },
-                        {
-                            html: "<a href='#'>Change</a>"
-                        }
-                    ],
-                    [
-                        {
-                            text: "Phone number"
-                        },
-                        {
-                            text: "[Responsible Person phone]"
-                        },
-                        {
-                            html: "<a href='#'>Change</a>"
-                        }
-                    ],
-                    [
-                        {
-                            text: "Address"
-                        },
-                        {
-                            text: "[Responsible Person address line 1]\n[Responsible Person address line 2]\n[Responsible Person address line 3]\n[Responsible Person address line 4]"
-                        },
-                        {
-                            html: "<a href='#'>Change</a>"
-                        }
-                    ]
-                ]
-            }) }}
+            {% from "dataWithDefault.html" import dataWithDefault %}
+            <table class="govuk-table">
+                <caption class="govuk-table__caption">Responsible Person</caption>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Name</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['responsible-person-name'],
+                                default: 'Example responsible person'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Email address</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['responsible-person-email'],
+                                default: 'example@example.com'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Phone number</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['responsible-person-phone'],
+                                default: '0700000000'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                        <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Address</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['address-line-1'],
+                                default: 'Address line 1'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-line-2'],
+                                default: 'Address line 2'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-town-city'],
+                                default: 'Example Town'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-county'],
+                                default: 'Example County'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                </tbody>
+            </table>
 
             {{ govukTable({
                 caption: "Cosmetics",
                 firstCellIsHeader: true,
                 rows: [
-                [{text: "Product name"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Number of components"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Imported"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Imported from"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Carcinogenic, mutagenic or toxic for reproduction"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Substances"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Contains nanomaterials"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Nanomaterials"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Instructions for us"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Exposure"},{text: "[data as list]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Cosmetic category"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "[level 1] type"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "[level 1] type"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Formulation"},{text: "[data]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Label image"},{text: "[file name]"},{html: "<a href='#'>Change</a>"}],
-                [{text: "Packaging photo"},{text: "[file name]"},{html: "<a href='#'>Change</a>"}]
+                [{text: "Product name"},{text: "Beautify Facial Night Cream"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Number of components"},{text: "1"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Imported"},{text: "No"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Carcinogenic, mutagenic or toxic for reproduction"},{text: "No"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Contains nanomaterials"},{text: "No"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Cosmetic category"},{text: "Skin products"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Skin product type"},{text: "Skin care products"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Skin care product type"},{text: "Face care products other than face mask"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Formulation"},{text: "Skin Care Cream, Lotion, Gel"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Label image"},{text: "beautify-facial-night-cream-label.jpg"},{html: "<a href='#'>Change</a>"}],
+                [{text: "Packaging photo"},{text: "beautify-facial-night-cream-packaging.jpg"},{html: "<a href='#'>Change</a>"}]
                 ]
             }) }}
 
