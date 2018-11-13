@@ -7,7 +7,7 @@
         <div class="list-entry">
             {{ options["listEntryHtml"] | safe }}
             {% from "button/macro.njk" import govukButton %}
-            <button onClick="remove(event)" class="govuk-button">
+            <button style="display: none" onClick="remove(event)" class="govuk-button">
                 Remove
             </button>
         </div>

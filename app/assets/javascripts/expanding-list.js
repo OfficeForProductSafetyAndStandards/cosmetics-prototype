@@ -13,6 +13,8 @@ addAnother = function () {
         inputs[i].checked = false
     }
 
+    var hiddenButton = newEntry.getElementsByTagName('button')[0];
+    $(hiddenButton).css('display', 'block')
 
     list.appendChild(newEntry)
 }
