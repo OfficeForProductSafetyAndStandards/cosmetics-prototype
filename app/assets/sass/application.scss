@@ -17,3 +17,13 @@ input.with-unit {
     margin-right: -25px;
     padding-right: 25px;
 }
+
+.secondary-button {
+  background-color: $govuk-secondary-text-colour;
+  &:focus {
+    background-color: $govuk-secondary-text-colour;
+  }
+  &:hover {
+    background-color: $govuk-text-colour;
+  }
+}
