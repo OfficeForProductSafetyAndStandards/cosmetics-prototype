@@ -9,6 +9,7 @@
     <main class="govuk-main-wrapper">  
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+                {% from "dataWithDefault.html" import dataWithDefault %}
                 <h1 class="govuk-heading-xl">Upload a list of your products</h1>
 
                 <p>
@@ -20,15 +21,18 @@
                 </p>
 
                 <p>
-                    <a href="#">XLST - Excel cosmetics product list template</a>
+                    <a href="#">XLST - Excel cosmetic list template </a>
                 </p>
 
                 <p>
-                    The file you upload must be a ‘XLS’ or ‘CSV’, with a single column containing a product name in each cell. Include the brand, range, individual product name, cpnp reference number time to the second it was first notified and its use so it can be easily identified and distinguished from other products.
+                    The file you upload must be a ‘XLS’ or ‘CSV’, with a single column containing a cosmetic name in each cell. Include the brand, range, individual product name, CPNP reference number time to the second it was first notified and its use so it can be easily identified and distinguished from other products.
                 </p>
 
                 <p>
-                    [RP Name] will be the UK responsible person for these products.
+                        {{ dataWithDefault({
+                            value: data['responsible-person-name'],
+                            default: 'Example Responsible Person'
+                        })}} will be the UK responsible person for these cosmetics.
                 </p>
 
                 {% from "file-upload/macro.njk" import govukFileUpload %}

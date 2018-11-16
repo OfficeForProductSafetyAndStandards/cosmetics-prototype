@@ -9,7 +9,11 @@
     <main class="govuk-main-wrapper">  
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">An email has been sent to [EU Responsible Person email]</h1>
+                {% from "dataWithDefault.html" import dataWithDefault %}
+                <h1 class="govuk-heading-xl">An email has been sent to {{ dataWithDefault({
+                    value: data['eu-responsible-person-email'],
+                    default: 'eu-rp@example.com'
+                })}}</h1>
 
                 <p>
                     Once approval approval has been given you will be able to take responsibility for cosmetics in the UK.

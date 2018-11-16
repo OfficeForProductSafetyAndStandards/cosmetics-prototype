@@ -13,36 +13,37 @@
             <p>
                 If you don’t already have an account, <a href='/cosmetics/account/create-account'>create an account</a>.
             </p>
-            {% from "input/macro.njk" import govukInput %}
+            <form action="/cosmetics/enter-responsible-person" method="get">
+                {% from "input/macro.njk" import govukInput %}
 
-            {{ govukInput({
-            label: {
-                text: "Email address"
-            },
-            type: "email",
-            id: "user-email",
-            name: "user-email"
-            }) }}
-
-            {{ govukInput({
-            label: {
-                text: "Password"
-            },
-            type: "password",
-            id: "password",
-            name: "password"
-            }) }}
-
-            <p>
-                <a href='#'>Reset password</a>
-            </p>
-
-            {% from "button/macro.njk" import govukButton %}
-
-            {{ govukButton({
-                text: "Log in",
-                href: "/cosmetics/enter-responsible-person"
-            }) }}
+                {{ govukInput({
+                label: {
+                    text: "Email address"
+                },
+                type: "email",
+                id: "user-email",
+                name: "user-email"
+                }) }}
+    
+                {{ govukInput({
+                label: {
+                    text: "Password"
+                },
+                type: "password",
+                id: "password",
+                name: "password"
+                }) }}
+    
+                <p>
+                    <a href='#'>Reset password</a>
+                </p>
+    
+                {% from "button/macro.njk" import govukButton %}
+    
+                {{ govukButton({
+                    text: "Log in"
+                }) }}
+            </form>            
         </div>
     </div>
 

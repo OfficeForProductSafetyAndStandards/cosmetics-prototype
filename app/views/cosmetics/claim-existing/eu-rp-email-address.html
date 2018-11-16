@@ -21,19 +21,20 @@
 
                 {% from "input/macro.njk" import govukInput %}
 
-                {{ govukInput({
-                    label: {
-                        text: "Email address"
-                    },
-                    id: "email",
-                    name: "email",
-                    type: "email"
-                }) }}
-
-                {{ govukButton({
-                    text: "Send link",
-                    href: "/cosmetics/claim-existing/email-sent"
-                }) }}
+                <form action="/cosmetics/claim-existing/email-sent" method="get">
+                    {{ govukInput({
+                        label: {
+                            text: "Email address"
+                        },
+                        id: "eu-responsible-person-email",
+                        name: "eu-responsible-person-email",
+                        type: "email"
+                    }) }}
+    
+                    {{ govukButton({
+                        text: "Send link"
+                    }) }}
+                </form>
             </div>
         </div>
     </main>
