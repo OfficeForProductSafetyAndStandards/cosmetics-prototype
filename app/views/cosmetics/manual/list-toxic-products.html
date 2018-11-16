@@ -13,36 +13,37 @@
             <p>
                     For each substance use the Use the ‘International Nomenclature of Cosmetic Ingredients’ name, find a reference for substance name and reference numbers on the <a href="#">Cosmetic ingredient database (opens in a new tab)</a>.
             </p>
-            {% set listEntryHtml %}
-                {% from "input/macro.njk" import govukInput %}
-                {{ govukInput({
-                    label: {
-                        text: "Substance name"
-                    },
-                    id: "substance-name",
-                    name: "substance-name"
+            <form action="/cosmetics/list-cmr" method="post">
+                {% set listEntryHtml %}
+                    {% from "input/macro.njk" import govukInput %}
+                    {{ govukInput({
+                        label: {
+                            text: "Substance name"
+                        },
+                        id: "substance-name",
+                        name: "substance-name"
+                    }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Chemical Abstracts Service registry number"
+                        },
+                        id: "registry-number",
+                        name: "registry-number"
+                    }) }}
+                {% endset %}
+    
+    
+                {% from "expanding-list.html" import expandingList %}
+                {{
+                    expandingList({
+                        listEntryHtml: listEntryHtml
+                    })
+                }}
+                <br />
+                {{ govukButton({
+                    text: "Continue"
                 }) }}
-                {{ govukInput({
-                    label: {
-                        text: "Chemical Abstracts Service registry number"
-                    },
-                    id: "registry-number",
-                    name: "registry-number"
-                }) }}
-            {% endset %}
-
-
-            {% from "expanding-list.html" import expandingList %}
-            {{
-                expandingList({
-                    listEntryHtml: listEntryHtml
-                })
-            }}
-            <br />
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/manual/nanomaterials"
-            }) }}
+            </form>
         </div>
     </div>
 

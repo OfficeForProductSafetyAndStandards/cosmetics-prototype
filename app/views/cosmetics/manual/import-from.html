@@ -11,20 +11,21 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Where is the cosmetic imported from?</h1>
 
-            {% from "input/macro.njk" import govukInput %}
+            <form action="/cosmetics/manual/toxic-products" method="get">
+                {% from "input/macro.njk" import govukInput %}
 
-            {{ govukInput({
-            id: "responsible-person-name",
-            hint: {
-                text: "Country"
-            },
-            name: "responsible-person-name"
-            }) }}
-
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/manual/toxic-products"
-            }) }}
+                {{ govukInput({
+                id: "imported-from",
+                hint: {
+                    text: "Country"
+                },
+                name: "imported-from"
+                }) }}
+    
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
         </div>
     </div>
 

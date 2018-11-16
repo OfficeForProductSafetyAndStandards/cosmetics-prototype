@@ -38,6 +38,22 @@ router.post('/cosmetics/list-components', function(req, res) {
   res.redirect('/cosmetics/manual/components-mixed')
 })
 
+// Sets a cookie containing a list of the toxic products the user has added for 
+// this product
+router.post('/cosmetics/list-cmr', function(req, res) {
+  var substances = Object.keys(req.session.data)
+    .filter(function(key) {
+      return key.startsWith("substance-name")
+    })
+    .map(function(key) {
+      return req.session.data[key]
+  })
+
+  req.session.data['toxic-products'] = substances
+  
+  res.redirect('/cosmetics/manual/nanomaterials')
+})
+
 // User is sent to this endpoint at end of multi component loop. If they have 
 // components left to fill in info for they are sent back to the start of the 
 // loop. Otherwise they proceed to the label image.
