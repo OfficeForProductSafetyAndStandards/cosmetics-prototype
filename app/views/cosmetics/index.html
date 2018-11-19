@@ -1,16 +1,48 @@
 {% extends "layout.html" %}
 
+
+
+
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+  {% from "phase-banner/macro.njk" import govukPhaseBanner %}
+  <div class="app-masthead">
+      <div class="govuk-width-container app-site-width-container">
+        
+          <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+                    {{ govukPhaseBanner({
+                      tag: {
+                        text: "prototype"
+                      },
+                      html: 'This app is a prototype - it will not store any data entered by users'
+                    }) }}
+                  </div>
+              <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl app-masthead__title">Notify cosmetics</h1>
+                <p class="app-masthead__description">
+                  A cosmetic can only be sold in the UK if there is a designated Responsible Person who ensures it complies with relevant regulation and notifies details of the cosmetic to the government.
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
+    <main class="govuk-main-wrapper">
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <h1 class="govuk-heading-xl">Notify cosmetics</h1>
-          <p>
-            A cosmetic can only be sold in the UK if there is a designated Responsible Person who ensures it complies with relevant regulation and notifies details of the cosmetic to the government.
-          </p>
-          
+        <div class="govuk-grid-column-two-thirds">          
           <h3 class="govuk-heading-m">Responsible Person</h1>
           <p>
             The Responsible Person can be an organisation or an individual based in the UK.
