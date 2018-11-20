@@ -1,13 +1,11 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
 {% endblock %}
 
 {% block content %}
-<div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
-      <div class="govuk-grid-row">
+    <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Check your answers before notifying</h1>
             {% from "dataWithDefault.html" import dataWithDefault %}
@@ -18,8 +16,8 @@
                         <th class="govuk-table__header" scope="row">Name</th>
                         <td class="govuk-table__cell">
                             {{ dataWithDefault({
-                                value: data['responsible-person-name'],
-                                default: 'Example responsible person'
+                            value: data['responsible-person-name'],
+                            default: 'Example responsible person'
                             })}}
                         </td>
                         <td class="govuk-table__cell"><a href='#'>Change</a></td>
@@ -28,8 +26,8 @@
                         <th class="govuk-table__header" scope="row">Email address</th>
                         <td class="govuk-table__cell">
                             {{ dataWithDefault({
-                                value: data['responsible-person-email'],
-                                default: 'example@example.com'
+                            value: data['responsible-person-email'],
+                            default: 'example@example.com'
                             })}}
                         </td>
                         <td class="govuk-table__cell"><a href='#'>Change</a></td>
@@ -38,303 +36,146 @@
                         <th class="govuk-table__header" scope="row">Phone number</th>
                         <td class="govuk-table__cell">
                             {{ dataWithDefault({
-                                value: data['responsible-person-phone'],
-                                default: '0700000000'
+                            value: data['responsible-person-phone'],
+                            default: '0700000000'
                             })}}
                         </td>
                         <td class="govuk-table__cell"><a href='#'>Change</a></td>
                     </tr>
-                        <tr class="govuk-table__row">
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Address</th>
                         <td class="govuk-table__cell">
                             {{ dataWithDefault({
-                                value: data['address-line-1'],
-                                default: 'Address line 1'
+                            value: data['address-line-1'],
+                            default: 'Address line 1'
                             })}}
                             {{ dataWithDefault({
-                                value: data['address-line-2'],
-                                default: 'Address line 2'
+                            value: data['address-line-2'],
+                            default: 'Address line 2'
                             })}}
                             {{ dataWithDefault({
-                                value: data['address-town-city'],
-                                default: 'Example Town'
+                            value: data['address-town-city'],
+                            default: 'Example Town'
                             })}}
                             {{ dataWithDefault({
-                                value: data['address-county'],
-                                default: 'Example County'
+                            value: data['address-county'],
+                            default: 'Example County'
                             })}}
                         </td>
                         <td class="govuk-table__cell"><a href='#'>Change</a></td>
                     </tr>
                 </tbody>
             </table>
+            
             <table class="govuk-table">
-  
-                    <caption class="govuk-table__caption">Cosmetics</caption>
-                    
-                    
-                    <tbody class="govuk-table__body">
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                <caption class="govuk-table__caption">Cosmetics</caption>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Product name</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">{{ dataWithDefault({
-                                value: data['product-name'],
-                                default: 'Beautify Facial Night Cream'
+                            value: data['product-name'],
+                            default: 'Beautify Facial Night Cream'
                             })}}</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Number of components</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">
                             {{"1" if (data['single-or-multi-component'] == 'single') else data['componentList']|length}}
                         </td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Imported</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">{{"Yes" if (data['product-imported'] == 'true') else "No"}}</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
+                    </tr>
                     {% if data['product-imported'] == 'true' %}
                     <tr class="govuk-table__row">
-                      
-                        
-                            <th class="govuk-table__header" scope="row">Imported from</th>
-                            
-                          
-                            
-                            <td class="govuk-table__cell">
-                                    {{ dataWithDefault({
-                                        value: data['imported-from'],
-                                        default: 'Example Country'
-                                    })}}
-                            </td>
-                            
-                          
-                            
-                            <td class="govuk-table__cell"><a href="#">Change</a></td>
-                            
-                          
-                          </tr>
+                        <th class="govuk-table__header" scope="row">Imported from</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                            value: data['imported-from'],
+                            default: 'Example Country'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href="#">Change</a></td>
+                    </tr>
                     {% endif %}
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Carcinogenic, mutagenic or toxic for reproduction</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">{{"Yes" if (data['contains-toxic-products'] == 'true') else "No"}}</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      {% if data['contains-toxic-products'] == 'true' %}
-                      <tr class="govuk-table__row">
-                      
-                        
-                            <th class="govuk-table__header" scope="row">Substances</th>
-                            
-                          
-                            
-                            <td class="govuk-table__cell">
-                                    {{ dataWithDefault({
-                                        value: data['toxic-products'],
-                                        default: 'Toxic Product List'
-                                    })}}
-                                    {{ data['toxic-products']}}
-                            </td>
-                            
-                          
-                            
-                            <td class="govuk-table__cell"><a href="#">Change</a></td>
-                            
-                          
-                          </tr>
-                        {% endif %}
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    {% if data['contains-toxic-products'] == 'true' %}
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Substances</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                            value: data['toxic-products'],
+                            default: 'Toxic Product List'
+                            })}}
+                            {{ data['toxic-products']}}
+                        </td>
+                        <td class="govuk-table__cell"><a href="#">Change</a></td>
+                    </tr>
+                    {% endif %}
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Contains nanomaterials</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">{{"Yes" if (data['contains-nanomaterials'] == 'true') else "No"}}</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      {% if data['contains-nanomaterials'] == 'true' %}
-                      <tr class="govuk-table__row">
-                      
-                        
-                            <th class="govuk-table__header" scope="row">Nanomaterials</th>
-                            
-                          
-                            
-                            <td class="govuk-table__cell">{{ data['nanomaterial'] }}</td>
-                            
-                          
-                            
-                            <td class="govuk-table__cell"><a href="#">Change</a></td>
-                            
-                          
-                          </tr>
-                        {% endif %}
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    {% if data['contains-nanomaterials'] == 'true' %}
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Nanomaterials</th>
+                        <td class="govuk-table__cell">{{ data['nanomaterial'] }}</td>
+                        <td class="govuk-table__cell"><a href="#">Change</a></td>
+                    </tr>
+                    {% endif %}
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Cosmetic category</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">Skin products</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Skin product type</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">Skin care products</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Skin care product type</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">Face care products other than face mask</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Formulation</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">Skin Care Cream, Lotion, Gel</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Label image</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">beautify-facial-night-cream-label.jpg</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                      <tr class="govuk-table__row">
-                      
-                        
+                    </tr>
+                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Packaging photo</th>
-                        
-                      
-                        
                         <td class="govuk-table__cell">beautify-facial-night-cream-packaging.jpg</td>
-                        
-                      
-                        
                         <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        
-                      
-                      </tr>
-                      
-                    </tbody>
-                  </table>
+                    </tr>
+                </tbody>
+            </table>
 
-                <h3 class="govuk-heading-m">
-                    Now notify your product
-                </h3>
-                <p>
-                    By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
-                </p>
-                {{ govukButton({
-                    text: "Accept and notify product",
-                    href: "/cosmetics/confirmation"
-                }) }}
+            <h3 class="govuk-heading-m">
+                Now notify your product
+            </h3>
+            <p>
+                By submitting this notification you are confirming that, to the best of your knowledge, the details you are
+                providing are correct.
+            </p>
+            {{ govukButton({
+            text: "Accept and notify product",
+            href: "/cosmetics/confirmation"
+            }) }}
         </div>
     </div>
-
-</main>
-</div>
-
 {% endblock %}

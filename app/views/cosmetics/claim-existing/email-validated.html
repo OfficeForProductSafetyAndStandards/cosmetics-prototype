@@ -4,31 +4,26 @@
   <a class="govuk-back-link" href="/cosmetics/claim-existing/eu-rp-email-address">Back</a>
 {% endblock %}
 
-{% block content %}
-<div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                {% from "dataWithDefault.html" import dataWithDefault %}
-                <div class="govuk-panel govuk-panel--confirmation">
-                        <h1 class="govuk-panel__title">
-                                {{ dataWithDefault({
-                                    value: data['user-email'],
-                                    default: 'user@example.com'
-                                })}} now has access to the cosmetics names
-                        </h1>
-                      </div>
-                <p>
-                    We have sent confirmation of this to you.
-                </p>
-                <h3 class="govuk-heading-m">What happens next</h1>
-                <p>{{ dataWithDefault({
-                        value: data['user-email'],
-                        default: 'user@example.com'
-                    })}} has been emailed to let them know they can notify these cosmetics.</p>
-            </div>
+{% block content %} 
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {% from "dataWithDefault.html" import dataWithDefault %}
+            <div class="govuk-panel govuk-panel--confirmation">
+                    <h1 class="govuk-panel__title">
+                            {{ dataWithDefault({
+                                value: data['user-email'],
+                                default: 'user@example.com'
+                            })}} now has access to the cosmetics names
+                    </h1>
+                    </div>
+            <p>
+                We have sent confirmation of this to you.
+            </p>
+            <h3 class="govuk-heading-m">What happens next</h1>
+            <p>{{ dataWithDefault({
+                    value: data['user-email'],
+                    default: 'user@example.com'
+                })}} has been emailed to let them know they can notify these cosmetics.</p>
         </div>
-    </main>
-</div>
-
+    </div>
 {% endblock %}

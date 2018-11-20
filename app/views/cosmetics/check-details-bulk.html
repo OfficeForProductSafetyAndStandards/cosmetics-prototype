@@ -5,97 +5,93 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">Check your answers before notifying</h1>
-                {% from "dataWithDefault.html" import dataWithDefault %}
-                <table class="govuk-table">
-                    <caption class="govuk-table__caption">Responsible Person</caption>
-                    <tbody class="govuk-table__body">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Check your answers before notifying</h1>
+            {% from "dataWithDefault.html" import dataWithDefault %}
+            <table class="govuk-table">
+                <caption class="govuk-table__caption">Responsible Person</caption>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Name</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['responsible-person-name'],
+                                default: 'Example responsible person'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Email address</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['responsible-person-email'],
+                                default: 'example@example.com'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Phone number</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['responsible-person-phone'],
+                                default: '0700000000'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
                         <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Name</th>
-                            <td class="govuk-table__cell">
-                                {{ dataWithDefault({
-                                    value: data['responsible-person-name'],
-                                    default: 'Example responsible person'
-                                })}}
-                            </td>
-                            <td class="govuk-table__cell"><a href='#'>Change</a></td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Email address</th>
-                            <td class="govuk-table__cell">
-                                {{ dataWithDefault({
-                                    value: data['responsible-person-email'],
-                                    default: 'example@example.com'
-                                })}}
-                            </td>
-                            <td class="govuk-table__cell"><a href='#'>Change</a></td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Phone number</th>
-                            <td class="govuk-table__cell">
-                                {{ dataWithDefault({
-                                    value: data['responsible-person-phone'],
-                                    default: '0700000000'
-                                })}}
-                            </td>
-                            <td class="govuk-table__cell"><a href='#'>Change</a></td>
-                        </tr>
-                            <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Address</th>
-                            <td class="govuk-table__cell">
-                                {{ dataWithDefault({
-                                    value: data['address-line-1'],
-                                    default: 'Address line 1'
-                                })}}
-                                {{ dataWithDefault({
-                                    value: data['address-line-2'],
-                                    default: 'Address line 2'
-                                })}}
-                                {{ dataWithDefault({
-                                    value: data['address-town-city'],
-                                    default: 'Example Town'
-                                })}}
-                                {{ dataWithDefault({
-                                    value: data['address-county'],
-                                    default: 'Example County'
-                                })}}
-                            </td>
-                            <td class="govuk-table__cell"><a href='#'>Change</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <th class="govuk-table__header" scope="row">Address</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['address-line-1'],
+                                default: 'Address line 1'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-line-2'],
+                                default: 'Address line 2'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-town-city'],
+                                default: 'Example Town'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-county'],
+                                default: 'Example County'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Change</a></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                {{ govukTable({
-                    caption: "Cosmetics",
-                    firstCellIsHeader: true,
-                    rows: [
-                        [
-                            {
-                                text: "Cosmetics"
-                            },
-                            {
-                                html: "<a href='#'>Download list of products</a>"
-                            }
-                        ]
+            {{ govukTable({
+                caption: "Cosmetics",
+                firstCellIsHeader: true,
+                rows: [
+                    [
+                        {
+                            text: "Cosmetics"
+                        },
+                        {
+                            html: "<a href='#'>Download list of products</a>"
+                        }
                     ]
-                }) }}
+                ]
+            }) }}
 
-                <h2 class="govuk-heading-l">Now confirm that these cosmetics should be associated with this UK Responsible Person</h2>
-                <p>
-                    By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
-                </p>
+            <h2 class="govuk-heading-l">Now confirm that these cosmetics should be associated with this UK Responsible Person</h2>
+            <p>
+                By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
+            </p>
 
-                {{ govukButton({
-                    text: "Confirm UK Responsible Person information",
-                    href: "/cosmetics/confirmation"
-                }) }}
-            </div>
+            {{ govukButton({
+                text: "Confirm UK Responsible Person information",
+                href: "/cosmetics/confirmation"
+            }) }}
         </div>
-    </main>
-</div>
+    </div>
 
 {% endblock %}

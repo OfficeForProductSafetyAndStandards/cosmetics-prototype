@@ -4,10 +4,8 @@
   <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
 {% endblock %}
 
-{% block content %}
-<div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
-      <div class="govuk-grid-row">
+{% block content %} 
+    <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Cosmetic name</h1>
             <form action="/cosmetics/manual/single-multi-component" method="get">
@@ -27,8 +25,4 @@
             </form>
         </div>
     </div>
-
-</main>
-</div>
-
 {% endblock %}

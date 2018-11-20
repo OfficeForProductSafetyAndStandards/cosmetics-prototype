@@ -5,39 +5,34 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">What is the email address of the EU Responsible Person?</h1>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">What is the email address of the EU Responsible Person?</h1>
 
-                <p>
-                    An email with your name, email address and details of the UK Responsible Person you represent will be sent to the EU Responsible Person.
-                </p>
+            <p>
+                An email with your name, email address and details of the UK Responsible Person you represent will be sent to the EU Responsible Person.
+            </p>
 
-                <p>
-                    They can approve your request by clicking the link in the email. The link will expire after 48 hours.
-                </p>
+            <p>
+                They can approve your request by clicking the link in the email. The link will expire after 48 hours.
+            </p>
 
-                {% from "input/macro.njk" import govukInput %}
+            {% from "input/macro.njk" import govukInput %}
 
-                <form action="/cosmetics/claim-existing/email-sent" method="get">
-                    {{ govukInput({
-                        label: {
-                            text: "Email address"
-                        },
-                        id: "eu-responsible-person-email",
-                        name: "eu-responsible-person-email",
-                        type: "email"
-                    }) }}
-    
-                    {{ govukButton({
-                        text: "Send link"
-                    }) }}
-                </form>
-            </div>
+            <form action="/cosmetics/claim-existing/email-sent" method="get">
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "eu-responsible-person-email",
+                    name: "eu-responsible-person-email",
+                    type: "email"
+                }) }}
+
+                {{ govukButton({
+                    text: "Send link"
+                }) }}
+            </form>
         </div>
-    </main>
-</div>
-
+    </div>
 {% endblock %}

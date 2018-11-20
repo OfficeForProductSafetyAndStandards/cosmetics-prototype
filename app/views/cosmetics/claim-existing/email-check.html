@@ -1,48 +1,43 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="govuk-width-container">  
-    <main class="govuk-main-wrapper">  
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                {% from "dataWithDefault.html" import dataWithDefault %}
-                <h1 class="govuk-heading-xl">Share data about cosmetics previously notified with {{ dataWithDefault({
-                        value: data['user-email'],
-                        default: 'user@example.com'
-                    })}}?</h1>
-                <p>
-                    <a href="#">Download list of cosmetics</a>
-                </p>
-                <p>
-                    {{ dataWithDefault({
-                        value: data['user-email'],
-                        default: 'user@example.com'
-                    })}} will be able to see the names of all cosmetics previously notified by {{ dataWithDefault({
-                        value: data['eu-responsible-person-email'],
-                        default: 'eu-rp@example.com'
-                    })}}
-                </p>
-                {% from "radio-route.html" import radioRoute %}
-                {{
-                    radioRoute({
-                        options: [
-                            {
-                                text: "Yes, I will share the names of these cosmetics",
-                                value: "true",
-                                route: "/cosmetics/claim-existing/email-validated"
-                            },
-                            {
-                                text: "No, I do not want this person to have access to names of these cosmetics",
-                                value: "false",
-                                route: "/cosmetics/landing-page"
-                            }
-                        ],
-                        name: "approve-eu-email"
-                    })
-                }}
-            </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {% from "dataWithDefault.html" import dataWithDefault %}
+            <h1 class="govuk-heading-xl">Share data about cosmetics previously notified with {{ dataWithDefault({
+                    value: data['user-email'],
+                    default: 'user@example.com'
+                })}}?</h1>
+            <p>
+                <a href="#">Download list of cosmetics</a>
+            </p>
+            <p>
+                {{ dataWithDefault({
+                    value: data['user-email'],
+                    default: 'user@example.com'
+                })}} will be able to see the names of all cosmetics previously notified by {{ dataWithDefault({
+                    value: data['eu-responsible-person-email'],
+                    default: 'eu-rp@example.com'
+                })}}
+            </p>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes, I will share the names of these cosmetics",
+                            value: "true",
+                            route: "/cosmetics/claim-existing/email-validated"
+                        },
+                        {
+                            text: "No, I do not want this person to have access to names of these cosmetics",
+                            value: "false",
+                            route: "/cosmetics/landing-page"
+                        }
+                    ],
+                    name: "approve-eu-email"
+                })
+            }}
         </div>
-    </main>
-</div>
-
+    </div>
 {% endblock %}
