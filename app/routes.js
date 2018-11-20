@@ -6,23 +6,21 @@ const router = express.Router()
 // After user logs in checks if they've already set a responsible person or need 
 // to enter a new one
 router.get('/cosmetics/enter-responsible-person', function(req, res) {
-  if (req.cookies['responsiblePersonExists'] === 'true') {
+  if (req.session.data['responsiblePersonExists']) {
     res.redirect('/cosmetics/landing-page')
   } else {
     res.redirect('/cosmetics/responsible-person/responsible-person-name')
   }
 })
 
-// Sets a cookie to mark that the user has entered a responsible person and 
+// Sets a flag to mark that the user has entered a responsible person and 
 // redirects to the login landing page
 router.get('/cosmetics/responsible-person-entered', function(req, res) {
-  res.cookie('responsiblePersonExists', true)
-  console.log()
+  req.session.data['responsiblePersonExists'] = true
   res.redirect('/cosmetics/landing-page')
 })
 
-// Sets a cookie containing a list of the components the user has added for 
-// this product
+// Stores a list of the components in the session cookie.
 router.post('/cosmetics/list-components', function(req, res) {
   var components = Object.keys(req.session.data)
     .filter(function(key) {
@@ -32,14 +30,13 @@ router.post('/cosmetics/list-components', function(req, res) {
       return req.session.data[key]
   })
 
-  res.cookie('componentList', components)
   req.session.data['componentList'] = components
+  req.session.data['numberOfComponents'] = components.length
   
   res.redirect('/cosmetics/manual/components-mixed')
 })
 
-// Sets a cookie containing a list of the toxic products the user has added for 
-// this product
+// Stores a list of toxic products in the session cookie.
 router.post('/cosmetics/list-cmr', function(req, res) {
   var substances = Object.keys(req.session.data)
     .filter(function(key) {
@@ -60,13 +57,13 @@ router.post('/cosmetics/list-cmr', function(req, res) {
 // For single component this method will just head to the label image 
 router.get('/cosmetics/component-done', function(req, res) {
   if (req.session.data['single-or-multi-component'] === 'multi') {
-    var components = req.cookies['componentList']
+    var components = req.session.data['componentList']
+    console.log(components)
   
     // Drop first element
     if (components) {
       components.shift()
     }
-    res.cookie('componentList', components)
 
     req.session.data['componentList'] = components
 
