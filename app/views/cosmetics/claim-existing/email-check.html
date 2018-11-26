@@ -5,19 +5,19 @@
         <div class="govuk-grid-column-two-thirds">
             {% from "dataWithDefault.html" import dataWithDefault %}
             <h1 class="govuk-heading-xl">Share data about cosmetics previously notified with {{ dataWithDefault({
-                    value: data['user-email'],
-                    default: 'user@example.com'
+                    value: data['user-name'],
+                    default: 'Example UK RP name'
                 })}}?</h1>
             <p>
                 <a href="#">Download list of cosmetics</a>
             </p>
             <p>
                 {{ dataWithDefault({
-                    value: data['user-email'],
-                    default: 'user@example.com'
+                    value: data['user-name'],
+                    default: 'Example Responsible Person'
                 })}} will be able to see the names of all cosmetics previously notified by {{ dataWithDefault({
-                    value: data['eu-responsible-person-email'],
-                    default: 'eu-rp@example.com'
+                    value: data['eu-responsible-person-name'],
+                    default: 'Example EU RP name'
                 })}}
             </p>
             {% from "radio-route.html" import radioRoute %}
@@ -32,7 +32,7 @@
                         {
                             text: "No, I do not want this person to have access to names of these cosmetics",
                             value: "false",
-                            route: "/cosmetics/landing-page"
+                            route: "/cosmetics/landing-page/cosmetics-notified-before-eu-exit"
                         }
                     ],
                     name: "approve-eu-email"

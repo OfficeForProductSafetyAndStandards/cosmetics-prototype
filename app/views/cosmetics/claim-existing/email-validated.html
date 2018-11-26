@@ -11,8 +11,8 @@
             <div class="govuk-panel govuk-panel--confirmation">
                     <h1 class="govuk-panel__title">
                             {{ dataWithDefault({
-                                value: data['user-email'],
-                                default: 'user@example.com'
+                                value: data['name'],
+                                default: 'Example UK RP name'
                             })}} now has access to the cosmetics names
                     </h1>
                     </div>
@@ -21,8 +21,8 @@
             </p>
             <h3 class="govuk-heading-m">What happens next</h1>
             <p>{{ dataWithDefault({
-                    value: data['user-email'],
-                    default: 'user@example.com'
+                    value: data['name'],
+                    default: 'Example UK RP name'
                 })}} has been emailed to let them know they can notify these cosmetics.</p>
         </div>
     </div>
