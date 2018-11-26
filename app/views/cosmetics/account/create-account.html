@@ -8,56 +8,56 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Your details</h1>
+            <form action="/cosmetics/account/account-verification" method="get">
+                {% from "input/macro.njk" import govukInput %}
 
-            {% from "input/macro.njk" import govukInput %}
+                {{ govukInput({
+                    label: {
+                        text: "Full name"
+                    },
+                    id: "name",
+                    name: "name"
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Full name"
-                },
-                id: "name",
-                name: "name"
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Work Email address"
+                    },
+                    hint: {
+                        text: "If possible, use an email address associated with the Responsible Person you are representing"
+                    },
+                    id: "email",
+                    name: "email",
+                    type: "email"
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Work Email address"
-                },
-                hint: {
-                    text: "If possible, use an email address associated with the Responsible Person you are representing"
-                },
-                id: "email",
-                name: "email",
-                type: "email"
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Phone number"
+                    },
+                    hint: {
+                        text: "We’ll send you a security code by text message"
+                    },
+                    id: "phone",
+                    name: "phone"
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Phone number"
-                },
-                hint: {
-                    text: "We’ll send you a security code by text message"
-                },
-                id: "phone",
-                name: "phone"
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Password"
+                    },
+                    hint: {
+                        text: "At least 8 characters"
+                    },
+                    id: "password",
+                    name: "password",
+                    type: "password"
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Password"
-                },
-                hint: {
-                    text: "At least 8 characters"
-                },
-                id: "password",
-                name: "password",
-                type: "password"
-            }) }}
-
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/account/account-verification"
-            }) }}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>            
         </div>
     </div>
 {% endblock %}
