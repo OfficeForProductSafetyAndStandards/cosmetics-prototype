@@ -10,7 +10,7 @@
             <h1 class="govuk-heading-xl">Phone number of the UK Responsible Person</h1>
 
             {% from "input/macro.njk" import govukInput %}
-            <form action="/cosmetics/responsible-person-entered" method="get">
+            <form action="/cosmetics/responsible-person/responsible-person-email" method="get">
                 {{ govukInput({
                 id: "responsible-person-phone",
                 name: "responsible-person-phone"

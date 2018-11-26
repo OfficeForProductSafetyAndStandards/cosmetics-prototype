@@ -10,11 +10,14 @@
             <h1 class="govuk-heading-xl">Email address of the UK Responsible Person</h1>
 
             {% from "input/macro.njk" import govukInput %}
-            <form action="/cosmetics/responsible-person/responsible-person-phone" method="get">
+            <form action="/cosmetics/responsible-person-entered" method="get">
                 {{ govukInput({
                 type: "email",
                 id: "responsible-person-email",
-                name: "responsible-person-email"
+                name: "responsible-person-email",
+                hint: {
+                    text: "This email address will be need to validated"
+                }
                 }) }}
 
                 {{ govukButton({

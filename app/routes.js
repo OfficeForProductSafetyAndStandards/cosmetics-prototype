@@ -9,7 +9,7 @@ router.get('/cosmetics/enter-responsible-person', function(req, res) {
   if (req.session.data['responsiblePersonExists']) {
     res.redirect('/cosmetics/landing-page')
   } else {
-    res.redirect('/cosmetics/responsible-person/responsible-person-name')
+    res.redirect('/cosmetics/responsible-person/create-or-join-existing')
   }
 })
 
@@ -17,7 +17,7 @@ router.get('/cosmetics/enter-responsible-person', function(req, res) {
 // redirects to the login landing page
 router.get('/cosmetics/responsible-person-entered', function(req, res) {
   req.session.data['responsiblePersonExists'] = true
-  res.redirect('/cosmetics/landing-page')
+  res.redirect('/cosmetics/responsible-person/check-rp-email')
 })
 
 // Stores a list of the components in the session cookie.
