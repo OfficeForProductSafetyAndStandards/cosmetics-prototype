@@ -79,4 +79,14 @@ router.get('/cosmetics/component-done', function(req, res) {
   }
 })
 
+// Deletes responsilbe person
+router.get('/cosmetics/delete-responsible-person', function(req, res) {
+  req.session.data['responsiblePersonExists'] = false
+  req.session.data['responsible-person-name'] = ''
+  req.session.data['responsible-person-address'] = ''
+  req.session.data['responsible-person-email'] = ''
+  req.session.data['responsible-person-phone'] = ''
+  res.redirect('/cosmetics/landing-page/responsible-person')
+})
+
 module.exports = router
