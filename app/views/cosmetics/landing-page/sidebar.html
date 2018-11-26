@@ -1,0 +1,46 @@
+{% macro sidebar(options) %}
+
+{% set pages = [
+    {
+        title: 'Cosmetics notified before EU Exit',
+        url: '/cosmetics/landing-page/cosmetics-notified-before-eu-exit',
+        id: 'cosmetics-notified-before-eu-exit'
+    },    
+    {
+        title: 'New cosmetics',
+        url: '/cosmetics/landing-page/new-cosmetics',
+        id: 'new-cosmetics'
+    },
+    {
+        title: 'Notified cosmetics',
+        url: '/cosmetics/landing-page/notified-cosmetics',
+        id: 'notified-cosmetics'
+    },
+    {
+        title: 'Responsible Person',
+        url: '/cosmetics/landing-page/responsible-person',
+        id: 'responsible-person'
+    },
+    {
+        title: 'Emergency contact',
+        url: '/cosmetics/landing-page/emergency-contact',
+        id: 'emergency-contact'
+    },
+    {
+        title: 'Team members',
+        url: '/cosmetics/landing-page/team-members',
+        id: 'team-members'
+    }
+    ] 
+%}
+
+{% for page in pages %}
+<a 
+    href={{page.url}} 
+    class="{{'sidebar-link-selected' if options.pageId === page.id else 'sidebar-link'}}"
+>
+    {{ page.title }}
+</a>
+{% endfor %}
+
+{% endmacro %}

@@ -5,51 +5,13 @@
 {% endblock %}
 
 {% block content %}
+{% from "cosmetics/landing-page/sidebar.html" import sidebar %}
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-quarter">
-            <a 
-                href="#" 
-                class="govuk-link--no-visited-state govuk-heading-s govuk-!-font-weight-bold"
-                style="text-decoration: none;"
-            >
-                Cosmetics notified before EU Exit
-            </a>
-            <a 
-                href="#" 
-                class="govuk-link--no-visited-state govuk-heading-s govuk-!-font-weight-regular"
-                style="text-decoration: none;"
-            >
-                New cosmetics
-            </a>
-            <a 
-                href="#" 
-                class="govuk-link--no-visited-state govuk-heading-s govuk-!-font-weight-regular"
-                style="text-decoration: none;"
-            >
-                Notified cosmetics
-            </a>
-            <a 
-                href="#" 
-                class="govuk-link--no-visited-state govuk-heading-s govuk-!-font-weight-regular"
-                style="text-decoration: none;"
-            >
-                Responsible Person
-            </a>
-            <a 
-                href="#" 
-                class="govuk-link--no-visited-state govuk-heading-s govuk-!-font-weight-regular"
-                style="text-decoration: none;"
-            >
-                Emergency contact
-            </a>
-            <a 
-                href="#" 
-                class="govuk-link--no-visited-state govuk-heading-s govuk-!-font-weight-regular"
-                style="text-decoration: none;"
-            >
-                Team members
-            </a>
-        </div>
+            <div class="govuk-grid-column-one-quarter">
+                    {{ sidebar({
+                        pageId: 'cosmetics-notified-before-eu-exit'
+                    })}}
+            </div>
         <div class="govuk-grid-column-three-quarters">
             <h1 class="govuk-heading-xl">Take responsibility for cosmetics notified before EU exit</h1>
 
