@@ -7,9 +7,20 @@ const router = express.Router()
 // to enter a new one
 router.get('/cosmetics/enter-responsible-person', function(req, res) {
   if (req.session.data['responsiblePersonExists']) {
-    res.redirect('/cosmetics/landing-page')
+    res.redirect('/cosmetics/landing-page/cosmetics-notified-before-eu-exit')
   } else {
     res.redirect('/cosmetics/responsible-person/create-or-join-existing')
+  }
+})
+
+// After creating a new emergency contact, if the UK RP matchs scraped products then take thtem to them,
+// if not go to dashboard
+// to enter a new one
+router.get('/cosmetics/display-if-scraped-products', function(req, res) {
+  if (req.session.data['does-UK-RP-match-scraped-products'] == 'true') {
+    res.redirect('/cosmetics/responsible-person/associate-products-with-rp')
+  } else {
+    res.redirect('/cosmetics/landing-page/cosmetics-notified-before-eu-exit')
   }
 })
 

@@ -24,32 +24,67 @@
       <h2 class="govuk-heading-m">Setup</h2>
       <form action="/cosmetics" method="get">
       {{ govukSelect({
-        id: "does-UK-RP--match-scraped-products",
-        name: "does-UK-RP--match-scraped-products",
+        id: "does-UK-RP-match-scraped-products",
+        name: "does-UK-RP-match-scraped-products",
         label: {
           text: "Does UK RP match scraped products?"
         },
         items: [
           {
-            value: true,
+            value: 'true',
             text: "Yes",
             selected: true
           },
           {
-            value: false,
+            value: 'false',
             text: "No"
           }
         ]
       }) }}
 
+      {{ govukSelect({
+        id: "does-RP-business-exist",
+        name: "does-RP-business-exist",
+        label: {
+          text: "Does RP business already exist?"
+        },
+        items: [
+          {
+            value: 'true',
+            text: "Yes",
+            selected: true
+          },
+          {
+            value: 'false',
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukSelect({
+        id: "EU-RP-has-confirmed",
+        name: "EU-RP-has-confirmed",
+        label: {
+          text: "Has the EU RP already confirmed to share data?"
+        },
+        items: [
+          {
+            value: 'true',
+            text: "Yes",
+            selected: true
+          },
+          {
+            value: 'false',
+            text: "No"
+          }
+        ]
+      }) }}
+
+
       {{ govukButton({
         text: "Continue"
       }) }}
       </form>
-
-      <p>
-        <a class="govuk-link" href="/cosmetics">Cosmetics Prototype Start Page</a>
-      </p>
 
       <h2 class="govuk-heading-m">About this page</h2>
 
