@@ -21,6 +21,32 @@
         It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
       </p>
 
+      <h2 class="govuk-heading-m">Setup</h2>
+      <form action="/cosmetics" method="get">
+      {{ govukSelect({
+        id: "does-UK-RP--match-scraped-products",
+        name: "does-UK-RP--match-scraped-products",
+        label: {
+          text: "Does UK RP match scraped products?"
+        },
+        items: [
+          {
+            value: true,
+            text: "Yes",
+            selected: true
+          },
+          {
+            value: false,
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+      </form>
+
       <p>
         <a class="govuk-link" href="/cosmetics">Cosmetics Prototype Start Page</a>
       </p>
