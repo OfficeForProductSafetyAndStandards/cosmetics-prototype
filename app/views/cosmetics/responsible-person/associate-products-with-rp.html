@@ -1,11 +1,57 @@
 {% extends "layout.html" %}
 
 {% block content %}
+{% from "dataWithDefault.html" import dataWithDefault %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Confirm these cosmetics should be associated with RP NAME</h1>
+            <h1 class="govuk-heading-xl">
+                Confirm these cosmetics should be associated with {{ dataWithDefault({
+                    value: data['responsible-person-name'],
+                    default: 'Example responsible person'
+                })}}
+            </h1>
 
-            Products here.
+            <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Product 1</th>
+                            <td class="govuk-table__cell">
+                                Catergory 1
+                            </td>
+                            <td class="govuk-table__cell"><a href='#'>View</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Product 2</th>
+                            <td class="govuk-table__cell">
+                                Catergory 2
+                            </td>
+                            <td class="govuk-table__cell"><a href='#'>View</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Product 3</th>
+                            <td class="govuk-table__cell">
+                                Catergory 3
+                            </td>
+                            <td class="govuk-table__cell"><a href='#'>View</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Product 4</th>
+                            <td class="govuk-table__cell">
+                                Catergory 4
+                            </td>
+                            <td class="govuk-table__cell"><a href='#'>View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><a href='#'>Download list of cosmetic products (csv 100kb)</a></p>
+                <p>Declaration content</p>
+
+                {{ govukButton({
+                    text: "Confirm UK responsibility",
+                    href: "/cosmetics/confirmation"
+                }) }}
+
         </div>
     </div>
 {% endblock %}

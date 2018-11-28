@@ -5,11 +5,16 @@
 {% endblock %}
 
 {% block content %}
+{% from "dataWithDefault.html" import dataWithDefault %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Check your email​</h1>
             <p>
-                An email has been sent to {{data['email']}}
+                An email has been sent to 
+                {{ dataWithDefault({
+                    value: data['email'],
+                    default: 'example@example.com'
+                })}}
             </p>
 
             <p>
