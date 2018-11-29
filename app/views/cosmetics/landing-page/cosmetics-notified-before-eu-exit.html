@@ -17,8 +17,24 @@
             <h1 class="govuk-heading-xl">Cosmetics notified before EU exit</h1>
 
             <p>
-                If a cosmetic was notified to the European Commission before the UK left the European Union, it can only continue to be sold in the UK if information about a new UK-based Responsible Person and the cosmetic formulation is provided by 29 May 2019.
+                {{ dataWithDefault({
+                        value: data['responsible-person-name'],
+                        default: 'Example responsible person'
+                })}}
+                can continue to sell cosmetics notified before the UK left the European Union (EU) by updating the cosmetic notifications with details about the UK Responsible Person.
             </p>
+            <p>
+              You can update cosmetics notifications with your Responsible Person details by:
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    asking the Responsible Person who notified them before the UK left the EU to share a list of the cosmetics they notified with you
+                </li>
+                <li>
+                    submitting information about the cosmetics
+                </li>
+            </ul>
+
 
             {% if data['EU-RP-has-confirmed'] == 'true' %}
             <p>
@@ -30,31 +46,18 @@
                 You have 108 ready to be confirmed
             </p>
             {% endif %}
-
-            <h2 class="govuk-heading-l">Take responsibility for cosmetics notified before the UK left the EU</h2>
-            <p>
-                    Take responsibility for cosmetics notified before the UK left the EU, 
-                    by asking the EU Responsible Person to validate that {{ dataWithDefault({
-                        value: data['responsible-person-name'],
-                        default: 'Example responsible person'
-                    })}} is the UK Responsible Person 
-                    or by submitting details of the cosmetics.
-            </p>
             
-            <h3 class="govuk-heading-m">Validate you are the UK Responsible Person</h1>
+            <h3 class="govuk-heading-m">Ask for a list of cosmetics notified before the UK left the EU</h3>
             <p>
                 <a href="/cosmetics/claim-existing/which-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
-                    Send an email to the EU Responsible Person so they can confirm {{ dataWithDefault({
-                        value: data['responsible-person-name'],
-                        default: 'Example responsible person'
-                    })}} is the UK Responsible Person
+                    Send an email requesting the EU Responsible Person to share a list products previously notified
                 </a>
             </p>
 
-            <h3 class="govuk-heading-m">Upload CPNP product files</h1>
+            <h3 class="govuk-heading-m govuk-!-margin-top-7">Upload CPNP product files</h1>
             <p>
                 To notify using a CPNP product files you need to:
-                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
                     <li><a href="#">Read instructions on how to export the correct CPNP files</a></li>
                     <li>Export each file from CPNP</li>
                     <li>Upload the files</li>
