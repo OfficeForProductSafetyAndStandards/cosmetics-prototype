@@ -6,6 +6,7 @@
 
 {% block content %}
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
+{% from "dataWithDefault.html" import dataWithDefault %}
     <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-quarter">
                     {{ sidebar({
@@ -30,17 +31,24 @@
             </p>
             {% endif %}
 
-            <h2 class="govuk-heading-l">Take responsibility for already notified cosmetics</h2>
+            <h2 class="govuk-heading-l">Take responsibility for cosmetics notified before the UK left the EU</h2>
             <p>
-                You can take responsibility for cosmetics notified to the EU by getting permission from the EU responsible person or submitting details of the cosmetics.
+                    Take responsibility for cosmetics notified before the UK left the EU, 
+                    by asking the EU Responsible Person to validate that {{ dataWithDefault({
+                        value: data['responsible-person-name'],
+                        default: 'Example responsible person'
+                    })}} is the UK Responsible Person 
+                    or by submitting details of the cosmetics.
             </p>
             
-            <h3 class="govuk-heading-m">Get permission from the EU Responsible Person</h1>
+            <h3 class="govuk-heading-m">Validate you are the UK Responsible Person</h1>
             <p>
-                To get permission, enter the email address of the EU Responsible Person you want to take responsibility of the products for, once they have accepted, confirm your responsibility.
-            </p>
-            <p>
-                <a href="/cosmetics/claim-existing/which-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Request permission for products previously notified to the EU</a>
+                <a href="/cosmetics/claim-existing/which-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
+                    Send an email to the EU Responsible Person so they can confirm {{ dataWithDefault({
+                        value: data['responsible-person-name'],
+                        default: 'Example responsible person'
+                    })}} is the UK Responsible Person
+                </a>
             </p>
 
             <h3 class="govuk-heading-m">Upload CPNP product files</h1>
