@@ -57,3 +57,26 @@ input.with-unit {
   margin-bottom: 0;
   color: govuk-colour("white");
 }
+
+.masthead-account-links {
+   p {
+    margin-left: 10px;
+    margin-top: 8px;
+    display: inline-block;
+    color: govuk-colour("white");
+    .banner-link {
+      color: white;
+    }
+   }
+  .banner-button {
+    background-color: white;
+    color: govuk-colour("blue");
+    font-weight: bold;
+    &:hover {
+      background-color: rgba(255,255,255,0.5);
+    }
+     &:focus {
+      background-color: rgba(255,255,255,0.5);
+    }
+  }
+}

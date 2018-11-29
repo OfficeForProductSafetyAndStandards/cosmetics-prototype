@@ -26,9 +26,17 @@
 			</div>
 			<div class="govuk-grid-column-two-thirds">
 				<h1 class="govuk-heading-xl app-masthead__title">Notify cosmetics</h1>
-				<p class="app-masthead__description">
-					A cosmetic can only be sold in the UK if there is a designated Responsible Person who ensures it complies with relevant regulation and notifies details of the cosmetic to the government.
+				<p class="app-masthead__description govuk-!-margin-bottom-5">
+					Notify the authorities of cosmetic products to sell them in the UK.
 				</p>
+        <div class='masthead-account-links'>
+          <a href="cosmetics/account/create-account" role="button" draggable="false" class="govuk-button banner-button">
+              Create an account
+          </a>
+          <p>
+            or <a href='/cosmetics/account/login' class='banner-link'>sign in</a> if you’ve used it before
+          </p>
+        </div>
 			</div>
 		</div>
 	</div>
@@ -40,32 +48,11 @@
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds">
-		<h1 class="govuk-heading-m">Responsible Person</h1>
-        <p>
-            The Responsible Person will be the manufacturer of the cosmetic, the organisation it’s manufactured for, or the importer of the cosmetic if it’s manufactured outside the UK. A Responsible Person can be an organisation or an individual. The Responsible Person must: 
-        </p>
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-            <li>ensure the cosmetic complies with relevant regulation</li>
-            <li>be based in the UK</li>
-        </ul>
-
-        <p class='govuk-!-margin-bottom-7'>
-            <a href="#">Read about being the ’Responsible Person’ for cosmetics.</a>
-        </p>
-
-        <h2 class="govuk-heading-l">Before you start</h2>
         <h3 class="govuk-heading-m">Cosmetics notified to the European Commission before the UK left the European Union</h1>
         <p>
             If a cosmetic was notified to the European Commission before the UK left the European Union, it can only
             continue to be sold in the UK if information about a new UK-based Responsible Person and the cosmetic
-            formulation is provided within 60 days of the UK leaving the European Union.
-        </p>
-        <p>
-            To make the process simpler, it is possible to reuse information provided to the European Commission for cosmetics that are also going on sale in the European Union. If the UK Responsible Person will be able to get dataaccess to information from the EU’s Cosmetic Products Notification Portal (CPNP) then the EU Responsible Personyou should submit the European notification firstbefore notifying the UK government.
-        </p>
-        <p class='govuk-!-margin-bottom-7'>
-            UK Responsible Persons can also provide this information manually. You’ll need to provide the cosmetic
-            product names and formulation data for each cosmetic.
+            formulation is provided within 90 days of the UK leaving the European Union.
         </p>
 
         <h3 class="govuk-heading-m">New cosmetics going on sale in the UK since the UK left the European Union</h1>
@@ -73,27 +60,6 @@
             New cosmetics must be notified to the UK government by the Responsible Person before being sold.
             Notification includes information about the cosmetic required for market surveillance and safety purposes.
         </p>
-        <p>
-            To make the process simpler, it is possible to reuse information provided to the European Commission for
-            cosmetics that are also going on sale in the European Union. If the UK Responsible Person will be able to
-            access to information from the EU’s Cosmetic Products Notification Portal (CPNP) then you should submit the
-            European notification before notifying the UK government.
-        </p>
-        <p>
-            <a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing">Find
-                out how to get cosmetic notification files from CPNP.</a>
-        </p>
-
-        <p>
-            UK Responsible Persons can also provide notification information manually. You will need:
-        </p>
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-            <li>the cosmetic name</li>
-            <li><a href="#">the formulation of the cosmetic</a></li>
-            <li><a href="#">an image of the cosmetic label</a></li>
-            <li><a href="#">a photo of the cosmetic packaging</a></li>
-        </ul>
-
         <h3 class="govuk-heading-m">Cosmetics containing nanomaterials</h1>
         <p>
             If a cosmetic contains nanomaterials not already explicitly approved for use in cosmetics, the
@@ -103,7 +69,7 @@
         <p>
             Intended use of nanomaterials that has already been notified to the European Commission does not need to
             be notified to the UK government, as long as a UK Responsible Person provides evidence of this
-            notification within 60 days of the UK leaving the European Union.
+            notification within 90 days of the UK leaving the European Union.
         </p>
         <p>
             Cosmetics containing nanomaterials not already explicitly approved for use may go on sale in the UK no
@@ -114,9 +80,9 @@
             <a href="#">Read about using nanomaterials in cosmetics.</a>
         </p>
 
-        <a href="/cosmetics/account/login" role="button" draggable="false" class="govuk-button govuk-button--start">
+        {# <a href="/cosmetics/account/login" role="button" draggable="false" class="govuk-button govuk-button--start">
             Start now
-        </a>
+        </a> #}
 	</div>
 </div>
 {% endblock %}
