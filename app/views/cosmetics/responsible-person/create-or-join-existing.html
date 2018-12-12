@@ -7,7 +7,25 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Do you want to create a new UK responsible person?</h1>
+            <h1 class="govuk-heading-xl">Do you want to create a new UK Responsible Person?</h1>
+            <p>
+                The Responsible Person will be either the:
+                <ul class="govuk-list govuk-list--bullet">
+                <li>manufacturer of the cosmetic</li>
+                <li>the organisation it is manufactured for</li>
+                <li>the importer of the cosmetic, if it is manufactured outside the UK</li>
+            </ul>
+            <p>
+                A Responsible Person can be an organisation or an individual. The Responsible Person must: 
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>ensure the cosmetic complies with relevant regulation</li>
+                <li>be based in the UK</li>
+            </ul>
+            <p class='govuk-!-margin-bottom-7'>
+                <a href="#">Read about being the ‘Responsible Person’ for cosmetic products <span class='no-wrap'>(opens in a new tab)</span>.</a>
+            </p>
+
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
