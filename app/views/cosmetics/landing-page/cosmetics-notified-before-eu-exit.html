@@ -1,81 +1,84 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
 {% endblock %}
 
 {% block content %}
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
 {% from "dataWithDefault.html" import dataWithDefault %}
-    <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-quarter">
-                    {{ sidebar({
-                        pageId: 'cosmetics-notified-before-eu-exit'
-                    })}}
-            </div>
-        <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-xl">Cosmetics notified before EU exit</h1>
-
-            <p>
-                {{ dataWithDefault({
-                        value: data['responsible-person-name'],
-                        default: 'Example responsible person'
-                })}}
-                can continue to sell cosmetics notified before the UK left the European Union (EU) by updating the cosmetic notifications with details about the UK Responsible Person.
-            </p>
-            <p>
-              You can update cosmetics notifications with your Responsible Person details by:
-            </p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    asking the Responsible Person who notified them before the UK left the EU to share a list of the cosmetics they notified with you
-                </li>
-                <li>
-                    submitting information about the cosmetics
-                </li>
-            </ul>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    {{ sidebar({
+      pageId: 'cosmetics-notified-before-eu-exit'
+    })}}
+  </div>
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">Cosmetic products on sale before Brexit</h1>
 
 
-            {% if data['EU-RP-has-confirmed'] == 'true' %}
-            <p>
-                <a href="/cosmetics/check-details-bulk" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
-                    View cosmetics ready to be confirmed
-                </a>
-            </p>
-            <p>
-                You have 108 ready to be confirmed
-            </p>
-            {% endif %}
-            
-            <h3 class="govuk-heading-m">Ask for a list of cosmetics notified before the UK left the EU</h3>
-            <p>
-                <a href="/cosmetics/claim-existing/which-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
-                    Send an email requesting the EU Responsible Person to share a list products previously notified
-                </a>
-            </p>
+    <p>
+      Cosmetic products on sale in the UK must have a UK Responsible Person.
+    </p>
+    <p>
+      {{ dataWithDefault({
+        value: data['responsible-person-name'],
+        default: 'Example responsible person'
+      })}}
+      can continue to sell cosmetics notified before Brexit by taking responsibility for those cosmetic products in the UK.
+    </p>
+    <p>
+      You can take responsibility by verifying responsibility or by providing information about the cosmetic products.
+    </p>
 
-            <h3 class="govuk-heading-m govuk-!-margin-top-7">Upload CPNP product files</h1>
-            <p>
-                To notify using a CPNP product files you need to:
-                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
-                    <li><a href="#">Read instructions on how to export the correct CPNP files</a></li>
-                    <li>Export each file from CPNP</li>
-                    <li>Upload the files</li>
-                    <li>Add formulation documents for all the cosmetics that have either the exact formulation or formulation ranges</li>
-                    <li>Confirm your responsibility</li>
-                </ul>
-            </p>
-            <p>
-                <a href="/cosmetics/import/upload-cpnp-file" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Upload CPNP product files</a>
-            </p>
 
-            <h3 class="govuk-heading-m">Notify each cosmetic manually</h1>
-            <p>
-                You can notify each product in a similar process to using CPNP.
-            </p>
-            <p>
-                <a href="/cosmetics/manual/product-name" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Notify a cosmetic</a>
-            </p>
-        </div>
+    <h3 class="govuk-heading-m govuk-!-margin-top-7">Verify responsbility with an EU Responsible Person</h3>
+
+    <p>
+      The simplest way to take responsbility is to ask the EU Responsible Person that notified those products before Brexit to verify your are the UK Responsible Person.
+    </p>
+    <p>
+      <a href="/cosmetics/claim-existing/which-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
+        Verify responsibility for cosmetics products notified before Brexit
+      </a>
+    </p>
+
+
+    {% if data['EU-RP-has-confirmed'] == 'true' %}
+    <p>
+      <a href="/cosmetics/check-details-bulk" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
+        View cosmetics ready to be confirmed
+      </a>
+    </p>
+    <p>
+      You have 108 ready to be confirmed
+    </p>
+    {% endif %}
+
+
+    <h3 class="govuk-heading-m govuk-!-margin-top-7">
+      Provide CPNP files for the products you want to take responsibility for
+    </h3>
+      <p>
+        To use files from a CPNP product files you need to:
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li><a href="#">read instructions on how to export the correct CPNP file</a></li>
+        <li>export each file from CPNP</li>
+        <li>upload the files</li>
+        <li>add formulation documents for all the cosmetics that weren’t notified with a frame formulation</li>
+      </ul>
+      <p>
+        <a href="/cosmetics/import/upload-cpnp-file" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Upload CPNP product files</a>
+      </p>
+
+      <h3 class="govuk-heading-m govuk-!-margin-top-7">Provide details of the cosmetic products manually</h1>
+        <p>
+          Give information about each product’s identity and ingredients.
+        </p>
+        <p>
+          <a href="/cosmetics/manual/product-name" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Provide details of a cosmetic product</a>
+        </p>
+      </div>
     </div>
-{% endblock %}
+    {% endblock %}
