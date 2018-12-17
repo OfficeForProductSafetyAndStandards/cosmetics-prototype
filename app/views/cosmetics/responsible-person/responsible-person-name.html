@@ -7,17 +7,14 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Name of the UK Responsible Person</h1>
+            <h1 class="govuk-heading-xl">Name of the <span class='no-wrap'>UK Responsible Person</span></h1>
 
             {% from "input/macro.njk" import govukInput %}
 
             <form action="/cosmetics/responsible-person/responsible-person-address" method="get">
                 {{ govukInput({
                 id: "responsible-person-name",
-                name: "responsible-person-name",
-                label: {
-                    text: "UK registered company name or full name of individual"
-                }
+                name: "responsible-person-name"
                 }) }}
 
                 {{ govukButton({

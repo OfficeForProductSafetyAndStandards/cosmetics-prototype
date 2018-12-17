@@ -9,21 +9,21 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Do you want to create a new UK Responsible Person?</h1>
             <p>
-                The Responsible Person will be either the:
+                The UK Responsible Person will be the:
                 <ul class="govuk-list govuk-list--bullet">
                 <li>manufacturer of the cosmetic</li>
-                <li>the organisation it is manufactured for</li>
-                <li>the importer of the cosmetic, if it is manufactured outside the UK</li>
+                <li>organisation it is manufactured for</li>
+                <li>importer of the cosmetic, if it is manufactured outside the UK</li>
             </ul>
             <p>
-                A Responsible Person can be an organisation or an individual. The Responsible Person must: 
+                A Responsible Person can be an organisation or an individual, they must: 
             </p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>ensure the cosmetic complies with relevant regulation</li>
                 <li>be based in the UK</li>
             </ul>
             <p class='govuk-!-margin-bottom-7'>
-                <a href="#">Read about being the ‘Responsible Person’ for cosmetic products <span class='no-wrap'>(opens in a new tab)</span>.</a>
+                <a href="#">Read about being the UK Responsible Persons for cosmetic products <span class='no-wrap'>(opens in a new tab)</span>.</a>
             </p>
 
             {% from "radio-route.html" import radioRoute %}
@@ -31,12 +31,12 @@
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Create an new UK Responsible Person",
                             value: "yes",
                             route: "/cosmetics/responsible-person/business-or-person"
                         },
                         {
-                            text: "No, join an existing UK Responsible Person",
+                            text: "Join a UK Responsible Person",
                             value: "planned",
                             route: "/cosmetics/responsible-person/join-existing"
                         }
