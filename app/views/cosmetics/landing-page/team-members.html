@@ -13,12 +13,11 @@
                 })}}
         </div>
         <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-xl">Team members</h1>
+            <h1 class="govuk-heading-l">Team members</h1>
             {% from "dataWithDefault.html" import dataWithDefault %}
             <p>
                 <a href="#" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Invite a colleague</a>
             </p>
-            <h1 class="govuk-heading-l">Accounts</h1>
             <table class="govuk-table">
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
@@ -37,15 +36,15 @@
                             {{ dataWithDefault({
                                 value: data['address-line-1'],
                                 default: 'Address line 1'
-                            })}}
+                            })}}<br>
                             {{ dataWithDefault({
                                 value: data['address-line-2'],
                                 default: 'Address line 2'
-                            })}}
+                            })}}<br>
                             {{ dataWithDefault({
                                 value: data['address-town-city'],
                                 default: 'Example Town'
-                            })}}
+                            })}}<br>
                             {{ dataWithDefault({
                                 value: data['address-county'],
                                 default: 'Example County'

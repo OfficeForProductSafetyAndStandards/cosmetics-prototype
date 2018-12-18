@@ -84,3 +84,7 @@ input.with-unit {
 .no-wrap {
   white-space: nowrap;
 }
+
+.govuk-table__row {
+  vertical-align: top !important;
+}

@@ -14,12 +14,8 @@
     })}}
   </div>
   <div class="govuk-grid-column-three-quarters">
-    <h1 class="govuk-heading-xl">Cosmetic products on sale before Brexit</h1>
+    <h1 class="govuk-heading-l">Take responsibility for cosmetic products on sale before Brexit</h1>
 
-
-    <p>
-      Cosmetic products on sale in the UK must have a UK Responsible Person.
-    </p>
     <p>
       {{ dataWithDefault({
         value: data['responsible-person-name'],
@@ -27,22 +23,6 @@
       })}}
       can continue to sell cosmetics notified before Brexit by taking responsibility for those cosmetic products in the UK.
     </p>
-    <p>
-      You can take responsibility by verifying responsibility or by providing information about the cosmetic products.
-    </p>
-
-
-    <h3 class="govuk-heading-m govuk-!-margin-top-7">Verify responsbility with an EU Responsible Person</h3>
-
-    <p>
-      The simplest way to take responsbility is to ask the EU Responsible Person that notified those products before Brexit to verify your are the UK Responsible Person.
-    </p>
-    <p>
-      <a href="/cosmetics/claim-existing/which-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
-        Verify responsibility for cosmetics products notified before Brexit
-      </a>
-    </p>
-
 
     {% if data['EU-RP-has-confirmed'] == 'true' %}
     <p>
@@ -57,14 +37,17 @@
 
 
     <h3 class="govuk-heading-m govuk-!-margin-top-7">
-      Provide CPNP files for the products you want to take responsibility for
+      If you have access to CPNP product files:
     </h3>
       <p>
-        To use files from a CPNP product files you need to:
+        You can upload zip files downloaded from CPNP to give product information.
+      </p>
+      <p>
+        To use zip files from a CPNP product files you need to:
       </p>
       <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
-        <li><a href="#">read instructions on how to export the correct CPNP file</a></li>
-        <li>export each file from CPNP</li>
+        <li><a href="#">read instructions on how to export the correct CPNP zip file</a></li>
+        <li>export each zip file from CPNP</li>
         <li>upload the files</li>
         <li>add formulation documents for all the cosmetics that weren’t notified with a frame formulation</li>
       </ul>
@@ -72,7 +55,9 @@
         <a href="/cosmetics/import/upload-cpnp-file" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Upload CPNP product files</a>
       </p>
 
-      <h3 class="govuk-heading-m govuk-!-margin-top-7">Provide details of the cosmetic products manually</h1>
+      <h3 class="govuk-heading-m govuk-!-margin-top-7">
+        If you don’t have access to CPNP product files:
+      </h3>
         <p>
           Give information about each product’s identity and ingredients.
         </p>
