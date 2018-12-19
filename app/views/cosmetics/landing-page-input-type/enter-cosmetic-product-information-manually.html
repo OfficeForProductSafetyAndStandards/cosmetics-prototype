@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% from "cosmetics/landing-page-input-type/sidebar.html" import sidebar %}
+{% from "dataWithDefault.html" import dataWithDefault %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    {{ sidebar({
+      pageId: 'enter-cosmetic-product-information-manually'
+    })}}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">
+      Register cosmetic products manually
+    </h1>
+
+    <p>
+      If your product will not be sold in the EU or you do not have access to files from CPNP, provide information about the cosmetic product manually.
+    </p>
+    <p>
+      For products on sale before Brexit, you do not need to provide information about carcinogenic mutagenic reprotoxic (cmr) substances or nano materials.
+    </p>
+
+    <button type="submit" class="govuk-button govuk-!-margin-top-4">
+      Register a cosmetic product
+    </button>
+
+{% endblock %}

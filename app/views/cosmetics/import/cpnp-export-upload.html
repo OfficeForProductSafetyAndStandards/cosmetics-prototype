@@ -7,9 +7,16 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Upload your CPNP notification file</h1>
+            <h1 class="govuk-heading-xl">Upload cosmetic product files from CPNP</h1>
 
-            <p><a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing">Find out how to get cosmetic notification files from CPNP.</a></p>
+            <p>
+                <a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing">
+                    Find out how to get cosmetic notification files from CPNP
+                </a>
+            </p>
+            <p>
+                You can upload as many files as you want.
+            </p>
 
             {% from "file-upload/macro.njk" import govukFileUpload %}
 
@@ -17,13 +24,13 @@
             id: "file-upload-1",
             name: "file-upload-1",
             label: {
-                text: "The file type must be a ‘.ZIP’ file."
+                text: "The file type must be a zip file."
             }
             }) }}
 
             {{ govukButton({
                 text: "Continue",
-                href: "/cosmetics/import/export-label-upload"
+                href: "bulk-upload-playback"
             }) }}
         </div>
     </div>

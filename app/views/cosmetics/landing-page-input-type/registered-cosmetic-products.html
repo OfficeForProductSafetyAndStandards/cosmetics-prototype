@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% from "cosmetics/landing-page-input-type/sidebar.html" import sidebar %}
+    <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter">
+                    {{ sidebar({
+                        pageId: 'registered-cosmetic-products'
+                    })}}
+            </div>
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-xl">Registered cosmetic products</h1>
+            <p>
+                No cosmetics notified.
+            </p>
+        </div>
+    </div>
+{% endblock %}

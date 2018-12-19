@@ -85,6 +85,14 @@ input.with-unit {
   white-space: nowrap;
 }
 
+
+.govuk-table {
+  table-layout: fixed;
+}
 .govuk-table__row {
   vertical-align: top !important;
+}
+
+.success-summary {
+  border-color: govuk-colour("green");
 }

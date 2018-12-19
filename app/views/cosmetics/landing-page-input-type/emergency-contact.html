@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% from "cosmetics/landing-page/sidebar.html" import sidebar %}
+    <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter">
+                    {{ sidebar({
+                        pageId: 'emergency-contact'
+                    })}}
+            </div>
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-xl">Contact person</h1>
+            {% from "dataWithDefault.html" import dataWithDefault %}
+            <p>
+                <a href="#" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Add a new emergency contact</a>
+            </p>
+            <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Name</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['contact-person-name'],
+                                default: 'Example contact person'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Address</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['address-line-1'],
+                                default: 'Address line 1'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-line-2'],
+                                default: 'Address line 2'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-town-city'],
+                                default: 'Example Town'
+                            })}}
+                            {{ dataWithDefault({
+                                value: data['address-county'],
+                                default: 'Example County'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Email Address</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['contact-person-email'],
+                                default: 'example@example.com'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">Phone Number</th>
+                        <td class="govuk-table__cell">
+                            {{ dataWithDefault({
+                                value: data['contact-person-phone'],
+                                default: '0700000000'
+                            })}}
+                        </td>
+                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

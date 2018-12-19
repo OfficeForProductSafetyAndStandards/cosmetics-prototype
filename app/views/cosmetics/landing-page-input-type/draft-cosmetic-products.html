@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+{% from "cosmetics/landing-page-input-type/sidebar.html" import sidebar %}
+{% from "dataWithDefault.html" import dataWithDefault %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    {{ sidebar({
+      pageId: 'draft-cosmetic-products'
+    })}}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">
+      Draft cosmetic products
+    </h1>
+
+    <p>
+        No draft cosmetic products.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

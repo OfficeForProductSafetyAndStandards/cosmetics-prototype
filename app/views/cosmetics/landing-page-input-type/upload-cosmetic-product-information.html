@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+{% from "cosmetics/landing-page-input-type/sidebar.html" import sidebar %}
+{% from "dataWithDefault.html" import dataWithDefault %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    {{ sidebar({
+      pageId: 'upload-cosmetic-product-information'
+    })}}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">
+      Register cosmetic products by uploading CPNP zip files 
+    </h1>
+
+    <p>
+      The simplest way to provide cosmetic product information is to upload zip files exported from CPNP.
+    </p>
+
+    <h2 class='govuk-heading-m'>
+      How to upload a zip file from CPNP
+    </h2>
+    <ol class='govuk-list govuk-list--number'>
+      <li>
+        export your zip files from CPNP, <a href='#'>read how to export a CPNP zip file</a>
+      </li>
+      <li>
+        upload your zip files, upload as many at once as you like
+      </li>
+      <li>
+        add formulation information for any files that had formulation information attached as a separate document on CPNP
+      </li>
+      <li>
+        add images of the packaging
+      </li>
+      <li>
+        confirm responsibility
+      </li>
+    </ol>
+    <p>
+      The process is the same for claiming responsibility for products on sale before brexit and new products.
+    </p>
+
+    <a href="/cosmetics/import/cpnp-export-upload" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4">
+     Register cosmetic products
+    </a>
+
+    {% endblock %}

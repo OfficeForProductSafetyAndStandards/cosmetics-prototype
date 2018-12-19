@@ -1,0 +1,46 @@
+{% macro sidebar(options) %}
+
+{% set pages = [
+    {
+        title: 'Upload products',
+        url: '/cosmetics/landing-page-input-type/upload-cosmetic-product-information',
+        id: 'upload-cosmetic-product-information'
+    },    
+    {
+        title: 'Enter products manually',
+        url: '/cosmetics/landing-page-input-type/enter-cosmetic-product-information-manually',
+        id: 'enter-cosmetic-product-information-manually'
+    },
+    {
+        title: 'Draft products',
+        url: '/cosmetics/landing-page-input-type/draft-cosmetic-products',
+        id: 'draft-cosmetic-products'
+    },
+    {
+        title: 'Registered products',
+        url: '/cosmetics/landing-page-input-type/registered-cosmetic-products',
+        id: 'registered-cosmetic-products'
+    },
+    {
+        title: 'Responsible Person',
+        url: '/cosmetics/landing-page-input-type/responsible-person',
+        id: 'responsible-person'
+    },
+    {
+        title: 'Team members',
+        url: '/cosmetics/landing-page-input-type/team-members',
+        id: 'team-members'
+    }
+    ] 
+%}
+
+{% for page in pages %}
+<a 
+    href={{page.url}} 
+    class="{{'sidebar-link-selected' if options.pageId === page.id else 'sidebar-link'}}"
+>
+    {{ page.title }}
+</a>
+{% endfor %}
+
+{% endmacro %}
