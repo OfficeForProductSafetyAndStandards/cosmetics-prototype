@@ -18,20 +18,21 @@
                 You can upload as many files as you want.
             </p>
 
-            {% from "file-upload/macro.njk" import govukFileUpload %}
+            <form action="/cosmetics/landing-page-input-type/draft-cosmetic-products" method="get">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="file-upload-1">
+                    Upload a file
+                  </label>
+                  <input class="govuk-file-upload" id="cpnp-upload" name="cpnp-upload" type="file" multiple>
+                </div>
 
-            {{ govukFileUpload({
-            id: "file-upload-1",
-            name: "file-upload-1",
-            label: {
-                text: "The file type must be a zip file."
-            }
-            }) }}
+                {% from "button/macro.njk" import govukButton %}
 
-            {{ govukButton({
-                text: "Continue",
-                href: "bulk-upload-playback"
-            }) }}
+                {{ govukButton({
+                    text: "Upload"
+                }) }}
+
+            </form>
         </div>
     </div>
 {% endblock %}

@@ -18,9 +18,42 @@
       Draft cosmetic products
     </h1>
 
+    {% if data['cpnp-upload'] %}
     <p>
-        No draft cosmetic products.
+        {{ data['cpnp-upload'] | length }} draft cosmetic products.
     </p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Product name</th>
+          <th class="govuk-table__header" scope="col">UK cosmetic product number</th>
+          <th class="govuk-table__header" scope="col">CPNP reference</th>
+          <th class="govuk-table__header" scope="col">Missing information</th>
+          <th class="govuk-table__header" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for item in data['cpnp-upload'] %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">{{ item }}</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£85</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>
+      <strong>
+      {{ dataWithDefault({
+          value: data['responsible-person-name'],
+          default: 'Example responsible person'
+      })}}
+      </strong> has no incomplete cosmetic products.
+    </p>
+    {% endif %}
   </div>
 </div>
 
