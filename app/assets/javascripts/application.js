@@ -10,3 +10,11 @@ $(document).ready(function () {
 })
 
 
+$(document).ready(function () {
+
+  var exampleNumber = function() {
+    return  Math.floor((Math.random() * 100000) + 1);
+  }
+  $(".ukCosmeticNumber").html(exampleNumber);
+
+})

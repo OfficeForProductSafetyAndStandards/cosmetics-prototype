@@ -1,23 +1,50 @@
 {% extends "layout.html" %}
 
-{% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/cosmetics",
+    containerClasses: "govuk-width-container"
+  }) }}
+  {% from "phase-banner/macro.njk" import govukPhaseBanner %}
+  <div class="govuk-width-container">  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class='nav govuk-!-padding-top-2'>
+          {% from "dataWithDefault.html" import dataWithDefault %}
+          <h4 class='govuk-heading-s'>
+            {{ dataWithDefault({
+                    value: data['responsible-person-name'],
+                    default: 'Example responsible person'
+                })}}
+          </h4>
+          <p></p>
+          <span class='nav-menu'>
+            {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
+            {{ sidebar({
+                pageId: 'responsible-person'
+            })}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block content %}
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-quarter">
-                {{ sidebar({
-                    pageId: 'responsible-person'
-                })}}
-        </div>
         <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-l">Responsible Person</h1>
-            {% from "dataWithDefault.html" import dataWithDefault %}
+            <h1 class="govuk-heading-xl">Responsible Person</h1>
             <p>
-                <a href="#" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Add a new responsible person</a>
+                <a href='responsible-person-list' class='govuk-link--no-visited-state'>Change Responsible Person</a>
             </p>
+        </div>
+            {% from "dataWithDefault.html" import dataWithDefault %}
+        <div class='govuk-grid-column-full'>
             <table class="govuk-table">
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
@@ -36,15 +63,15 @@
                             {{ dataWithDefault({
                                 value: data['address-line-1'],
                                 default: 'Address line 1'
-                            })}}
+                            })}}<br>
                             {{ dataWithDefault({
                                 value: data['address-line-2'],
                                 default: 'Address line 2'
-                            })}}
+                            })}}<br>
                             {{ dataWithDefault({
                                 value: data['address-town-city'],
                                 default: 'Example Town'
-                            })}}
+                            })}}<br>
                             {{ dataWithDefault({
                                 value: data['address-county'],
                                 default: 'Example County'
@@ -74,9 +101,6 @@
                     </tr>
                 </tbody>
             </table>
-            <p>
-                <a href="/cosmetics/delete-responsible-person" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Delete responsible person</a>
-            </p>
         </div>
     </div>
 {% endblock %}

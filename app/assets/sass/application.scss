@@ -81,14 +81,40 @@ input.with-unit {
   }
 }
 
+.nav {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $govuk-text-colour;
+  h4 {
+    float: left;
+    padding-right: 10px;
+  }
+  a {
+    float: left;
+    text-decoration: none;
+  }
+  .nav-menu {
+    float: right;
+    display: inline-block;
+    margin-top: -20px;
+  }
+}
+
+.fixed-width-table {
+  table-layout: fixed;
+  table-wi
+  td {
+    width: 20%;
+  }
+}
+
 .no-wrap {
   white-space: nowrap;
 }
 
-
-.govuk-table {
-  table-layout: fixed;
+.capitalize {
+  text-transform: capitalize;
 }
+
 .govuk-table__row {
   vertical-align: top !important;
 }

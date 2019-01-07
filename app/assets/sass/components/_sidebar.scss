@@ -1,9 +1,11 @@
 .sidebar-link {
     @extend .govuk-link--no-visited-state, .govuk-heading-s, .govuk-\!-font-weight-regular;
     text-decoration: none;
+    padding-left: 20px;
 }
 
 .sidebar-link-selected {
     @extend .govuk-link--no-visited-state, .govuk-heading-s, .govuk-\!-font-weight-bold;
     text-decoration: none;
+    padding-left: 20px;
 }

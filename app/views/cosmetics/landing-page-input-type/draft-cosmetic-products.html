@@ -19,27 +19,35 @@
     </h1>
 
     {% if data['cpnp-upload'] %}
-    <p>
-        {{ data['cpnp-upload'] | length }} draft cosmetic products.
-    </p>
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th class="govuk-table__header" scope="col">Product name</th>
           <th class="govuk-table__header" scope="col">UK cosmetic product number</th>
           <th class="govuk-table__header" scope="col">CPNP reference</th>
-          <th class="govuk-table__header" scope="col">Missing information</th>
+          <th class="govuk-table__header" scope="col">Files needed</th>
           <th class="govuk-table__header" scope="col"></th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         {% for item in data['cpnp-upload'] %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell" scope="row">{{ item }}</th>
-            <td class="govuk-table__cell govuk-table__cell--numeric">£85</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
+            <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item }}</span></th>
+            <td class="govuk-table__cell">
+              UKCP-<span class='ukCosmeticNumber'></span>
+            </td>
+            <td class="govuk-table__cell"><span class='ukCosmeticNumber'></span></td>
+            <td class="govuk-table__cell">
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>
+                  Formulation
+                </li>
+                <li>
+                  Packaging image
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href='#'>Upload</a></td>
           </tr>
         {% endfor %}
       </tbody>

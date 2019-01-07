@@ -7,19 +7,21 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Do you have CPNP cosmetic products files?</h1>
+            <h1 class="govuk-heading-xl">
+                Have the cosmetic products been notified on the <span class='no-wrap'>EU CPNP</span>?
+            </h1>
             <p>
-                To make registering a cosmetic product as simple as possible, use the product notification files from the EU Cosmetic Product Notification Portal (CPNP). CPNP product files can be exported as a zip file. <a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing">Find out how to get cosmetic notification files from CPNP.</a>
+                To make registering a cosmetic product as simple as possible, you can use product notification files from the EU Cosmetic Product Notification Portal (CPNP).
             </p>
             <p>
-                If you don’t have acces to the CPNP or won’t be selling the product in the EU you can complete cosmetic product registration manually.
+                If you don’t have acces to CPNP or won’t be selling the product in the EU, complete cosmetic product registration manually.
             </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Yes, they are notified on CPNP",
                             value: "true",
                             route: "/cosmetics/import/cpnp-export-upload"
                         },

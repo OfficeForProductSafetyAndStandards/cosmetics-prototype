@@ -1,9 +1,5 @@
 {% extends "layout.html" %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
-{% endblock %}
-
 {% block content %}
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
 {% from "dataWithDefault.html" import dataWithDefault %}
@@ -14,7 +10,9 @@
     })}}
   </div>
   <div class="govuk-grid-column-three-quarters">
-    <h1 class="govuk-heading-l">Take responsibility for cosmetic products on sale before Brexit</h1>
+    <h1 class="govuk-heading-xl">
+      Take responsibility for cosmetic products on sale before Brexit
+    </h1>
 
     <p>
       {{ dataWithDefault({
@@ -24,46 +22,11 @@
       can continue to sell cosmetics notified before Brexit by taking responsibility for those cosmetic products in the UK.
     </p>
 
-    {% if data['EU-RP-has-confirmed'] == 'true' %}
-    <p>
-      <a href="/cosmetics/check-details-bulk" class="govuk-!-font-weight-bold govuk-link--no-visited-state">
-        View cosmetics ready to be confirmed
-      </a>
-    </p>
-    <p>
-      You have 108 ready to be confirmed
-    </p>
-    {% endif %}
+    <a href="/cosmetics/import/check-access-to-file" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4">
+      Take responsibility for cosmetic products
+    </a>
 
+  </div>
+</div>
 
-    <h3 class="govuk-heading-m govuk-!-margin-top-7">
-      If you have access to CPNP product files:
-    </h3>
-      <p>
-        You can upload zip files downloaded from CPNP to give product information.
-      </p>
-      <p>
-        To use zip files from a CPNP product files you need to:
-      </p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
-        <li><a href="#">read instructions on how to export the correct CPNP zip file</a></li>
-        <li>export each zip file from CPNP</li>
-        <li>upload the files</li>
-        <li>add formulation documents for all the cosmetics that weren’t notified with a frame formulation</li>
-      </ul>
-      <p>
-        <a href="/cosmetics/import/upload-cpnp-file" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Upload CPNP product files</a>
-      </p>
-
-      <h3 class="govuk-heading-m govuk-!-margin-top-7">
-        If you don’t have access to CPNP product files:
-      </h3>
-        <p>
-          Give information about each product’s identity and ingredients.
-        </p>
-        <p>
-          <a href="/cosmetics/manual/product-name" class="govuk-!-font-weight-bold govuk-link--no-visited-state">Provide details of a cosmetic product</a>
-        </p>
-      </div>
-    </div>
-    {% endblock %}
+{% endblock %}
