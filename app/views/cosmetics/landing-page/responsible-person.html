@@ -40,7 +40,8 @@
         <div class="govuk-grid-column-three-quarters">
             <h1 class="govuk-heading-xl">Responsible Person</h1>
             <p>
-                <a href='responsible-person-list' class='govuk-link--no-visited-state'>Change Responsible Person</a>
+                {# If there is more than 1 responsible person the like should say "Switch Responsible Person" #}
+                <a href='responsible-person-list' class='govuk-link--no-visited-state'>Add a Responsible Person</a>
             </p>
         </div>
             {% from "dataWithDefault.html" import dataWithDefault %}
@@ -55,7 +56,11 @@
                                 default: 'Example responsible person'
                             })}}
                         </td>
-                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <a href='#' class='govuk-link--no-visited-state'>
+                                Edit
+                            </a>
+                        </td>
                     </tr>
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Address</th>
@@ -77,7 +82,11 @@
                                 default: 'Example County'
                             })}}
                         </td>
-                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <a href='#' class='govuk-link--no-visited-state'>
+                                Edit
+                            </a>
+                        </td>
                     </tr>
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Email Address</th>
@@ -87,7 +96,11 @@
                                 default: 'example@example.com'
                             })}}
                         </td>
-                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <a href='#' class='govuk-link--no-visited-state'>
+                                Edit
+                            </a>
+                        </td>
                     </tr>
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Phone Number</th>
@@ -97,7 +110,11 @@
                                 default: '0700000000'
                             })}}
                         </td>
-                        <td class="govuk-table__cell"><a href='#'>Edit</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <a href='#' class='govuk-link--no-visited-state'>
+                                Edit
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

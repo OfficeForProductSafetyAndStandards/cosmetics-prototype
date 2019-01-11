@@ -101,10 +101,13 @@ input.with-unit {
 
 .fixed-width-table {
   table-layout: fixed;
-  table-wi
   td {
     width: 20%;
   }
+}
+
+.not-error-override {
+  border-color: govuk-colour("blue") !important;
 }
 
 .no-wrap {
@@ -121,4 +124,35 @@ input.with-unit {
 
 .success-summary {
   border-color: govuk-colour("green");
+}
+
+.active {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: $govuk-text-colour;
+  display: inline-block;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in, ease-in-out;
+  animation-duration: 1.8s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.width-one-sixth {
+  width: 16.666% !important;
 }

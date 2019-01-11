@@ -2,135 +2,216 @@
 {% from "dataWithDefault.html" import dataWithDefault %}
 
 {% block header %}
+
 {% include "includes/cookie-banner.html" %}
 {# Set serviceName in config.js. #}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/cosmetics",
-    containerClasses: "govuk-width-container"
-  }) }}
-  {% from "phase-banner/macro.njk" import govukPhaseBanner %}
-  <div class="govuk-width-container">  
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <div class='nav govuk-!-padding-top-2'>
-          {% from "dataWithDefault.html" import dataWithDefault %}
-          <h4 class='govuk-heading-s'>
-            {{ dataWithDefault({
-                    value: data['responsible-person-name'],
-                    default: 'Example responsible person'
-                })}}
-          </h4>
-          <p></p>
-          <span class='nav-menu'>
-            {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
-            {{ sidebar({
-                        pageId: 'notified-cosmetics'
-                    })}}
-          </span>
-        </div>
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/cosmetics",
+  containerClasses: "govuk-width-container"
+}) }}
+{% from "phase-banner/macro.njk" import govukPhaseBanner %}
+<div class="govuk-width-container">  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class='nav govuk-!-padding-top-2'>
+        {% from "dataWithDefault.html" import dataWithDefault %}
+        <h4 class='govuk-heading-s'>
+          {{ dataWithDefault({
+            value: data['responsible-person-name'],
+            default: 'Example responsible person'
+          })}}
+        </h4>
+        <p></p>
+        <span class='nav-menu'>
+          {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
+          {{ sidebar({
+            pageId: 'notified-cosmetics'
+          })}}
+        </span>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}
 
 {% block content %}
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Cosmetic products</h1>
-        </div>
-          <div class="govuk-grid-column-two-thirds">
-        {% if not data['cpnp-upload'] %}
-            <p>
-              <strong>
-              {{ dataWithDefault({
-                  value: data['responsible-person-name'],
-                  default: 'Example responsible person'
-              })}}
-              </strong> has no cosmetic products registered in the UK.
-            </p>
-            {% endif %}
-            <p>
-              All new cosmetic products must be registered before being sold in the UK.
-            </p>
-            <p>
-              To continue selling cosmetic products registered before Brexit, take responsibility as the UK Responsible Person before Thursday, 27 June 2019.
-            </p>
-          </div>
-          <div class="govuk-grid-column-two-thirds">
-            <a href="/cosmetics/import/check-cpnp" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4">
-              Add cosmetic products
-            </a>
-          </div>
-        </div>
-          {% if data['cpnp-upload'] %}
-            {% set draftCosmeticProducts %} 
-             <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full">
-              <h2 class="govuk-heading-l">Draft cosmetic products</h2>
-               <table class="govuk-table fixed-width-table">
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Product name</th>
-                    <th class="govuk-table__header" scope="col">UK cosmetic product number</th>
-                    <th class="govuk-table__header" scope="col">CPNP reference number</th>
-                    <th class="govuk-table__header" scope="col">CPNP Upload date</th>
-                    <th class="govuk-table__header" scope="col">Required files</th>
-                    <th class="govuk-table__header" scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                  {% for item in data['cpnp-upload'] %}
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item }}</span></th>
-                      <td class="govuk-table__cell">
-                        UKCP-<span class='ukCosmeticNumber'></span>
-                      </td>
-                      <td class="govuk-table__cell"><span class='ukCosmeticNumber'></span></td>
-                      <td class="govuk-table__cell"><span class='cpnpDate'></span></td>
-                      <td class="govuk-table__cell">
-                        <ul class='govuk-list'>
-                          <li>
-                            <a href='#' class='govuk-link--no-visited-state'>Formulation</a>
-                          </li>
-                          <li>
-                            <a href='#' class='govuk-link--no-visited-state'>Packaging image</a>
-                          </li>
-                        </ul>
-                      </td>
-                      <td class="govuk-table__cell govuk-table__cell--numeric"><a href='#' class='govuk-link--no-visited-state'>View</a></td>
-                    </tr>
-                  {% endfor %}
-                  {# Last child shouldn't have a bottom border #}
-                </tbody>
-              </table>
-              {% endset -%}
-
-              {% set registeredCosmeticProducts %}
-              <h2 class="govuk-heading-l">Registered cosmetic products</h2>
-              {% endset -%}
-
-              {{ govukTabs({
-                items: [
-                  {
-                    label: "Draft",
-                    id: "draft-cosmetic-products",
-                    panel: {
-                      html: draftCosmeticProducts
-                    }
-                  },
-                  {
-                    label: "Registered",
-                    id: "registered-cosmetic-products",
-                    panel: {
-                      html: registeredCosmeticProducts
-                    }
-                  }
-                ]
-              }) }}
-            {% endif %}
-        </div>
+<div class="govuk-grid-row">
+  {% if data['cpnp-upload'] %}
+  <div class='govuk-grid-column-full'>
+    <div class="govuk-error-summary not-error-override" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        <span class='active'></span> Checking {{ data['cpnp-upload'] | length }} product files
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list">
+          <a href="#" class='govuk-link--no-visited-state'>Refresh the browser to see uploaded product files</a>
+        </ul>
+      </div>
     </div>
+  </div>
+  {% endif %}
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Cosmetic products</h1>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    {% if not data['cpnp-upload'] %}
+    <p>
+      <strong>
+        {{ dataWithDefault({
+          value: data['responsible-person-name'],
+          default: 'Example responsible person'
+        })}}
+      </strong> has no cosmetic products registered in the UK.
+    </p>
+    {% endif %}
+    <p>
+      All new cosmetic products must be registered before being sold in the UK.
+    </p>
+    <p>
+      To continue selling cosmetic products registered before Brexit, take responsibility as the UK Responsible Person before Thursday, 27 June 2019.
+    </p>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/cosmetics/import/check-cpnp" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4">
+      Add cosmetic products
+    </a>
+  </div>
+</div>
+{% if data['cpnp-upload'] %}
+
+{% set errorCosmeticProducts %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
+    <h2 class="govuk-heading-l">
+      Files that failed to upload
+    </h2>
+    <a href='#' class='govuk-link--no-visited-state'>
+      Dismiss all errors
+    </a>
+  </div>
+  <div class='govuk-grid-column-full'>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">
+            Product name
+          </th>
+          <th class="govuk-table__header" scope="col">
+            Reason for failure
+          </th>
+          <th class="govuk-table__header" scope="col">
+          </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for item in data['cpnp-upload'] %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+              {{ item }}
+          </td>
+          <td class="govuk-table__cell">
+            ¯\_(ツ)_/¯
+          </td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href='#' class='govuk-link--no-visited-state'>
+              Dismiss
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endset -%}
+
+
+{% set draftCosmeticProducts %} 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Draft cosmetic products</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header govuk-!-width-one-third" scope="col">Product name</th>
+          <th class="govuk-table__header width-one-sixth" scope="col">UK cosmetic product number</th>
+          <th class="govuk-table__header width-one-sixth" scope="col">CPNP reference number</th>
+          <th class="govuk-table__header width-one-sixth" scope="col">CPNP first notification date</th>
+          <th class="govuk-table__header width-one-sixth" scope="col">Required files</th>
+          <th class="govuk-table__header width-one-sixth" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for item in data['cpnp-upload'] %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item }}</span></th>
+            <td class="govuk-table__cell">
+              UKCP-<span class='ukCosmeticNumber'></span>
+            </td>
+            <td class="govuk-table__cell"><span class='ukCosmeticNumber'></span></td>
+            <td class="govuk-table__cell">
+              <span class='cpnpDay'></span>/0<span class='cpnpMonth'></span>/<span class='cpnpYear'></span>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class='govuk-list'>
+                <li>
+                  Formulation
+                </li>
+                <li>
+                  Packaging image
+                </li>
+                <li>
+                  <a href='/cosmetics/import/formulation-upload' class='govuk-link--no-visited-state'>Add files</a>
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href='#' class='govuk-link--no-visited-state'>
+                Edit
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+          {# Last child shouldn't have a bottom border #}
+        </tbody>
+      </table>
+      {% endset -%}
+
+      {% set registeredCosmeticProducts %}
+      <h2 class="govuk-heading-l">Registered cosmetic products</h2>
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+        {
+          label: "Errors",
+          id: "error-cosmetic-products",
+          panel: {
+          html: errorCosmeticProducts
+        }
+      },
+        {
+          label: "Draft",
+          id: "draft-cosmetic-products",
+          panel: {
+          html: draftCosmeticProducts
+        }
+      },
+      {
+        label: "Registered",
+        id: "registered-cosmetic-products",
+        panel: {
+        html: registeredCosmeticProducts
+      }
+    }
+    ]
+  }) }}
+  {% endif %}
+</div>
+</div>
 {% endblock %}

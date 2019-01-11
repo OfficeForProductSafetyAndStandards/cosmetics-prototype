@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/import/cpnp-export-upload">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Upload cosmetic product ingredients list
+            </h1>
+
+            <p>
+               This can be either as ranges or the exact concentrataion.
+           </p>
+           <p>
+               For each ingredient give the ‘International Nomenclature of Cosmetic Ingredients’ name.
+            </p>
+
+            {% set listEntryHtml %}
+                {% from "file-upload/macro.njk" import govukFileUpload %}
+
+                {{ govukFileUpload({
+                    id: "file-upload-1",
+                    name: "file-upload-1",
+                    label: {
+                        text: "The file must be a ‘jpg’, ‘pdf’ ‘png’, or ‘svg’ and no larger than 1gb."
+                    }
+                }) }}
+            {% endset %}
+
+            {% from "file-upload/macro.njk" import govukFileUpload %}
+
+            {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "file-upload-1",
+            label: {
+                text: "FIle type can be a ‘pdf', 'rtf' or ‘txt’."
+            }
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/cosmetics/import/export-label-upload"
+            }) }}
+        </div>
+    </div>
+{% endblock %}

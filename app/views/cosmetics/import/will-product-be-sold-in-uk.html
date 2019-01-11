@@ -8,27 +8,24 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">
-                Have the cosmetic products been notified on the <span class='no-wrap'>EU CPNP</span>?
+                Will these cosmetic products be sold in the EU?
             </h1>
             <p>
-                To make registering a cosmetic product as simple as possible, you can use product notification files from the EU Cosmetic Product Notification Portal (CPNP).
-            </p>
-            <p>
-                If you don’t have acces to CPNP or won’t be selling the product in the EU, complete cosmetic product registration manually.
+                If your cosmetic products are on sale in both the EU and UK, complete the notification on CPNP first and use the CPNP zip file to make registration in the UK simpler.
             </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, they are notified on CPNP",
+                            text: "Yes, the will be sold in the EU",
                             value: "true",
-                            route: "/cosmetics/import/check-access-to-files"
+                            route: "/cosmetics/import/cpnp-advice"
                         },
                         {
                             text: "No",
                             value: "false",
-                            route: "/cosmetics/import/will-product-be-sold-in-eu"
+                            route: "/cosmetics/manual/product-name"
                         }
                     ],
                     name: "notified-to-eu"

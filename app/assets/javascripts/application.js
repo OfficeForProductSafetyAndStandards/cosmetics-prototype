@@ -18,3 +18,17 @@ $(document).ready(function () {
   $(".ukCosmeticNumber").html(exampleNumber)
 
 })
+
+
+$(document).ready(function () {
+  
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
+  $(".cpnpDay").html(getRandomInt(1, 28));
+  $(".cpnpMonth").html(getRandomInt(1, 9));
+  $(".cpnpYear").html(getRandomInt(14, 18));
+})
