@@ -31,6 +31,24 @@ router.get('/cosmetics/responsible-person-entered', function(req, res) {
   res.redirect('/cosmetics/responsible-person/check-rp-email')
 })
 
+router.get('/cosmetics/import/cpnp-export-upload', function(req, res) {
+  req.session.data['refresh-count'] = 0
+  res.render('cosmetics/import/cpnp-export-upload');
+})
+
+router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
+  req.params = {};
+  if (typeof(req.session.data['cpnp-upload']) === 'string') {
+    req.session.data['cpnp-upload'] = [req.session.data['cpnp-upload']]
+  }
+
+  if (!req.session.data['refresh-count']) {
+    req.session.data['refresh-count'] = 0
+  }
+  req.session.data['refresh-count']++
+  res.render('cosmetics/landing-page/notified-cosmetics');
+})
+
 // Stores a list of the components in the session cookie.
 router.post('/cosmetics/list-components', function(req, res) {
   var components = Object.keys(req.session.data)

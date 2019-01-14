@@ -39,7 +39,7 @@
 {% block content %}
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
 <div class="govuk-grid-row">
-  {% if data['cpnp-upload'] %}
+  {% if data['cpnp-upload'] and (data['refresh-count'] < 2) %}
   <div class='govuk-grid-column-full'>
     <div class="govuk-error-summary not-error-override" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
       <h2 class="govuk-error-summary__title" id="error-summary-title">
@@ -47,7 +47,7 @@
       </h2>
       <div class="govuk-error-summary__body">
         <ul class="govuk-list">
-          <a href="#" class='govuk-link--no-visited-state'>Refresh the browser to see uploaded product files</a>
+          <a href="/cosmetics/landing-page/notified-cosmetics" class='govuk-link--no-visited-state'>Refresh the browser to see uploaded product files</a>
         </ul>
       </div>
     </div>
@@ -71,7 +71,7 @@
       All new cosmetic products must be registered before being sold in the UK.
     </p>
     <p>
-      To continue selling cosmetic products registered before Brexit, take responsibility as the UK Responsible Person before Thursday, 27 June 2019.
+      To continue selling cosmetic products registered before Brexit, take responsibility as the UK Responsible Person before Thursday, 27 June 2019 by adding the cosmetic products here.
     </p>
   </div>
   <div class="govuk-grid-column-two-thirds">
@@ -80,7 +80,7 @@
     </a>
   </div>
 </div>
-{% if data['cpnp-upload'] %}
+{% if data['cpnp-upload'] and (data['refresh-count'] >= 2) %}
 
 {% set errorCosmeticProducts %}
 

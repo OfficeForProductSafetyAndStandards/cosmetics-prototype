@@ -28,7 +28,13 @@ $(document).ready(function () {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
 
-  $(".cpnpDay").html(getRandomInt(1, 28));
-  $(".cpnpMonth").html(getRandomInt(1, 9));
-  $(".cpnpYear").html(getRandomInt(14, 18));
+  var dateNumber = function(min, max) {
+    return function() {
+      return getRandomInt(min, max);
+    }
+  }
+
+  $(".cpnpDay").html(dateNumber(10, 28));
+  $(".cpnpMonth").html(dateNumber(1, 9));
+  $(".cpnpYear").html(dateNumber(14, 18));
 })
