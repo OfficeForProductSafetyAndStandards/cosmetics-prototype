@@ -49,6 +49,7 @@ router.get('/cosmetics/upload', function(req, res) {
     if (i % 2) {
       // Add file to errors list
       req.session.data['error-uploads'].push({
+        id: i,
         filename: req.session.data['cpnp-upload'][i],
         reason: getRandomErrorReason()
       })
@@ -75,6 +76,13 @@ router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
   }
   req.session.data['refresh-count']++
   res.render('cosmetics/landing-page/notified-cosmetics');
+})
+
+router.get('/cosmetics/dismiss-error/:id', function(req, res) {
+  req.session.data['error-uploads'] = req.session.data['error-uploads']
+    .filter(error => error.id != req.params['id'])
+
+  res.redirect('/cosmetics/landing-page/notified-cosmetics');
 })
 
 // Stores a list of the components in the session cookie.
