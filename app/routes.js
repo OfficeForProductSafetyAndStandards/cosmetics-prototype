@@ -36,11 +36,17 @@ router.get('/cosmetics/import/cpnp-export-upload', function(req, res) {
   res.render('cosmetics/import/cpnp-export-upload');
 })
 
-router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
+router.get('/cosmetics/upload', function(req, res) {
   req.params = {};
   if (typeof(req.session.data['cpnp-upload']) === 'string') {
     req.session.data['cpnp-upload'] = [req.session.data['cpnp-upload']]
   }
+
+  res.redirect('/cosmetics/landing-page/notified-cosmetics');
+})
+
+router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
+  req.params = {};
 
   if (!req.session.data['refresh-count']) {
     req.session.data['refresh-count'] = 0
