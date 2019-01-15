@@ -44,6 +44,7 @@ router.get('/cosmetics/upload', function(req, res) {
 
   req.session.data['draft-uploads'] = []
   req.session.data['error-uploads'] = []
+  req.session.data['completed-uploads'] = []
   for (i = 0; i < req.session.data['cpnp-upload'].length; i++) {
     // Even numbered uploads become drafts, odd numbered uploads become errors
     if (i % 2) {
@@ -56,6 +57,7 @@ router.get('/cosmetics/upload', function(req, res) {
     } else {
       // Add file to drafts list
       req.session.data['draft-uploads'].push({
+        id: i,
         filename: req.session.data['cpnp-upload'][i],
         uk_product_number: Math.floor((Math.random() * 100000) + 1),
         cpnp_reference_number: Math.floor((Math.random() * 100000) + 1),
@@ -152,6 +154,27 @@ router.get('/cosmetics/delete-responsible-person', function(req, res) {
   req.session.data['responsible-person-email'] = ''
   req.session.data['responsible-person-phone'] = ''
   res.redirect('/cosmetics/landing-page/responsible-person')
+})
+
+router.get('/cosmetics/start-additional-files-upload/:id', function(req, res) {
+  req.session.data['export-draft-id'] = req.params['id']
+  res.redirect('/cosmetics/import/formulation-upload')
+})
+
+router.get('/cosmetics/submit', function(req, res) {
+  if (req.session.data['export-draft-id']) {
+    id = req.session.data['export-draft-id']
+    draft = req.session.data['draft-uploads'].find(draftNotification => draftNotification.id == id)
+    
+    req.session.data['completed-uploads'].push(draft)
+
+    req.session.data['draft-uploads'] = req.session.data['draft-uploads']
+      .filter(draftNotification => draftNotification.id != id)
+
+    req.session.data['export-draft-id'] = null
+  }
+
+  res.redirect('/cosmetics/confirmation')
 })
 
 function getRandomInt(min, max) {

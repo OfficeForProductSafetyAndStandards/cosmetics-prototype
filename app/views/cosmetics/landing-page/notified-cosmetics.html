@@ -166,7 +166,7 @@
                   Packaging image
                 </li>
                 <li>
-                  <a href='/cosmetics/import/formulation-upload' class='govuk-link--no-visited-state'>Add files</a>
+                  <a href={{ '/cosmetics/start-additional-files-upload/' + item['id'] }} class='govuk-link--no-visited-state'>Add files</a>
                 </li>
               </ul>
             </td>
@@ -184,6 +184,33 @@
 
       {% set registeredCosmeticProducts %}
       <h2 class="govuk-heading-l">Registered cosmetic products</h2>
+      <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header govuk-!-width-one-third" scope="col">Product name</th>
+              <th class="govuk-table__header width-one-sixth" scope="col">UK cosmetic product number</th>
+              <th class="govuk-table__header width-one-sixth" scope="col">CPNP reference number</th>
+              <th class="govuk-table__header width-one-sixth" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {% for item in data['completed-uploads'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item['filename'] }}</span></th>
+                <td class="govuk-table__cell">
+                  UKCP-{{ item['uk_product_number'] }}
+                </td>
+                <td class="govuk-table__cell">{{ item['cpnp_reference_number'] }}</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  <a href='#' class='govuk-link--no-visited-state'>
+                    Edit
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+              {# Last child shouldn't have a bottom border #}
+            </tbody>
+          </table>
       {% endset -%}
 
       {{ govukTabs({
