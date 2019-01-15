@@ -108,13 +108,13 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for item in data['cpnp-upload'] %}
+        {% for item in data['error-uploads'] %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
-              {{ item }}
+              {{ item['filename'] }}
           </td>
           <td class="govuk-table__cell">
-            ¯\_(ツ)_/¯
+              {{ item['reason'] }}
           </td>
           <td class="govuk-table__cell govuk-table__cell--numeric">
             <a href='#' class='govuk-link--no-visited-state'>
@@ -147,15 +147,15 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for item in data['cpnp-upload'] %}
+        {% for item in data['draft-uploads'] %}
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item }}</span></th>
+          <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item['filename'] }}</span></th>
             <td class="govuk-table__cell">
-              UKCP-<span class='ukCosmeticNumber'></span>
+              UKCP-{{ item['uk_product_number'] }}
             </td>
-            <td class="govuk-table__cell"><span class='ukCosmeticNumber'></span></td>
+            <td class="govuk-table__cell">{{ item['cpnp_reference_number'] }}</td>
             <td class="govuk-table__cell">
-              <span class='cpnpDay'></span>/0<span class='cpnpMonth'></span>/<span class='cpnpYear'></span>
+                {{ item['date_notified'] }}
             </td>
             <td class="govuk-table__cell">
               <ul class='govuk-list'>

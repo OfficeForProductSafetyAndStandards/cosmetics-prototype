@@ -42,6 +42,28 @@ router.get('/cosmetics/upload', function(req, res) {
     req.session.data['cpnp-upload'] = [req.session.data['cpnp-upload']]
   }
 
+  req.session.data['draft-uploads'] = []
+  req.session.data['error-uploads'] = []
+  for (i = 0; i < req.session.data['cpnp-upload'].length; i++) {
+    // Even numbered uploads become drafts, odd numbered uploads become errors
+    if (i % 2) {
+      // Add file to errors list
+      req.session.data['error-uploads'].push({
+        filename: req.session.data['cpnp-upload'][i],
+        reason: getRandomErrorReason()
+      })
+    } else {
+      // Add file to drafts list
+      req.session.data['draft-uploads'].push({
+        filename: req.session.data['cpnp-upload'][i],
+        uk_product_number: Math.floor((Math.random() * 100000) + 1),
+        cpnp_reference_number: Math.floor((Math.random() * 100000) + 1),
+        date_notified: dateNumber(10, 28) + '/' + dateNumber(1, 9) + '/' + dateNumber(14, 18),
+        files_required: true
+      })
+    }
+  }
+
   res.redirect('/cosmetics/landing-page/notified-cosmetics');
 })
 
@@ -123,5 +145,24 @@ router.get('/cosmetics/delete-responsible-person', function(req, res) {
   req.session.data['responsible-person-phone'] = ''
   res.redirect('/cosmetics/landing-page/responsible-person')
 })
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+function dateNumber(min, max) {
+  return getRandomInt(min, max);  
+}
+
+function getRandomErrorReason() {
+  errors = [
+    'Error parsing cosmetics information from file',
+    'Error while performing anti-virus scanning'
+  ]
+
+  return errors[Math.floor(Math.random() * errors.length)]
+}
 
 module.exports = router
