@@ -8,10 +8,10 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
                 {% from "dataWithDefault.html" import dataWithDefault %}
-            <h1 class="govuk-heading-xl">Check {{ dataWithDefault({
+            <h1 class="govuk-heading-xl">Check <span class='no-wrap'>{{ dataWithDefault({
                     value: data['responsible-person-email'],
                     default: 'example@example.com'
-                })}}
+                })}}</span>
             </h1>
             <p>
                 An email has been sent to {{ dataWithDefault({
@@ -21,7 +21,7 @@
             </p>
 
             <p>
-                Click the link in the email to continue creation of the UK Responsible Person.
+                Click the link in the email to continue creation of the UK responsible person.
             </p>
             <p>
                 <a href='../../cosmetics/landing-page/notified-cosmetics'>Continue</a>

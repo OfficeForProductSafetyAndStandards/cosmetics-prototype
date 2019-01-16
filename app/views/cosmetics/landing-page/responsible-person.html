@@ -38,10 +38,10 @@
 {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
-            <h1 class="govuk-heading-xl">Responsible Person</h1>
+            <h1 class="govuk-heading-xl">responsible person</h1>
             <p>
-                {# If there is more than 1 responsible person the like should say "Switch Responsible Person" #}
-                <a href='/cosmetics/responsible-person/business-or-person' class='govuk-link--no-visited-state'>Add a Responsible Person</a>
+                {# If there is more than 1 responsible person the like should say "Switch responsible person" #}
+                <a href='/cosmetics/responsible-person/business-or-person' class='govuk-link--no-visited-state'>Add a responsible person</a>
             </p>
         </div>
             {% from "dataWithDefault.html" import dataWithDefault %}
@@ -49,7 +49,7 @@
             <table class="govuk-table">
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="row">Responsible Person</th>
+                        <th class="govuk-table__header" scope="row">responsible person</th>
                         <td class="govuk-table__cell">
                             {{ dataWithDefault({
                                 value: data['responsible-person-name'],
