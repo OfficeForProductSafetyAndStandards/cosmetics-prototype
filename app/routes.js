@@ -87,6 +87,11 @@ router.get('/cosmetics/dismiss-error/:id', function(req, res) {
   res.redirect('/cosmetics/landing-page/notified-cosmetics');
 })
 
+router.get('/cosmetics/dismiss-all-errors', function(req, res) {
+  req.session.data['error-uploads'] = []
+  res.redirect('/cosmetics/landing-page/notified-cosmetics');
+})
+
 // Stores a list of the components in the session cookie.
 router.post('/cosmetics/list-components', function(req, res) {
   var components = Object.keys(req.session.data)
