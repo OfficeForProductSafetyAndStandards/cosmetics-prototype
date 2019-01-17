@@ -7,19 +7,15 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Do you have your EU notification files?</h1>
+            <h1 class="govuk-heading-xl">Do you have your data to upload?</h1>
             {# <p>
                 <a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing" target="_blank">
                     Find out how to export cosmetic product zip files from CPNP (opens in a new tab).
                 </a>
             </p> #}
-            <div class="govuk-warning-text">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text">
-                <span class="govuk-warning-text__assistive">Warning</span>
-                You need to download the file as a zip file by selecting ‘Export’ on the European Union notification portal.
-              </strong>
-            </div>  
+            <p>
+                This must be an exported zip file, not a PDF.
+            </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
