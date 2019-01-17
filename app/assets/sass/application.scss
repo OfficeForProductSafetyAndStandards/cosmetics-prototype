@@ -103,9 +103,16 @@ input.with-unit {
   table-layout: fixed;
   td {
     width: 20%;
+    overflow: hidden;
   }
 }
 
+.govuk-table {
+  td {
+    overflow: hidden !important;
+    max-width: 200px;
+  }
+}
 .not-error-override {
   border-color: govuk-colour("blue") !important;
 }
