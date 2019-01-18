@@ -7,7 +7,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Do you want to create a new UK responsible person?</h1>
+            <h1 class="govuk-heading-xl">UK responsible person</h1>
             <p>
                 The UK responsible person will be the:
                 <ul class="govuk-list govuk-list--bullet">
@@ -26,19 +26,23 @@
                 <a href="#">Read about being the UK responsible persons for cosmetic products <span class='no-wrap'>(opens in a new tab)</span>.</a>
             </p>
 
+            <h2 class='govuk-heading-m'>
+                Do you or your organisation already have an account?
+            </h2>
+
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Create an new UK responsible person",
-                            value: "yes",
-                            route: "/cosmetics/responsible-person/business-or-person"
-                        },
-                        {
-                            text: "Join a UK responsible person",
+                            text: "Yes",
                             value: "planned",
                             route: "/cosmetics/responsible-person/join-existing"
+                        },
+                        {
+                            text: "No, create a new UK responsible person account",
+                            value: "yes",
+                            route: "/cosmetics/responsible-person/business-or-person"
                         }
                     ],
                     name: "notified-to-eu"

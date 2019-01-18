@@ -9,14 +9,10 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Upload your product notification files</h1>
 
-            <p>
-                File type must be ‘zip’ file.
-            </p>
-
             <form action="/cosmetics/upload">
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="file-upload-1">
-                    Upload zip files
+                  <label class="govuk-label govuk-!-margin-bottom-4" for="file-upload-1">
+                    Upload as many files as you have, file type must be ‘zip’ file.
                   </label>
                   <input class="govuk-file-upload" id="cpnp-upload" name="cpnp-upload" type="file" multiple>
                 </div>
@@ -24,7 +20,7 @@
                 {% from "button/macro.njk" import govukButton %}
 
                 {{ govukButton({
-                    text: "Upload"
+                    text: "Upload files"
                 }) }}
 
             </form>

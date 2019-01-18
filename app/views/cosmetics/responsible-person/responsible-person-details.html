@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                UK responsible person details
+            </h1>
+
+            {% from "input/macro.njk" import govukInput %}
+
+            <form action="/cosmetics/responsible-person/check-rp-email" method="get">
+                {{ govukInput({
+                label: {
+                    text: "Registered business name"
+                  },
+                id: "responsible-person-name",
+                name: "responsible-person-name"
+                }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "Email address"
+                  },
+                type: "email",
+                id: "responsible-person-email",
+                name: "responsible-person-email"
+                }) }}
+
+
+                {{ govukInput({
+                label: {
+                    text: "Phone number"
+                  },
+                classes: "govuk-input--width-20",
+                id: "responsible-person-phone",
+                name: "responsible-person-phone"
+                }) }}
+
+                {% from "fieldset/macro.njk" import govukFieldset %}
+
+                {% call govukFieldset({
+                  legend: {
+                    text: "Registered business address",
+                    classes: "govuk-fieldset__legend--m",
+                    isPageHeading: true
+                  }
+                }) %}
+
+                {{ govukInput({
+                label: {
+                    text: "Building and street"
+                },
+                id: "address-line-1",
+                name: "address-line-1"
+                }) }}
+
+
+                {{ govukInput({
+                id: "address-line-2",
+                name: "address-line-2"
+                }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "Town or city"
+                },
+                id: "address-town-city",
+                name: "address-town-city"
+                }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "County"
+                },
+                id: "address-county",
+                name: "address-county"
+                }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "Postcode"
+                },
+                id: "address-postcode",
+                name: "address-postcode",
+                classes: "govuk-input--width-10"
+                }) }}
+
+                {% endcall %}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -54,7 +54,7 @@
   </div>
   {% endif %}
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">{{ data['responsible-person-name'] }} cosmetic products</h1>
+    <h1 class="govuk-heading-xl">Your cosmetic products</h1>
   </div>
   <div class="govuk-grid-column-two-thirds">
     {% if not data['cpnp-upload'] %}
@@ -89,9 +89,18 @@
     <h2 class="govuk-heading-l">
       Files that failed to upload
     </h2>
-    <a href='/cosmetics/dismiss-all-errors/' class='govuk-link--no-visited-state'>
-      Dismiss all failed files
-    </a>
+    <ul class='govuk-list'>
+      <li class='govuk-!-padding-bottom-2'>
+        <a href='/cosmetics/import/cpnp-export-upload' class='govuk-link--no-visited-state'>
+          Try uploading files again
+        </a>
+      </li>
+      <li>
+        <a href='/cosmetics/dismiss-all-errors/' class='govuk-link--no-visited-state'>
+          Dismiss all failed files
+        </a>
+      </li>
+    </ul>
   </div>
   <div class='govuk-grid-column-full'>
     <table class="govuk-table">
