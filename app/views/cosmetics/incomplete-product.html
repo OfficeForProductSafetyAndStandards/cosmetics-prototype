@@ -7,7 +7,11 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Check the cosmetic product details before registering</h1>
+            {% for item in data['draft-uploads'] %}
+                {% if item['id'] == data['selected-product-id'] %}
+                    <h1 class="govuk-heading-xl">{{ item['filename'] }}</h1>
+                {% endif %}
+            {% endfor %}
             {% from "dataWithDefault.html" import dataWithDefault %}
         </div>
         <div class="govuk-grid-column-full">
@@ -117,44 +121,6 @@
                     </tr>
                     {% endif %}
                     <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="row">Carcinogenic, mutagenic or toxic for reproduction</th>
-                        <td class="govuk-table__cell">{{"Yes" if (data['contains-toxic-products'] == 'true') else "No"}}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="#" class='govuk-link--no-visited-state'>Change</a>
-                        </td>
-                    </tr>
-                    {% if data['contains-toxic-products'] == 'true' %}
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="row">Substances</th>
-                        <td class="govuk-table__cell">
-                            {{ dataWithDefault({
-                            value: data['toxic-products'],
-                            default: 'Toxic Product List'
-                            })}}
-                            {{ data['toxic-products']}}
-                        </td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="#" class='govuk-link--no-visited-state'>Change</a>
-                        </td>
-                    </tr>
-                    {% endif %}
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="row">Contains nanomaterials</th>
-                        <td class="govuk-table__cell">{{"Yes" if (data['contains-nanomaterials'] == 'true') else "No"}}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="#" class='govuk-link--no-visited-state'>Change</a>
-                        </td>
-                    </tr>
-                    {% if data['contains-nanomaterials'] == 'true' %}
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="row">Nanomaterials</th>
-                        <td class="govuk-table__cell">{{ data['nanomaterial'] }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="#" class='govuk-link--no-visited-state'>Change</a>
-                        </td>
-                    </tr>
-                    {% endif %}
-                    <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Cosmetic category</th>
                         <td class="govuk-table__cell">Skin products</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -177,16 +143,22 @@
                     </tr>
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Formulation</th>
-                        <td class="govuk-table__cell">Skin Care Cream, Lotion, Gel</td>
+                        <td class="govuk-table__cell">
+                            <a href='/cosmetics/import/formulation-upload'>
+                                Add formulation document
+                            </a>
+                        </td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="#" class='govuk-link--no-visited-state'>Change</a>
                         </td>
                     </tr>
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">Label image</th>
-                        <td class="govuk-table__cell">beautify-facial-night-cream-label.jpg</td>
+                        <td class="govuk-table__cell">
+                            <a href='/cosmetics/import/export-label-upload'>
+                                Add image file
+                            </a>
+                        </td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="#" class='govuk-link--no-visited-state'>Change</a>
                         </td>
                     </tr>
                     <tr class="govuk-table__row">

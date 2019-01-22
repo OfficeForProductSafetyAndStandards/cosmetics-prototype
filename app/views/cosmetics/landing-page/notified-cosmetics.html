@@ -143,83 +143,56 @@
 {% set draftCosmeticProducts %} 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Draft cosmetic products</h2>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header govuk-!-width-one-third" scope="col">Product name</th>
-          <th class="govuk-table__header width-one-sixth" scope="col">UK cosmetic product number</th>
-          <th class="govuk-table__header width-one-sixth" scope="col">EU reference number</th>
-          <th class="govuk-table__header width-one-sixth" scope="col">EU first notification date</th>
-          <th class="govuk-table__header width-one-sixth" scope="col">Required files</th>
-          <th class="govuk-table__header width-one-sixth" scope="col"></th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        {% for item in data['draft-uploads'] %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item['filename'] }}</span></th>
-            <td class="govuk-table__cell">
-              UKCP-{{ item['uk_product_number'] }}
-            </td>
-            <td class="govuk-table__cell">{{ item['cpnp_reference_number'] }}</td>
-            <td class="govuk-table__cell">
-                {{ item['date_notified'] }}
-            </td>
-            <td class="govuk-table__cell">
-              <ul class='govuk-list'>
-                <li>
-                  Formulation
-                </li>
-                <li>
-                  Packaging image
-                </li>
-                <li>
-                  <a href={{ '/cosmetics/start-additional-files-upload/' + item['id'] }} class='govuk-link--no-visited-state'>Add files</a>
-                </li>
-              </ul>
-            </td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">
-              <a href='#' class='govuk-link--no-visited-state'>
-                Edit
-              </a>
-            </td>
-          </tr>
-          {% endfor %}
-          {# Last child shouldn't have a bottom border #}
-        </tbody>
-      </table>
-      {% endset -%}
+    <h2 class="govuk-heading-l">Unfinished cosmetic products</h2>
+    {% for item in data['draft-uploads'] %}
+      <div class='product'>
+        <h2 class='govuk-heading-m govuk-!-margin-bottom-2'>
+          <a href={{ '/cosmetics/incomplete-product/' + item['id'] }} class='govuk-link--no-visited-state'>{{ item['filename'] }}</a>
+          {# {{ item['filename'] }} #}
+        </h2>
+        
+          <div class='product-data govuk-body-s'>
+              <dt>UK cosmetic product number:</dt>
+              <dd>UKCP-{{ item['uk_product_number'] }}</dd>
+              <dt>Your reference number:</dt>
+              <dd>{{ item['industry_reference_number'] }}</dd>
+              <dt>First notified in EU:</dt>
+              <dd>{{ item['date_notified'] }}</dd>
+              <dt>EU reference number:</dt>
+              <dd>{{ item['cpnp_reference_number'] }}</dd>
+            </div>
+        <p class='clearfix'>
+          <a href={{ '/cosmetics/start-additional-files-upload/' + item['id'] }} class='govuk-link--no-visited-state'>
+            Add formulation document and product image to finish registration
+          </a>
+        </p>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+{% endset -%}
 
       {% set registeredCosmeticProducts %}
       <h2 class="govuk-heading-l">Registered cosmetic products</h2>
-      <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th class="govuk-table__header govuk-!-width-one-third" scope="col">Product name</th>
-              <th class="govuk-table__header width-one-sixth" scope="col">UK cosmetic product number</th>
-              <th class="govuk-table__header width-one-sixth" scope="col">EU reference number</th>
-              <th class="govuk-table__header width-one-sixth" scope="col"></th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
             {% for item in data['completed-uploads'] %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row"><span class='capitalize'>{{ item['filename'] }}</span></th>
-                <td class="govuk-table__cell">
-                  UKCP-{{ item['uk_product_number'] }}
-                </td>
-                <td class="govuk-table__cell">{{ item['cpnp_reference_number'] }}</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric">
-                  <a href='#' class='govuk-link--no-visited-state'>
-                    Edit
-                  </a>
-                </td>
-              </tr>
+            <div class='product'>
+        <h2 class='govuk-heading-m govuk-!-margin-bottom-2'>
+          <a href='#' class='govuk-link--no-visited-state'>{{ item['filename'] }}</a>
+          {# {{ item['filename'] }} #}
+        </h2>
+        
+          <div class='product-data govuk-body-s'>
+              <dt>UK cosmetic product number:</dt>
+              <dd>UKCP-{{ item['uk_product_number'] }}</dd>
+              <dt>Your reference number:</dt>
+              <dd>{{ item['industry_reference_number'] }}</dd>
+              <dt>First notified in EU:</dt>
+              <dd>{{ item['date_notified'] }}</dd>
+              <dt>EU reference number:</dt>
+              <dd>{{ item['cpnp_reference_number'] }}</dd>
+            </div>
+        </div>
               {% endfor %}
-              {# Last child shouldn't have a bottom border #}
-            </tbody>
-          </table>
       {% endset -%}
 
       {{ govukTabs({
@@ -232,7 +205,7 @@
         }
       },
         {
-          label: "Draft",
+          label: "Unfinished",
           id: "draft-cosmetic-products",
           panel: {
           html: draftCosmeticProducts

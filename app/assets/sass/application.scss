@@ -163,3 +163,45 @@ input.with-unit {
 .width-one-sixth {
   width: 16.666% !important;
 }
+
+.product {
+  display: inline-block;
+  clear: both;
+  margin-bottom: 20px;
+  &:last-of-type {
+    margin-bottom: 0px;
+  }
+  border-top: 1px solid $govuk-border-colour;
+  &:first-of-type {
+    border-top: none;
+  }
+  padding-top: 30px;
+  .clearfix {
+    padding-top: 20px;
+    display: inline-block;
+    clear: both;
+    max-width: 66.666%;
+  }
+  h2 {
+    max-width: 66.666%;
+    a {
+      text-decoration: none;
+
+    }
+  }
+    .product-data {
+      width: 50%;
+      display: block;
+      float: left;
+      dt, dd {
+        display: inline-block; 
+      }
+      dt {
+        min-width: 220px;
+      }
+      dd {
+        margin-left: 0px;
+      }
+      margin-bottom: 0px;
+    }
+}

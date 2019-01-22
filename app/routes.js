@@ -60,6 +60,7 @@ router.get('/cosmetics/upload', function(req, res) {
         id: i,
         filename: req.session.data['cpnp-upload'][i],
         uk_product_number: Math.floor((Math.random() * 100000) + 1),
+        industry_reference_number: Math.floor((Math.random() * 100000) + 1),
         cpnp_reference_number: Math.floor((Math.random() * 100000) + 1),
         date_notified: dateNumber(10, 28) + '/' + dateNumber(1, 9) + '/' + dateNumber(14, 18),
         files_required: true
@@ -164,6 +165,11 @@ router.get('/cosmetics/delete-responsible-person', function(req, res) {
 router.get('/cosmetics/start-additional-files-upload/:id', function(req, res) {
   req.session.data['export-draft-id'] = req.params['id']
   res.redirect('/cosmetics/import/formulation-upload')
+})
+
+router.get('/cosmetics/incomplete-product/:id', function(req, res) {
+  req.session.data['selected-product-id'] = req.params['id']
+  res.redirect('/cosmetics/incomplete-product')
 })
 
 router.get('/cosmetics/submit', function(req, res) {
