@@ -7,15 +7,16 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Do you have your data to upload?</h1>
+            <h1 class="govuk-heading-xl">Do you want to use the files from your EU notification?</h1>
             {# <p>
                 <a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing" target="_blank">
                     Find out how to export cosmetic product zip files from CPNP (opens in a new tab).
                 </a>
             </p> #}
             <p>
-                This must be an exported zip file, not a PDF.
+                To upload your EU notification files, you need to have exported them as zip files.
             </p>
+
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
@@ -26,9 +27,9 @@
                             route: "/cosmetics/import/cpnp-export-upload"
                         },
                         {
-                            text: "No",
+                            text: "No, enter the information manually",
                             value: "false",
-                            route: "/cosmetics/import/no-cpnp-access"
+                            route: "/cosmetics/manual/product-name"
                         }
                     ],
                     name: "notified-to-eu"

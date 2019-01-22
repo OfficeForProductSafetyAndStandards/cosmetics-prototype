@@ -11,6 +11,14 @@
                 UK responsible person details
             </h1>
 
+            {# 
+
+                if the previous answer is "individual or sole trader" then change:
+                - Registered busieness name to "Full name"
+                - Registered address to "Address"
+
+             #}
+
             {% from "input/macro.njk" import govukInput %}
 
             <form action="/cosmetics/responsible-person/check-rp-email" method="get">
