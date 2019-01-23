@@ -62,7 +62,7 @@ router.get('/cosmetics/upload', function(req, res) {
         uk_product_number: Math.floor((Math.random() * 100000) + 1),
         industry_reference_number: Math.floor((Math.random() * 100000) + 1),
         cpnp_reference_number: Math.floor((Math.random() * 100000) + 1),
-        date_notified: dateNumber(10, 28) + '/' + dateNumber(1, 9) + '/' + dateNumber(14, 18),
+        date_notified: dateNumber(10, 28) + '/0' + dateNumber(1, 9) + '/20' + dateNumber(14, 18),
         files_required: true
       })
     }
