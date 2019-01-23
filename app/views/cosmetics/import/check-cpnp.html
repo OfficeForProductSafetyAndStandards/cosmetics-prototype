@@ -10,18 +10,12 @@
             <h1 class="govuk-heading-xl">
                 Have the cosmetic products been notified in the EU?
             </h1>
-            <p>
-                If your cosmetic products are on sale in both the EU and UK and you have complete a EU notification, you can use the same data to make registration in the UK simpler.
-            </p>
-            <p>
-                If you do not have access to these files or won’t be selling the product in the EU, you must register cosmetic products manually.
-            </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, they are notified in the EU",
+                            text: "Yes",
                             value: "true",
                             route: "/cosmetics/import/check-access-to-files"
                         },
