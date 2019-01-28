@@ -19,9 +19,22 @@
 
              #}
 
+             <p>
+                <a href='https://beta.companieshouse.gov.uk/'target="_blank">Find your company information, including registration number on <span class='no-wrap'>Companies House</span> (opens in a new tab)</a>.
+                  
+             </p>
+
             {% from "input/macro.njk" import govukInput %}
 
             <form action="/cosmetics/responsible-person/check-rp-email" method="get">
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="name">
+                    Companies House registration number
+                  </label>
+                  <input class="govuk-input" id="name" name="name" type="text">
+                </div>
+
                 {{ govukInput({
                 label: {
                     text: "Registered business name"
