@@ -1,11 +1,10 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Start page example
+  
 {% endblock %}
 
 {% block header %}
-  <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
 
@@ -16,10 +15,7 @@
         <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Section</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link">Subsection</a>
+        <a class="govuk-breadcrumbs__link" href="#">Notifying cosmetic products if there’s no Brexit deal</a>
       </li>
     </ol>
   </div>
@@ -27,61 +23,90 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-xl">
-        {% if serviceName %} {{ serviceName }} {% endif %}
-      </h1>
-
-      <p>Use this service to:</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>do something</li>
-        <li>update your name, address or other details</li>
-        <li>do something else</li>
-      </ul>
-
-      <p>Registering takes around 5 minutes.</p>
-
-      <a href="#" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">Start now</a>
-
-      <h2 class="govuk-heading-m">Before you start</h2>
-
-      <p>You can also <a href="#">register by post</a>.</p>
-
-      <p>The online service is also available in <a href="#">Welsh (Cymraeg)</a>.</p>
-
-      <p>You can’t register for this service if you’re in the UK illegally.</p>
-
+      <div class="govuk-panel govuk-panel--title govuk-!-margin-bottom-6">
+        <span class="govuk-caption-xl">Guidance</span>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+          Notifying cosmetic products if there’s no Brexit deal
+        </h1>
+        <p class='govuk-!-margin-bottom-0'>
+          Updated 30 January 2019
+        </p>
+      </div>
     </div>
-
-    <div class="govuk-grid-column-one-third">
-
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
+    <div class='govuk-grid-column-one-quarter'>
+      <h2 class='govuk-body-s'>
+        Contents
+      </h2>
+      <ul class='govuk-body-s govuk-list nav-list'>
+        <li>
+          <a href='' class='govuk-link--no-visited-state'>
+            Preparation of data for registering cosmetic products in the UK after Brexit
+          </a>
+        </li>
+        <li>
+          <a href='' class='govuk-link--no-visited-state'>
+            Change in status relating to importers
+          </a>
+        </li>
+        <li>
+          <a href='' class='govuk-link--no-visited-state'>
+            Product labelling
+          </a>
+        </li>  
+      </ul>
+    </div>
+    <div class='govuk-grid-column-three-quarters'>
+      <p>
+        If the UK leaves the European Union (EU) with no deal, the current UK responsible person accounts will be suspended or deleted from the EU’s Cosmetic Product Notification Portal (CPNP). 
+      </p>
+      <p>
+        Manufacturers and distributors will need to notify the Secretary of State for any cosmetic products on the market in the UK after Brexit. The UK government has established a cosmetic product registration service for manufacturers, importers and distributors to do this. Cosmetic products may only be placed on the UK market if they have a UK-based responsible person associated with them. 
+      </p>
+      <p>
+        Cosmetic products notified to the EU before Brexit can continue to be sold or given away in the UK on condition that information about a new UK-based responsible person and the cosmetic formulation is provided on the new UK cosmetic product registration service within 90 days of the UK leaving the EU – that is: by Thursday 27 June 2019.
+      </p>
+      <h2 class='govuk-heading-l'>
+        Preparation of data for registering cosmetic products in the UK after Brexit
+      </h2>
+      <p>
+        Because you may no longer have access to your EU notification files after 29 March 2019, we recommend UK responsible persons begin preparing their data as soon as possible.
+      </p>
+      <p>
+        CPNP allows users to download a PDF and ZIP files containing XML files for each notification.
+      </p>
+      <p>
+        To notify without having to provide all product information manually you will be able to upload ZIP files containing XML files to the UK cosmetic products registration service. The UK cosmetic product service cannot accept uploads in other formats, such as PDF or ZIP files containing PDF files. 
+      </p>
+      <p>
+        Alternatively, you will be able to provide product information manually by giving the following information:
+      </p>
+      <ul class='govuk-list govuk-list--bullet'>
+        <li>responsible person details</li>
+        <li>product name</li>
+        <li>shades, if it is available in more than 1 colour </li>
+        <li>formulation</li>
+        <li>an image of the packaging and label</li>
+      </ul>
+      <h2 class='govuk-heading-l'>
+        Change in status relating to importers
+      </h2>
+      <p>
+        There will be a change in status for UK-based distributors who place products on the UK market from European Economic Area (EEA) states before 29 March 2019, if the UK leaves the EU with no deal. These distributors will become importers of products they place on the UK market. 
+      </p>
+      <p>
+        As under the EU regime, any importers of cosmetic products placing the product on the market will become a responsible person and will have to meet the obligations of responsible persons. For example, importers will be required to make a notification to the Secretary of State relating to the products they place on the market using the UK notification service. This will be a new responsibility that these distributors did not previously have. 
+      </p>
+      <h2 class='govuk-heading-l'>
+        Product labelling
+      </h2>
+      <p>
+        The law currently requires product labels for cosmetics products to contain the name and address of the product’s responsible person. For all new products placed on the market after the UK leaves the EU, the labelling must include details of the UK responsible person for that product.
+      </p>
+      <p>
+        In recognition of the impact of this change for products in the supply chain, there will be a transition period of 2 years from the date of exit for products on the market to adopt the new label requirements, provided that the EU labelling requirements (to have the name and address of the EU responsible person) have been met.
+      </p>
     </div>
   </div>
 {% endblock %}

@@ -205,3 +205,20 @@ input.with-unit {
       margin-bottom: 0px;
     }
 }
+
+.govuk-panel--title {
+  background-color: $govuk-brand-colour;
+  text-align: left;
+  .govuk-caption-xl, h1, p {
+    color: white;
+  }
+}
+
+.nav-list {
+  li {
+    margin-bottom: 10px;
+    a {
+      text-decoration: none;
+    }
+  }
+}
