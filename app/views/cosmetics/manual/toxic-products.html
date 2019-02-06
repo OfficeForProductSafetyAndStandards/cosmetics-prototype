@@ -10,7 +10,7 @@
             {% from "component-title.html" import componentTitle %}
             {{
                 componentTitle({
-                    title: "Does the cosmetic contain any substances that are known or presumed to be carcinogenic, mutagenic or toxic for reproduction?",
+                    title: "Does the cosmetic product contain any substances that are known or presumed to be carcinogenic, mutagenic or toxic for reproduction?",
                     componentTitle: "Do any of the components contain substances that are known or presumed to be carcinogenic, mutagenic or toxic for reproduction?",
                     componentList: data['componentList'], 
                     isMultiComponent: data['single-or-multi-component']
@@ -30,12 +30,12 @@
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Yes, it is known or presumed to contain CMR substances",
                             value: "true",
                             route: "/cosmetics/manual/list-toxic-products"
                         },
                         {
-                            text: "No",
+                            text: "No, it does not contain CMR substances",
                             value: "false",
                             route: "/cosmetics/manual/nanomaterials"
                         }

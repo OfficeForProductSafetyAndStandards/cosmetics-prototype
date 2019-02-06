@@ -7,17 +7,17 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Is the cosmetic imported into the UK?</h1>
+            <h1 class="govuk-heading-xl">Is the cosmetic product imported into the UK?</h1>
                 {% from "radio-route.html" import radioRoute %}
                 {{
                     radioRoute({
                         options: [
                             {
-                                text: "Yes",
+                                text: "Yes, it is imported",
                                 value: "true",
                                 route: "/cosmetics/manual/import-from"
                             },{
-                                text: "No",
+                                text: "No, it is manufactured in the UK",
                                 value: "false",
                                 route: "/cosmetics/manual/toxic-products"
                             }

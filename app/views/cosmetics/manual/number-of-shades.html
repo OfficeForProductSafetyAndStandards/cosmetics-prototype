@@ -16,15 +16,15 @@
                     isMultiComponent: data['single-or-multi-component']
                 })
             }}
-            <p>
+            {# <p>
                 Only decorative cosmetics are sold in ‘shades’. Each shade varies only in colour and is otherwise identical.
-            </p>
+            </p> #}
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Yes, it is sold in more than 1 shade",
                             value: "true",
                             route: "/cosmetics/manual/list-shades"
                         },

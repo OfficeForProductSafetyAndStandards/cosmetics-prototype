@@ -7,30 +7,30 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Will the cosmetic be sold as a single component?</h1>
+            <h1 class="govuk-heading-xl">Is the cosmetic product a single or multi-component product?</h1>
             <p>
-                Multi-component cosmetics are composed of several components that are not marketed separately. They are sold as a set and intended to be used as a mix or sequentially.
+                Multi-component products are composed of several components that are not marketed separately. They are sold as a set and intended to be used as a mix or sequentially.
             </p>
-            <p>
+            <p class='govuk-!-margin-bottom-1'>
                 Examples of multi-component cosmetics include:
+            </p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>hair dye sets</li>
                     <li>skin peeling kits</li>
                     <li>permanent styling products</li>
                     <li>anti-age/revitalising kits</li>
                 </ul>
-            </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Single component",
                             value: "single",
-                            route: "/cosmetics/manual/number-of-shades"
+                            route: "/cosmetics/manual/shades"
                         },
                         {
-                            text: "No, it will be sold as multi-component cosmetic",
+                            text: "Multi-component",
                             value: "multi",
                             route: "/cosmetics/manual/multi-component"
                         }

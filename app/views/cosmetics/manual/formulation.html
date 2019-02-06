@@ -1,14 +1,283 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/cosmetics/manual/sub-sub-category">Back</a>
+<a class="govuk-back-link" href="/cosmetics/manual/sub-sub-category">Back</a>
 {% endblock %}
 
 {% block content %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            {% from "radios/macro.njk" import govukRadios %}
-            {{ govukRadios({
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                    Choose the frame formulation
+                </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="skin-care-cream-lotion-gel">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                  Skin care cream, lotion or gel
+              </label>
+              <details class="govuk-details">
+                  <summary class="govuk-details__summary govuk-details--inset">
+                    <span class="govuk-details__summary-text">
+                      Ingredients ranges
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text label-label">
+                <table class='govuk-table'>
+                    <thead class='govuk-table__head'>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__header' scope='col'>
+                                Ingredients
+                            </td>
+                            <td class='govuk-table__header' scope='col'>
+                                Maximum %
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody class='govuk-table__body'>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Oils (e.g. vegetable and/or mineral), waxes and fats (e.g. long chain alcohols) 
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                30%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Silicones including volatile silicones (e.g. cyclopentasiloxane, dimethicone) 
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                20%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Humectants (e.g. glycerin, propylene glycol, PEG)
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                20%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Thickeners (e.g. carbomer, xanthan gum) 
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                12%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Ethanol (alcohol, alcohol denat.)
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                10%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Additional ingredients (e.g. vitamins, antioxidants, plant extracts)
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                10%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Bulking agents (e.g. talc, silica, nylon powder)
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                5%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Preservatives, antimicrobials
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                2%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Colorants
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                2%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Parfum
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                1%
+                            </td>
+                        </tr>
+                        <tr class='govuk-table__row'>
+                            <td class='govuk-table__cell'>
+                                Aqua
+                            </td>
+                            <td class='govuk-table__cell--numeric govuk-table__cell'>
+                                up to 100%
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                </details>
+        </div>
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="skin-care-cream-lotion-gel">
+            <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                Skin care cream, lotion or gel — with high levels of silicones
+          </label>
+          <details class="govuk-details govuk-details--inset">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Ingredients ranges
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text label-label">
+            <table class='govuk-table'>
+                <thead class='govuk-table__head'>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__header' scope='col'>
+                            Ingredients
+                        </td>
+                        <td class='govuk-table__header' scope='col'>
+                            Maximum %
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class='govuk-table__body'>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Silicones including volatile silicones (e.g. cyclopentasiloxane, dimethicone) 
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            50%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Oils (e.g. vegetable and/or mineral), waxes and fats (e.g. long chain alcohols) 
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            40%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Ethanol (alcohol, alcohol denat.)
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            25%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Humectants (e.g. glycerin, propylene glycol, PEG)
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            20%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Additional ingredients (e.g. plant extracts, vitamins)
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            10%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Bulking agents (e.g. talc, silica, nylon powder)
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            5%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Emulsifying agents, anionic / amphoteric / non-ionic surfactants (e.g. sorbitan sesquioleate, sorbitan stearate)
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            5%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Thickeners (e.g. carbomer, xanthan gum) 
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            5%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            UV filters
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            5%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Preservatives, antimicrobials
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            2%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Colorants
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            2%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Parfum
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            1%
+                        </td>
+                    </tr>
+                    <tr class='govuk-table__row'>
+                        <td class='govuk-table__cell'>
+                            Aqua
+                        </td>
+                        <td class='govuk-table__cell--numeric govuk-table__cell'>
+                            up to 100%
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</fieldset>
+</div>
+
+{{ govukButton({
+    text: "Continue",
+    href: "/cosmetics/component-done"
+}) }}
+</div>
+</div>
+{% endblock %}
+            {# {{ govukRadios({
             idPrefix: "physical-form",
             name: "physical-form",
             fieldset: {
@@ -33,11 +302,4 @@
                 { value: "level-4", text: "Other Face Care Products Other Than Face Mask"}
             ]
             }) }}
-
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/component-done"
-            }) }}
-        </div>
-    </div>
-{% endblock %}
+ #}
