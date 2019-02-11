@@ -19,41 +19,43 @@
 
              #}
 
-             <p class='govuk-!-margin-bottom-9'>
+{#              <p class='govuk-!-margin-bottom-9'>
                 Find your company information, including registration number on <a href='https://beta.companieshouse.gov.uk/'target="_blank"><span class='no-wrap'>Companies House</span> (opens in a new tab)</a>.
-                  
              </p>
+#}
 
 
             {% from "input/macro.njk" import govukInput %}
 
-            <form action="/cosmetics/responsible-person/check-rp-email" method="get">
+            <form action="/cosmetics/responsible-person/contact-person" method="get">
 
+{#
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="name">
                     Companies House registration number
                   </label>
                   <input class="govuk-input" id="name" name="name" type="text">
                 </div>
-
+ #}
                 {{ govukInput({
                 label: {
-                    text: "Registered business name"
+                    text: "Business name"
                   },
                 id: "responsible-person-name",
                 name: "responsible-person-name"
                 }) }}
 
-                {{ govukInput({
+{#                 {{ govukInput({
                 label: {
                     text: "Email address"
                   },
                 type: "email",
                 id: "responsible-person-email",
                 name: "responsible-person-email"
-                }) }}
+                }) }} 
+#}
 
-
+{# 
                 {{ govukInput({
                 label: {
                     text: "Phone number"
@@ -62,7 +64,7 @@
                 id: "responsible-person-phone",
                 name: "responsible-person-phone"
                 }) }}
-
+ #}
                 {% from "fieldset/macro.njk" import govukFieldset %}
 
                 {% call govukFieldset({

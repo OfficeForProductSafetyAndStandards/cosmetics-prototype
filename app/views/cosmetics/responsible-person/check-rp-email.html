@@ -9,13 +9,13 @@
         <div class="govuk-grid-column-two-thirds">
                 {% from "dataWithDefault.html" import dataWithDefault %}
             <h1 class="govuk-heading-xl">Check <span class='no-wrap'>{{ dataWithDefault({
-                    value: data['responsible-person-email'],
+                    value: data['contact-person-email'],
                     default: 'example@example.com'
                 })}}</span>
             </h1>
             <p>
                 An email has been sent to {{ dataWithDefault({
-                    value: data['responsible-person-email'],
+                    value: data['contact-person-email'],
                     default: 'example@example.com'
                 })}}
             </p>
