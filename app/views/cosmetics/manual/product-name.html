@@ -12,7 +12,7 @@
                 {% from "input/macro.njk" import govukInput %}
 
                 <p>
-                    The name as it appears on the label so it can be easily identified. This doesn’t need to include size or shade.
+                    The name as it appears on the label so it can be easily identified. This does not need to include size or shade.
                 </p>
 
                 {{ govukInput({
@@ -23,17 +23,17 @@
                     classes: "govuk-label--s"
                 },
                 hint: {
-                    text: "For example, 'Brand name, face cream'"
+                    text: "For example, ‘Brand name, face cream’"
                 }
                 }) }}
 
                 {{ govukInput({
                 label: {
-                    text: "Additional name (if there is one)",
+                    text: "Additional name (if applicable)",
                     classes: "govuk-label--s"
                 },
                 hint: {
-                    text: "For example, ‘with added Aloe vera’."
+                    text: "For example, ‘with added Aloe vera’"
                 },
                 id: "product-name-description",
                 name: "product-name-description"

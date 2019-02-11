@@ -8,17 +8,20 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">
-                Will these cosmetic products be sold in the EU?
+                Will these cosmetic products be notified in the EU?
             </h1>
             <p>
-                If your cosmetic products are on sale in both the EU and UK, complete the notification on CPNP first and use the CPNP zip file to make registration in the UK simpler.
+                The EU Cosmetic Product Notification Portal (CPNP) allows you to export a ZIP files containing XML files for each notification.
+            </p>
+            <p>
+                You can upload notification files only as ZIP files containing XML files on the UK cosmetic product registration service.
             </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, the product will be sold in the EU",
+                            text: "Yes, the products will be notified in the EU",
                             value: "true",
                             route: "/cosmetics/import/cpnp-advice"
                         },
