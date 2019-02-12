@@ -148,7 +148,7 @@
 {% set draftCosmeticProducts %} 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Unfinished cosmetic products</h2>
+    <h2 class="govuk-heading-l">Incomplete registrations</h2>
     {% for item in data['draft-uploads'] %}
       <div class='product'>
         <h2 class='govuk-heading-m govuk-!-margin-bottom-2'>
@@ -166,7 +166,8 @@
               <dt>EU reference number:</dt>
               <dd>{{ item['cpnp_reference_number'] }}</dd>
             </div>
-        <p class='clearfix'>
+        <div class='clearfix'></div>
+        <p class='finish-link'>
           <a href={{ '/cosmetics/start-additional-files-upload/' + item['id'] }} class='govuk-link--no-visited-state'>
             Add formulation document to complete registration
           </a>
@@ -214,7 +215,7 @@
         }
       },
         {
-          label: "Unfinished",
+          label: "Incomplete",
           id: "draft-cosmetic-products",
           panel: {
           html: draftCosmeticProducts
