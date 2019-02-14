@@ -7,7 +7,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Your details</h1>
+            <h1 class="govuk-heading-xl">Your personal details</h1>
             <form action="/cosmetics/account/account-verification" method="get">
                 {% from "input/macro.njk" import govukInput %}
 
@@ -33,7 +33,7 @@
                         text: "Mobile phone number"
                     },
                     hint: {
-                        text: "This is only to help keep your account secure we’ll send a security code to your phone when you log in."
+                        text: "To help keep your account secure, we’ll send a verification code to your phone whenever you log in."
                     },
                     id: "phone",
                     name: "phone"
