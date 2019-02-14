@@ -4,7 +4,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             {% from "dataWithDefault.html" import dataWithDefault %}
-            <h1 class="govuk-heading-xl">Share data about cosmetics previously notified with {{ dataWithDefault({
+            <h1 class="govuk-heading-xl">Share data about cosmetic products previously notified with {{ dataWithDefault({
                     value: data['user-name'],
                     default: 'Example UK RP name'
                 })}}?</h1>
@@ -15,7 +15,7 @@
                 {{ dataWithDefault({
                     value: data['user-name'],
                     default: 'Example responsible person'
-                })}} will be able to see the names of all cosmetics previously notified by {{ dataWithDefault({
+                })}} will be able to see the names of all cosmetic products previously notified by {{ dataWithDefault({
                     value: data['eu-responsible-person-name'],
                     default: 'Example EU RP name'
                 })}}
@@ -25,12 +25,12 @@
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, I will share the names of these cosmetics",
+                            text: "Yes, I will share the names of these cosmetic products",
                             value: "true",
                             route: "/cosmetics/claim-existing/email-validated"
                         },
                         {
-                            text: "No, I do not want this person to have access to names of these cosmetics",
+                            text: "No, I do not want this person to have access to names of these cosmetic products",
                             value: "false",
                             route: "/cosmetics/landing-page/cosmetics-notified-before-eu-exit"
                         }
