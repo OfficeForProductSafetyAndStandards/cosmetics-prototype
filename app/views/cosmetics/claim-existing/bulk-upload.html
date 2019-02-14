@@ -15,22 +15,31 @@
             </p>
 
             <p>
-                <a href="#">CSV - Cosmetics product list template</a>
+                <a href="#">CSV - Cosmetic products list template</a>
             </p>
 
             <p>
-                <a href="#">XLST - Excel cosmetic list template </a>
+                <a href="#">XLST - Excel cosmetic products list template</a>
             </p>
 
             <p>
-                The file you upload must be a ‘XLS’ or ‘CSV’, with a single column containing a cosmetic name in each cell. Include the brand, range, individual product name, CPNP reference number time to the second it was first notified and its use so it can be easily identified and distinguished from other products.
+                The file you upload must be in an XLS or CSV format, with a single column containing a cosmetic name in each cell. You need to include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>brand</li>
+        <li>range</li>
+        <li>individual product name</li>
+        <li>CPNP reference number</li>
+        <li>time to the second it was first notified</li>
+        <li>its use</li>
+          </ul>
+          This ensures that it can be easily identified and distinguished from other products.
             </p>
 
             <p>
                     {{ dataWithDefault({
                         value: data['responsible-person-name'],
                         default: 'Example responsible person'
-                    })}} will be the UK responsible person for these cosmetics.
+                    })}} will be the UK responsible person for these cosmetic products.
             </p>
 
             {% from "file-upload/macro.njk" import govukFileUpload %}
