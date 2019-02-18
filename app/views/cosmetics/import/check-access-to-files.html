@@ -14,11 +14,15 @@
                 </a>
             </p> #}
 
-            <p>
+{#             <p>
                 If you have completed an EU notification, you can use the notification file.
             </p>
             <p>
                 If you do not have access to these files or will not notify the product in the EU, you must register the cosmetic product manually.
+            </p> #}
+
+            <p>
+                CPNP allows you to export ZIP files containing XML files for each notification.
             </p>
 
             {% from "radio-route.html" import radioRoute %}
@@ -26,7 +30,7 @@
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Yes, I have ZIP files to upload",
                             value: "true",
                             route: "/cosmetics/import/cpnp-export-upload"
                         },
