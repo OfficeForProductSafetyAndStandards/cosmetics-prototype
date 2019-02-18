@@ -8,19 +8,6 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Do you want to use the files from your EU notification?</h1>
-            {# <p>
-                <a href="https://docs.google.com/document/d/1QTM-LYmlAk8nnuwYOvtn8-gB5-F6T5u4lgs_2BhzPJ8/edit?usp=sharing" target="_blank">
-                    Find out how to export cosmetic product zip files from CPNP (opens in a new tab).
-                </a>
-            </p> #}
-
-{#             <p>
-                If you have completed an EU notification, you can use the notification file.
-            </p>
-            <p>
-                If you do not have access to these files or will not notify the product in the EU, you must register the cosmetic product manually.
-            </p> #}
-
             <p>
                 CPNP allows you to export ZIP files containing XML files for each notification.
             </p>
@@ -30,7 +17,7 @@
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, I have ZIP files to upload",
+                            text: "Yes, I have ZIP files containing XML to upload",
                             value: "true",
                             route: "/cosmetics/import/cpnp-export-upload"
                         },

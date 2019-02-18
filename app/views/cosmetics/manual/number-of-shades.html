@@ -10,8 +10,8 @@
             {% from "component-title.html" import componentTitle %}
             {{
                 componentTitle({
-                    title: "Is the cosmetic sold in more than 1 shade?",
-                    componentTitle: "Is {{component}} sold in more than 1 shade?",
+                    title: "Is the cosmetic sold in more than one shade?",
+                    componentTitle: "Is {{component}} sold in more than one shade?",
                     componentList: data['componentList'], 
                     isMultiComponent: data['single-or-multi-component']
                 })
@@ -24,7 +24,7 @@
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, it is sold in more than 1 shade",
+                            text: "Yes, it is sold in more than one shade",
                             value: "true",
                             route: "/cosmetics/manual/list-shades"
                         },
