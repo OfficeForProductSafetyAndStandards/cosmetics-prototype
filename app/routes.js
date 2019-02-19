@@ -78,6 +78,16 @@ router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
     req.session.data['refresh-count'] = 0
   }
   req.session.data['refresh-count']++
+
+  // if (req.session.data['product-registered']) {
+  //  req.session.data['registered-product'] = req.session.data['product-registered']
+  //  req.session.data['product-registered'] = null
+  // } else {
+  //  req.session.data['registered-product'] = null
+  // }
+  req.session.data['product-registered'] = null
+
+
   res.render('cosmetics/landing-page/notified-cosmetics');
 })
 
@@ -183,9 +193,11 @@ router.get('/cosmetics/submit', function(req, res) {
       .filter(draftNotification => draftNotification.id != id)
 
     req.session.data['export-draft-id'] = null
+
+    req.session.data['product-registered'] = draft.filename
   }
 
-  res.redirect('/cosmetics/confirmation')
+  res.redirect('/cosmetics/landing-page/notified-cosmetics#registered-cosmetic-products')
 })
 
 function getRandomInt(min, max) {

@@ -7,37 +7,23 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">UK responsible person</h1>
-            <p class='govuk-!-margin-bottom-1'>
-                The UK responsible person will be the:
+            <h1 class="govuk-heading-xl">
+                Do you or your organisation have an account to register cosmetic products in the UK?
+            </h1>
+            <p>
+                This is a different service to the EU Comsetic product notifcation portal (CPNP) and you will need a new account if you or your organisation have not created an account since Brexit.
             </p>
-                <ul class="govuk-list govuk-list--bullet">
-                <li>manufacturer of the cosmetic products</li>
-                <li>organisation for which the cosmetic products are manufactured, or</li>
-                <li>importer of the cosmetic products, if they are is manufactured outside the UK</li>
-            </ul>
-            <p class='govuk-!-margin-bottom-1'>
-                A responsible person can be an organisation or an individual, provided that they: 
-            </p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>ensure the cosmetic products comply with relevant regulation</li>
-                <li>are based in the UK</li>
-            </ul>
-            <h2 class='govuk-heading-m'>
-                Do you or your organisation have a <span class='no-wrap'>UK responsible person</span> account created after 29 March 2019?
-            </h2>
-
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Yes, I or my organisation have an account",
                             value: "planned",
                             route: "/cosmetics/responsible-person/join-existing"
                         },
                         {
-                            text: "No, create a new UK responsible person account",
+                            text: "No, I need to create a new account to register cosmetic products in the UK",
                             value: "yes",
                             route: "/cosmetics/responsible-person/business-or-person"
                         }

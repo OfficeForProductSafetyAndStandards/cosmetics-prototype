@@ -8,20 +8,16 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
                 {% from "dataWithDefault.html" import dataWithDefault %}
-            <h1 class="govuk-heading-xl">Check <span class='no-wrap'>{{ dataWithDefault({
-                    value: data['contact-person-email'],
-                    default: 'example@example.com'
-                })}}</span>
+            <h1 class="govuk-heading-xl">The contact person has been sent a confirmation email
             </h1>
             <p>
-                We have sent an email to {{ dataWithDefault({
+                We have sent an email to <strong>{{ dataWithDefault({
                     value: data['contact-person-email'],
                     default: 'example@example.com'
-                })}}
+                })}}</strong>
             </p>
-
             <p>
-                Click the link in the email to continue creation of the UK responsible person account.
+                The contact person will need to click link in the email to confirm they are the contact person.
             </p>
             <p>
                 <a href='../../cosmetics/landing-page/notified-cosmetics'>Continue</a>

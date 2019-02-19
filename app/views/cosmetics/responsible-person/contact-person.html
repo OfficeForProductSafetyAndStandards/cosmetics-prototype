@@ -11,7 +11,7 @@
                 Contact person
             </h1>
             <p>
-             Someone to respond to enquries from medical personnel or <span class='no-wrap'>market surveillance</span> authorities
+             Someone to answer enquries from medical personnel or <span class='no-wrap'>market surveillance</span> authorities.
             </p>
 
             {% from "input/macro.njk" import govukInput %}
@@ -30,6 +30,9 @@
                 label: {
                     text: "Email address"
                   },
+                hint: {
+                    text: "A confirmation email will be sent to this address"
+                },
                 type: "email",
                 id: "contact-person-email",
                 name: "contact-person-email"

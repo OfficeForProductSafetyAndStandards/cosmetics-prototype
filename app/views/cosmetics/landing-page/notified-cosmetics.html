@@ -46,15 +46,35 @@
         <span class='active'></span> Checking {{ data['cpnp-upload'] | length }} notification files
       </h2>
       <div class="govuk-error-summary__body">
+        {# <ul class="govuk-list">
+          <a href="/cosmetics/landing-page/notified-cosmetics" class='govuk-link--no-visited-state'>
+            Refresh the browser</a>
+          to see uploaded products.
+        </ul> #}
+        <meta http-equiv="refresh" content="2" />
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+
+  {% if data['product-registered'] !== null %}
+  <div class='govuk-grid-column-full'>
+    <div class="govuk-error-summary success-override" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+       {{ data['product-registered'] }} registered
+      </h2>
+      {# <div class="govuk-error-summary__body">
         <ul class="govuk-list">
           <a href="/cosmetics/landing-page/notified-cosmetics" class='govuk-link--no-visited-state'>
             Refresh the browser</a>
           to see uploaded products.
         </ul>
-      </div>
+      </div> #}
     </div>
   </div>
   {% endif %}
+
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Your cosmetic products</h1>
   </div>
@@ -80,7 +100,7 @@
     {% endif %}
   </div>
   <div class="govuk-grid-column-two-thirds">
-    <a href="/cosmetics/import/check-cpnp" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4">
+    <a href="/cosmetics/which-responsible-person" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4">
       Add cosmetic products
     </a>
   </div>
@@ -161,9 +181,9 @@
               <dd>UKCP-{{ item['uk_product_number'] }}</dd>
               <dt>Your reference number:</dt>
               <dd>{{ item['industry_reference_number'] }}</dd>
-              <dt>First notified in EU:</dt>
+{#               <dt>First notified in EU:</dt>
               <dd>{{ item['date_notified'] }}</dd>
-              <dt>EU reference number:</dt>
+ #}              <dt>EU reference number:</dt>
               <dd>{{ item['cpnp_reference_number'] }}</dd>
             </div>
         <div class='clearfix'></div>
@@ -196,9 +216,9 @@
               <dd>UKCP-{{ item['uk_product_number'] }}</dd>
               <dt>Your reference number:</dt>
               <dd>{{ item['industry_reference_number'] }}</dd>
-              <dt>First notified in EU:</dt>
+{#               <dt>First notified in EU:</dt>
               <dd>{{ item['date_notified'] }}</dd>
-              <dt>EU reference number:</dt>
+ #}              <dt>EU reference number:</dt>
               <dd>{{ item['cpnp_reference_number'] }}</dd>
             </div>
         </div>

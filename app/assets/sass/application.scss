@@ -117,6 +117,10 @@ input.with-unit {
   border-color: govuk-colour("blue") !important;
 }
 
+.success-override {
+   border-color: govuk-colour("green") !important;
+}
+
 .no-wrap {
   white-space: nowrap;
 }

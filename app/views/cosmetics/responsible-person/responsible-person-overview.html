@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/account/login">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">UK responsible person</h1>
+            <p class='govuk-!-margin-bottom-1'>
+                The UK responsible person will be the:
+            </p>
+                <ul class="govuk-list govuk-list--bullet">
+                <li>manufacturer of the cosmetic products</li>
+                <li>organisation for which the cosmetic products are manufactured, or</li>
+                <li>importer of the cosmetic products, if they are is manufactured outside the UK</li>
+            </ul>
+            <p class='govuk-!-margin-bottom-1'>
+                A responsible person can be an organisation or an individual, provided that they: 
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>ensure the cosmetic products comply with relevant regulation</li>
+                <li>are based in the UK</li>
+            </ul>
+            <form action="/cosmetics/responsible-person/create-or-join-existing" method="get" class='govuk-!-padding-top-4'>
+            {% from "button/macro.njk" import govukButton %}
+            {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
