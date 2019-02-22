@@ -7,44 +7,32 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Upload an photo of the product packaging</h1>
+            <h1 class="govuk-heading-xl">
+                Is the cosmetic product sold or given away in secondary packaging?
+            </h1>
 
-            <p>
-                If the product is sold in secondary packaging (for example, a shampoo bottle sold in a box), upload separate photos for the product and the packaging.
-            </p>
+{#             <p>
+                For example, a bottle of shampoo contained in a presentation box.
+            </p> #}
 
-            <p>
-                Text in the photo must be legible.
-            </p>
-
-            <p>
-                The file must be a JPG or PNG and no larger than 1Gb.
-            </p>
-
-            {% set listEntryHtml %}
-                {% from "file-upload/macro.njk" import govukFileUpload %}
-
-                {{ govukFileUpload({
-                id: "file-upload-1",
-                name: "file-upload-1",
-                label: {
-                    text: "Choose file"
-                }
-                }) }}
-            {% endset %}
-
-
-            {% from "expanding-list.html" import expandingList %}
+            {% from "radio-route.html" import radioRoute %}
             {{
-                expandingList({
-                    listEntryHtml: listEntryHtml
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes, the cosmetic product has secondary packaging",
+                            value: "yes-shade",
+                            route: "/cosmetics/manual/packaging-image-upload"
+                        },
+                        {
+                            text: "No",
+                            value: "no-shade",
+                            route: "/cosmetics/check-product-details"
+                        }
+                    ],
+                    name: "secondary-packaging"
                 })
             }}
-            <br />
-            {{ govukButton({
-                text: "Continue",
-                href: "/cosmetics/check-product-details"
-            }) }}
         </div>
     </div>
 {% endblock %}

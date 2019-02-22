@@ -9,20 +9,22 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">UK responsible person</h1>
             <p class='govuk-!-margin-bottom-1'>
-                The UK responsible person will be the:
+                A responsible person can be an organisation or an individual, provided they are are based in the UK and are either the:
             </p>
                 <ul class="govuk-list govuk-list--bullet">
                 <li>manufacturer of the cosmetic products</li>
                 <li>organisation for which the cosmetic products are manufactured, or</li>
                 <li>importer of the cosmetic products, if they are is manufactured outside the UK</li>
+                <li>a third-party given permission by either the manufacturer or importer</li>
             </ul>
-            <p class='govuk-!-margin-bottom-1'>
-                A responsible person can be an organisation or an individual, provided that they: 
-            </p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>ensure the cosmetic products comply with relevant regulation</li>
-                <li>are based in the UK</li>
-            </ul>
+
+            {# Link to GOV.UK content when available #}
+            <a 
+                href='mailto:Euan.Fraser@beis.gov.uk?subject=Read the full legal obligations of a responsible person'
+                class='govuk-body no-visit-state'>
+                Read the full legal obligations of a responsible person.
+            </a>
+
             <form action="/cosmetics/responsible-person/create-or-join-existing" method="get" class='govuk-!-padding-top-4'>
             {% from "button/macro.njk" import govukButton %}
             {{ govukButton({
