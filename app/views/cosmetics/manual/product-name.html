@@ -8,7 +8,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Cosmetic product name</h1>
-            <form action="/cosmetics/manual/product-manufactured-in-uk" method="get">
+            <form action="/cosmetics/manual/industry-reference" method="get">
                 {% from "input/macro.njk" import govukInput %}
 
                 <p>
@@ -18,16 +18,12 @@
                 {{ govukInput({
                 id: "product-name",
                 name: "product-name",
-                label: {
-                    text: "Brand and product name",
-                    classes: "govuk-label--s"
-                },
                 hint: {
                     text: "For example, ‘Brand name, face cream’"
                 }
                 }) }}
 
-                {{ govukInput({
+{#                 {{ govukInput({
                 label: {
                     text: "Additional name (if applicable)",
                     classes: "govuk-label--s"
@@ -38,7 +34,7 @@
                 id: "product-name-description",
                 name: "product-name-description"
                 }) }}
-    
+ #}    
                 {{ govukButton({
                     text: "Continue"
                 }) }}
