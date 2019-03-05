@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="/cosmetics/manual/which-nanomaterials">Back</a>
+{% endblock %}
+
+{% block content %} 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+          <form action="/cosmetics/manual/trigger-rule-100027" method="post">
+      <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Does the cosmetic product contain ethanol?
+          </h1>
+        </legend>
+              {# <span id="how-contacted-conditional-hint" class="govuk-hint">
+                Select one option.
+              </span> #}
+          <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-1" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional-1">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-1">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-1">
+
+              <div class="govuk-o-form-group">
+                <label class="govuk-c-label" for="percent-ingredient">
+                  Amount of ethanol as total of product ingredients
+                </label>
+                <div class="input-wrapper">
+                  <input class="govuk-c-input width-one-sixth" id="percent-complete" name="percent-complete" type="text">
+                  <span class="govuk-c-input govuk-c-input__suffix" aria-hidden="true">
+                    %
+                  </span>
+                </div>
+              </div>
+
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+        <input value="Continue" type="submit" class="govuk-button">
+      </fieldset>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
