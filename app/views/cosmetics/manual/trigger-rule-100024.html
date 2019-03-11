@@ -8,12 +8,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-form-group">
-          <form action="/cosmetics/manual/trigger-rule-100024" method="post">
+          <form action="/cosmetics/manual/trigger-rule-100025a" method="post">
       <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Does the cosmetic product contain isopropanol?
+            Does the product formulation contain more than 0.5% of essential oils, camphor, menthol or eucalyptol in total?
           </h1>
+            <p>
+              From CPNP:
+            </p>
+            <p>
+              Indicate the total concentration level of essential oils, camphor, menthol or eucalyptol. If essential oils, camphor, menthol or eucalyptol are not present in the product or if the total level of essential oils, camphor, menthol or eucalyptol does not exceed 0.5%, then you must check 'not applicable'.
+            </p>
         </legend>
               {# <span id="how-contacted-conditional-hint" class="govuk-hint">
                 Select one option.
@@ -22,14 +28,14 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="how-contacted-conditional-1" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional-1">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-1">
-                Yes, the product contains isopropanol
+                Yes, the total amount of essential oils, camphor, menthol or eucalyptol is more that 0.5% of the product formulation
               </label>
             </div>
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-1">
 
               <div class="govuk-o-form-group">
                 <label class="govuk-c-label" for="percent-ingredient">
-                  Weight of isopropanol as a percentage of the product
+                  Total amount of essential oils, camphor, menthol or eucalyptol
                 </label>
                 <div class="input-wrapper">
                   <input class="govuk-c-input width-one-sixth" id="percent-complete" name="percent-complete" type="text">

@@ -112,20 +112,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
     <h2 class="govuk-heading-l">
-      Files that failed to upload
+      Upload errors
     </h2>
-    <ul class='govuk-list'>
-      <li class='govuk-!-padding-bottom-2'>
-        <a href='/cosmetics/import/cpnp-export-upload' class='govuk-link--no-visited-state'>
-          Try uploading files again
-        </a>
-      </li>
-      <li>
-        <a href='/cosmetics/dismiss-all-errors/' class='govuk-link--no-visited-state'>
-          Dismiss all failed files
-        </a>
-      </li>
-    </ul>
+    <p>
+      <a href='/cosmetics/import/cpnp-export-upload' class='govuk-link--no-visited-state'>
+        Try uploading files again
+      </a>
+    </p>
   </div>
   <div class='govuk-grid-column-full'>
     <table class="govuk-table">
@@ -136,6 +129,9 @@
           </th>
           <th class="govuk-table__header" scope="col">
             Reason for failure
+          </th>
+          <th class="govuk-table__header" scope="col">
+            Recommended action
           </th>
           <th class="govuk-table__header" scope="col">
           </th>
@@ -149,6 +145,8 @@
           </td>
           <td class="govuk-table__cell">
               {{ item['reason'] }}
+          </td>
+          <td class="govuk-table__cell">
           </td>
           <td class="govuk-table__cell govuk-table__cell--numeric">
             <a href={{ '/cosmetics/dismiss-error/' + item['id'] }} class='govuk-link--no-visited-state'>

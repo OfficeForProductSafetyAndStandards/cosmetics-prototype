@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="/cosmetics/manual/which-nanomaterials">Back</a>
+{% endblock %}
+
+{% block content %} 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+          <form action="/cosmetics/manual/trigger-rule-100025" method="post">
+      <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            List all essential oil, menthol or eucalyptol present with an individual level higher than 0.5% and camphor with an individual level higher than 0.15%
+          </h1>
+        </legend>
+        <p>
+            For each ingredient give the International Nomenclature of Cosmetic Ingredients (INCI) name and concentration as a percentage .
+        </p>
+          {% set listEntryHtml %}
+                    {% from "input/macro.njk" import govukInput %}
+                    {{ govukInput({
+                        label: {
+                            text: "Name"
+                        },
+                        id: "substance-name",
+                        name: "substance-name"
+                    }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Percent"
+                        },
+                        id: "registry-number",
+                        name: "registry-number"
+                    }) }}
+                {% endset %}
+    
+    
+                {% from "expanding-list.html" import expandingList %}
+                {{
+                    expandingList({
+                        listEntryHtml: listEntryHtml
+                    })
+                }}
+                <br />
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+      </fieldset>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

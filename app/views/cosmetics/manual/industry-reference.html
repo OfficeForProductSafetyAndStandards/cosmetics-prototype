@@ -20,7 +20,7 @@
                   type: "identification-number",
                   classes: "govuk-!-width-one-half",
                   label: {
-                    text: "Identification number"
+                    text: "Reference"
                   },
                   attributes: {
                     spellcheck: "false"
@@ -33,19 +33,19 @@
                   name: "how-contacted",
                   fieldset: {
                     legend: {
-                      text: "Do you want to add an identification number?",
+                      text: "Do you want to add an internal reference?",
                       isPageHeading: true,
                       classes: "govuk-fieldset__legend--xl"
                     }
                   },
                   hint: {
                     text: 
-                        "This is to help you manage your cosmetic products and won’t be seen by poison centres or market surveillance authorities."
+                        "Use this to identify your cosmetic products. It won’t be seen by poison centres or market surveillance authorities."
                   },
                   items: [
                     {
                       value: "yes-identification",
-                      text: "Yes, add an identification number",
+                      text: "Yes, add an internal reference",
                       conditional: {
                         html: identificationNumber
                       }
