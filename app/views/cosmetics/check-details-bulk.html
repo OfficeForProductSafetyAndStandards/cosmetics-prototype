@@ -7,7 +7,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Check your answers before notifying</h1>
+            <h1 class="govuk-heading-xl">Check your answers before submitting notifications</h1>
             {% from "dataWithDefault.html" import dataWithDefault %}
             <table class="govuk-table">
                 <caption class="govuk-table__caption">UK responsible person</caption>
@@ -75,15 +75,15 @@
                             text: "Cosmetics"
                         },
                         {
-                            html: "<a href='#'>Download list of cosmetics</a>"
+                            html: "<a href='#'>Download list of cosmetic products</a>"
                         }
                     ]
                 ]
             }) }}
 
-            <h2 class="govuk-heading-m">Now confirm that these cosmetics should be associated with this UK responsible person</h2>
+            <h2 class="govuk-heading-m">Now confirm that these cosmetic products should be associated with this UK responsible person</h2>
             <p>
-                By registering this cosmetic product, you confirm that the details you provide are correct to the best of your knowledge.
+                By submitting this cosmetic product notification, you confirm that the details you provide are correct to the best of your knowledge.
             </p>
 
             {{ govukButton({
