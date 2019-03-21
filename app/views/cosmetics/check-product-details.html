@@ -7,7 +7,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Check the cosmetic product details before registering</h1>
+            <h1 class="govuk-heading-xl">Check the cosmetic product details before submitting the notification</h1>
             {% from "dataWithDefault.html" import dataWithDefault %}
         </div>
         <div class="govuk-grid-column-full">
@@ -202,13 +202,13 @@
         <div class='govuk-grid-column-two-thirds'>
 
             <h3 class="govuk-heading-m">
-                Now register your cosmetic product
+                Now submit your cosmetic product notification
             </h3>
             <p>
-                By registering this cosmetic product, you confirm that the details you provide are correct to the best of your knowledge.
+                By submitting this cosmetic product notification, you confirm that the details you provide are correct to the best of your knowledge.
             </p>
             {{ govukButton({
-            text: "Accept and register the cosmetic product",
+            text: "Accept and submit the cosmetic product notification",
             href: "/cosmetics/submit"
             }) }}
         </div>
