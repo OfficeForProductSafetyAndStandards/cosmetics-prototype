@@ -27,7 +27,7 @@
         <span class='nav-menu'>
           {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
           {{ sidebar({
-            pageId: 'notified-cosmetics'
+            pageId: 'notified-cosmetic-products'
           })}}
         </span>
       </div>
@@ -62,7 +62,7 @@
   <div class='govuk-grid-column-full'>
     <div class="govuk-error-summary success-override" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
       <h2 class="govuk-error-summary__title" id="error-summary-title">
-       {{ data['product-registered'] }} registered
+       {{ data['product-registered'] }} notified
       </h2>
       {# <div class="govuk-error-summary__body">
         <ul class="govuk-list">
@@ -86,16 +86,16 @@
           value: data['responsible-person-name'],
           default: 'Example responsible person'
         })}}
-      </strong> has no cosmetic products registered in the UK.
+      </strong> has no cosmetic product notifications submitted in the UK.
     </p>
     <p>
-      All cosmetic products intended for sale or given away in the UK must be registered in the UK.
+      All cosmetic products intended for sale or given away in the UK must be notified in the UK.
     </p>
     <p>
-        To continue to sell or give away cosmetic products that were notified to the European Union (EU) before <span class='no-wrap'>29 March 2019</span>, you must register your products in the UK within 90 days of the UK leaving the EU – that is <span class='no-wrap'>11:00pm on 27 June 2019</span>.
+        To continue to sell or give away cosmetic products that were notified to the European Union (EU) before <span class='no-wrap'>29 March 2019</span>, you must submit notifications for your products in the UK within 90 days of the UK leaving the EU – that is <span class='no-wrap'>11pm on 27 June 2019</span>.
     </p>
     <p>
-      You do not have to register cosmetic products discontinued before <span class='no-wrap'>29 March 2019</span>.
+      You do not have to submit notifications for cosmetic products discontinued before <span class='no-wrap'>29 March 2019</span>.
     </p>
     {% endif %}
   </div>
@@ -171,7 +171,7 @@
 {% set draftCosmeticProducts %} 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Incomplete registrations</h2>
+    <h2 class="govuk-heading-l">Incomplete notification</h2>
     {% for item in data['draft-uploads'] %}
       <div class='product'>
         <h2 class='govuk-heading-m govuk-!-margin-bottom-2'>
@@ -192,7 +192,7 @@
         <div class='clearfix'></div>
         <p class='finish-link'>
           <a href={{ '/cosmetics/start-additional-files-upload/' + item['id'] }} class='govuk-link--no-visited-state'>
-            Add formulation document to complete registration
+            Add formulation document to complete notification
           </a>
         </p>
         </div>
@@ -202,7 +202,7 @@
 {% endset -%}
 
       {% set registeredCosmeticProducts %}
-      <h2 class="govuk-heading-l">Registered cosmetic products</h2>
+      <h2 class="govuk-heading-l">Submitted cosmetic product notifications</h2>
             {% for item in data['completed-uploads'] %}
             <div class='product'>
         <h2 class='govuk-heading-m govuk-!-margin-bottom-2'>
@@ -245,10 +245,10 @@
         }
       },
       {
-        label: "Registered",
-        id: "registered-cosmetic-products",
+        label: "Notified",
+        id: "notified-cosmetic-products",
         panel: {
-        html: registeredCosmeticProducts
+        html: notifiedCosmeticProducts
       }
     }
     ]
