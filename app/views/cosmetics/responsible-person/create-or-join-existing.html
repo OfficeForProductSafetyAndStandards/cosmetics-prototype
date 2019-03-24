@@ -8,10 +8,10 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">
-                Do you or your organisation have an account to register cosmetic products in the UK?
+                Do you or your organisation have an account to submit cosmetic product notifications in the UK?
             </h1>
             <p>
-                This is a different service to the EU Cosmetic product notifcation portal (CPNP) and you will need a new account if you or your organisation have not created an account since Brexit.
+                This is a different service to the EU Cosmetic Product Notification Portal (CPNP); you will need a new account if you or your organisation have not created an account since Brexit.
             </p>
             {% from "radio-route.html" import radioRoute %}
             {{
@@ -23,7 +23,7 @@
                             route: "/cosmetics/responsible-person/join-existing"
                         },
                         {
-                            text: "No, I need to create a new account to register cosmetic products in the UK",
+                            text: "No, I need to create a new account to submit cosmetic product registrations in the UK",
                             value: "yes",
                             route: "/cosmetics/responsible-person/business-or-person"
                         }
