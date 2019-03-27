@@ -7,9 +7,9 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Has this cosmetic been notified on the EU Cosmetic Products Notification Portal (CPNP)?</h1>
+            <h1 class="govuk-heading-xl">Has this cosmetic product notification been submitted on the EU Cosmetic Products Notification Portal (CPNP)?</h1>
             <p>
-                To make notifying the UK simpler, you can use files from CPNP once you’ve notified the EU.
+                To make submitting notifications in the UK simpler, you can use files from CPNP once you have submitted a notification in the EU.
             </p>
             {% from "radio-route.html" import radioRoute %}
             {{
@@ -21,12 +21,12 @@
                             route: "/cosmetics/import/check-access-to-file"
                         },
                         {
-                            text: "No, but this product will be notified on CPNP",
+                            text: "No, but this product notification will be submitted on CPNP",
                             value: "planned",
                             route: "/cosmetics/import/cpnp-advice"
                         },
                         {
-                            text: "No, this product won’t be sold in the EU",
+                            text: "No, this product will not be sold or given away in the EU",
                             value: "no",
                             route: "/cosmetics/manual/was-product-on-sale-before-eu-exit"
                         }
