@@ -7,20 +7,20 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Does the kit need to be mixed?</h1>
+            <h1 class="govuk-heading-xl">Is the cosmetic product a hair dye?</h1>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, the items need to be mixed",
+                            text: "Yes, it is a hair dye",
                             value: "mixed",
-                            route: "/cosmetics/manual/hair-dye"
+                            route: "/cosmetics/manual/pH-range"
                         },
                         {
-                            text: "No, the items are use sequentially",
+                            text: "No, it is not a hair dye",
                             value: "not-mixed",
-                            route: "/cosmetics/manual/multi-component"
+                            route: "/cosmetics/manual/pH-between-3-and-10"
                         }
                     ],
                     name: "single-or-multi-component"

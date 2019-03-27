@@ -68,10 +68,10 @@ router.get('/cosmetics/upload', function(req, res) {
     }
   }
 
-  res.redirect('/cosmetics/landing-page/notified-cosmetics');
+  res.redirect('/cosmetics/landing-page/notified-cosmetic-products');
 })
 
-router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
+router.get('/cosmetics/landing-page/notified-cosmetic-products', function(req, res) {
   req.params = {};
 
   if (!req.session.data['refresh-count']) {
@@ -88,19 +88,19 @@ router.get('/cosmetics/landing-page/notified-cosmetics', function(req, res) {
   req.session.data['product-registered'] = null
 
 
-  res.render('cosmetics/landing-page/notified-cosmetics');
+  res.render('cosmetics/landing-page/notified-cosmetic-products');
 })
 
 router.get('/cosmetics/dismiss-error/:id', function(req, res) {
   req.session.data['error-uploads'] = req.session.data['error-uploads']
     .filter(error => error.id != req.params['id'])
 
-  res.redirect('/cosmetics/landing-page/notified-cosmetics');
+  res.redirect('/cosmetics/landing-page/notified-cosmetic-products');
 })
 
 router.get('/cosmetics/dismiss-all-errors', function(req, res) {
   req.session.data['error-uploads'] = []
-  res.redirect('/cosmetics/landing-page/notified-cosmetics');
+  res.redirect('/cosmetics/landing-page/notified-cosmetic-products');
 })
 
 // Stores a list of the components in the session cookie.
@@ -197,7 +197,7 @@ router.get('/cosmetics/submit', function(req, res) {
     req.session.data['product-registered'] = draft.filename
   }
 
-  res.redirect('/cosmetics/landing-page/notified-cosmetics#registered-cosmetic-products')
+  res.redirect('/cosmetics/landing-page/notified-cosmetic-products#registered-cosmetic-products')
 })
 
 function getRandomInt(min, max) {

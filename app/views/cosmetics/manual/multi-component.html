@@ -7,8 +7,8 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">List the components</h1>
-            <form action="/cosmetics/list-components" method="post">
+            <h1 class="govuk-heading-xl">List the kit items</h1>
+            <form action="/cosmetics/manual/shades" method="post">
                 {% set listEntryHtml %}
                     {% from "input/macro.njk" import govukInput %}
                     {{ govukInput({
@@ -28,7 +28,7 @@
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-            </form>            
+            </form>
         </div>
     </div>
 {% endblock %}

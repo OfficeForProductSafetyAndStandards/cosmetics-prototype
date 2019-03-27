@@ -7,9 +7,9 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Is the cosmetic product a single or multi-component product?</h1>
+            <h1 class="govuk-heading-xl">Is the cosmetic product available as single item or as a kit?</h1>
             <p>
-                Multi-component products are composed of several components that are not marketed separately. They are sold as a set and intended to be used as a mix or sequentially.
+                Kits are composed of components that are not marketed separately. They are sold as a kit and intended to be used as a mix or sequentially.
             </p>
             <p class='govuk-!-margin-bottom-1'>
                 Examples of multi-component cosmetic products include:
@@ -18,21 +18,23 @@
                     <li>hair dye sets</li>
                     <li>skin peeling kits</li>
                     <li>permanent styling products</li>
-                    <li>anti-age/revitalising kits</li>
                 </ul>
+            <p>
+                If the cosmetic product is sold as a gift set where the components are not mixed or used sequentially notify each product separately.
+            </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Single component",
+                            text: "The cosmetic product is a single item",
                             value: "single",
                             route: "/cosmetics/manual/shades"
                         },
                         {
-                            text: "Multi-component",
+                            text: "The cosmetic product is multi-item kit",
                             value: "multi",
-                            route: "/cosmetics/manual/multi-component"
+                            route: "/cosmetics/manual/components-mixed"
                         }
                     ],
                     name: "single-or-multi-component"

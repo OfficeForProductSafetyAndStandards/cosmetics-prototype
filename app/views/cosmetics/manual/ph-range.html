@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/manual/product-name">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/cosmetics/manual/multi-component" method="get">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h1 class="govuk-fieldset__heading">
+                      What is the pH range of the cosmetic product?
+                    </h1>
+                  </legend>
+                  <div class="govuk-form-group govuk-input--inline">
+                    <label class="govuk-label" for="address-town">
+                      Minimum pH
+                    </label>
+                    <input class="govuk-input govuk-input--width-4" id="address-town" name="address-town" type="text">
+                  </div>
+
+                  <div class="govuk-form-group govuk-input--inline">
+                    <label class="govuk-label" for="address-county">
+                      Maximum pH
+                    </label>
+                    <input class="govuk-input govuk-input--width-4" id="address-county" name="address-county" type="text">
+                  </div>
+                </fieldset>
+                 {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
