@@ -27,7 +27,7 @@
         <span class='nav-menu'>
           {% from "cosmetics/landing-page/sidebar.html" import sidebar %}
           {{ sidebar({
-            pageId: 'notified-cosmetics'
+            pageId: 'notified-cosmetic-products'
           })}}
         </span>
       </div>
@@ -62,7 +62,7 @@
   <div class='govuk-grid-column-full'>
     <div class="govuk-error-summary success-override" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
       <h2 class="govuk-error-summary__title" id="error-summary-title">
-       {{ data['product-registered'] }} Submited
+       {{ data['product-registered'] }} Notified
       </h2>
       {# <div class="govuk-error-summary__body">
         <ul class="govuk-list">
@@ -92,7 +92,7 @@
       All cosmetic products intended for sale or given away in the UK must be notified in the UK.
     </p>
     <p>
-        To continue to sell or give away cosmetic products that were notified to the European Union (EU) before <span class='no-wrap'>29 March 2019</span>, you must submit notifications for your products in the UK within 90 days of the UK leaving the EU – that is <span class='no-wrap'>11:00pm on 27 June 2019</span>.
+        To continue to sell or give away cosmetic products that were notified to the European Union (EU) before <span class='no-wrap'>29 March 2019</span>, you must submit notifications for your products in the UK within 90 days of the UK leaving the EU – that is <span class='no-wrap'>11pm on 27 June 2019</span>.
     </p>
     <p>
       You do not have to submit notifications for cosmetic products discontinued before <span class='no-wrap'>29 March 2019</span>.
@@ -192,7 +192,7 @@
         <div class='clearfix'></div>
         <p class='finish-link'>
           <a href={{ '/cosmetics/start-additional-files-upload/' + item['id'] }} class='govuk-link--no-visited-state'>
-            Add formulation document to complete registration
+            Add formulation document to complete notification
           </a>
         </p>
         </div>
@@ -248,7 +248,7 @@
         label: "Notified",
         id: "registered-cosmetic-products",
         panel: {
-        html: registeredCosmeticProducts
+        html: notifiedCosmeticProducts
       }
     }
     ]
