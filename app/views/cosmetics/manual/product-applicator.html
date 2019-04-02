@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "radios/macro.njk" import govukRadios %}
+{% from "button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/manual/number-of-shades">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/cosmetics/manual/toxic-products" method="post" novalidate>
+
+    {% set inAnotherWay %}
+    {{ govukInput({
+      id: "other-form",
+      name: "other-form",
+      type: "in-another-way",
+      classes: "",
+      label: {
+        text: "Describe how the product is applied"
+      }
+    }) }}
+    {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "physical-form",
+          name: "physical-form",
+          fieldset: {
+            legend: {
+              text: "How is the product applied?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {   
+                value: "directly",
+                text: "Directly"
+            },
+            {   
+                value: "using-wipes-a-sponge-a-patch-or-pad",
+                text: "Using wipes, a sponge, a patch, or pad"
+            },
+            {   
+                value: "as-an-encapsulated-products",
+                text: "As an encapsulated products"
+            },
+            {   
+                value: "from-a-pressurised-spray-container",
+                text: "From a pressurised spray container"
+            },
+            {   
+                value: "from-a-non-spraying-pressurised-container",
+                text: "From a non-spraying pressurised container"
+            },
+            {   
+                value: "in-another-way",
+                text: "In another way",
+                conditional: {
+                html: inAnotherWay
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
