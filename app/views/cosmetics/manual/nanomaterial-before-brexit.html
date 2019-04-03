@@ -1,36 +1,34 @@
 {% extends "layout.html" %}
+{% from "dataWithDefault.html" import dataWithDefault %}
 
 {% block beforeContent %}
   <a class="govuk-back-link" href="/cosmetics/manual/which-nanomaterials">Back</a>
 {% endblock %}
 
-{% from "back-link/macro.njk" import govukBackLink %}
-{% from "date-input/macro.njk" import govukDateInput %}
-{% from "button/macro.njk" import govukButton %}
-
-{% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="/cosmetics/manual/other-nanomaterials" method="post" novalidate>
-        {{ govukDateInput({
-          id: "dob",
-          namePrefix: "dob",
-          fieldset: {
-            legend: {
-              text: "When did you notify the EU?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          hint: {
-            text: "For example, 31 3 1980"
-          }
-        }) }}
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-      </form>
+{% block content %} 
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Did you notify the EU of the intent to use {{ dataWithDefault({ value: data['nanomaterial-name'], default: 'the nanomaterial' })}} before Brexit?
+            </h1>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "true",
+                            route: "/cosmetics/manual/nanomaterial-when"
+                        },
+                        {
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/manual/other-nanomaterials"
+                        }
+                    ],
+                    name: "colourant"
+                })
+            }}
+        </div>
     </div>
-  </div>
 {% endblock %}
