@@ -16,25 +16,25 @@
                     isMultiComponent: data['single-or-multi-component']
                 })
             }}   
-            <p>
+{#             <p>
                 A ‘nanomaterial’:
                 <ul class="govuk-list govuk-list--bullet">
                     <li>has one or more external dimensions, or an internal structure, with a size ranging from 1nm to 100 nm</li>
                     <li>is insoluble or biopersistent</li>
                     <li>is intentionally manufactured</li>
                   </ul>
-            </p>
+            </p> #}
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes",
+                            text: "Yes, the product contains nanomaterials",
                             value: "true",
-                            route: "/cosmetics/manual/which-nanomaterials"
+                            route: "/cosmetics/manual/application"
                         },
                         {
-                            text: "No",
+                            text: "No, there are no nanomaterials",
                             value: "false",
                             route: "/cosmetics/manual/category"
                         }

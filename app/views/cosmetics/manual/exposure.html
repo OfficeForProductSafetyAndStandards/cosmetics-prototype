@@ -7,9 +7,9 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">How would the user be exposed to the nanomaterials?</h1>
+            <h1 class="govuk-heading-xl">How is the user likely to be exposed to the nanomaterials?</h1>
                 {% from "radios/macro.njk" import govukRadios %}
-                {{ govukRadios({
+                {{ govukCheckboxes({
                 idPrefix: "uv-filter",
                 name: "uv-filter",
                 items: [
@@ -30,7 +30,7 @@
 
                 {{ govukButton({
                     text: "Continue",
-                    href: "/cosmetics/manual/category"
+                    href: "/cosmetics/manual/list-nanomaterials"
                 }) }}
         </div>
     </div>

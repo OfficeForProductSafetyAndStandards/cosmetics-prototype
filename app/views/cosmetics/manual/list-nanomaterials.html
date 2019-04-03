@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/manual/toxic-products">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">List the nanomaterials</h1>
+            <form action="/cosmetics/manual/annex-and-purpose" method="post">
+                {% set listEntryHtml %}
+                    {% from "input/macro.njk" import govukInput %}
+                    {{ govukInput({
+                        label: {
+                            text: "INCI name"
+                        },
+                        id: "nanomaterial-name",
+                        name: "nanomaterial-name"
+                    }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Chemical Abstracts Service (CAS) number"
+                        },
+                        id: "nanomaterial-registry-number",
+                        name: "nanomaterial-registry-number"
+                    }) }}
+                {% endset %}
+    
+    
+                {% from "expanding-list.html" import expandingList %}
+                {{
+                    expandingList({
+                        listEntryHtml: listEntryHtml
+                    })
+                }}
+                <br />
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% from "dataWithDefault.html" import dataWithDefault %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/cosmetics/manual/which-nanomaterials">Back</a>
+{% endblock %}
+
+{% block content %} 
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Is {{ dataWithDefault({ value: data['nanomaterial-name'], default: 'the nanomaterial' })}} listed in annex 4, 5, or 6 and used in accordance with the restrictions?
+            </h1>
+            {% from "radio-route.html" import radioRoute %}
+            {{
+                radioRoute({
+                    options: [
+                        {
+                            text: "Yes",
+                            value: "true",
+                            route: "/cosmetics/manual/category"
+                        },
+                        {
+                            text: "No",
+                            value: "false",
+                            route: "/cosmetics/manual/nanomaterial-before-brexit"
+                        }
+                    ],
+                    name: "colourant"
+                })
+            }}
+        </div>
+    </div>
+{% endblock %}
