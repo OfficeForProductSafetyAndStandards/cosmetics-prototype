@@ -8,22 +8,19 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">
-                Do you or your organisation have an account to submit cosmetic product notifications in the UK?
+                Do you want to join an existing team to submit cosmetic product notifications for a UK responsible person?
             </h1>
-            <p>
-                This is a different service to the EU Cosmetic product notification portal (CPNP). You will need a new account if you or your organisation have not created an account since Brexit.
-            </p>
             {% from "radio-route.html" import radioRoute %}
             {{
                 radioRoute({
                     options: [
                         {
-                            text: "Yes, I or my organisation have an account",
+                            text: "Yes, I want join an existing team",
                             value: "planned",
                             route: "/cosmetics/responsible-person/join-existing"
                         },
                         {
-                            text: "No, create a new account to submit cosmetic product notifications in the UK",
+                            text: "No, I need to create a new UK responsible person",
                             value: "yes",
                             route: "/cosmetics/responsible-person/business-or-person"
                         }

@@ -8,10 +8,13 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">
-                Contact person
+                Who is the contact person?
             </h1>
             <p>
-                A contact person must be able to give information about the cosmetic products when contacted by health care professionals, National poison information service or market surveillance authorities.
+                A contact person must be able to give information about the cosmetic products when contacted by the National Poison Information Service (NPIS) or market surveillance authorities (for example, Trading Standards officers).
+            </p>
+            <p>
+                We will send an email to this person asking them to confirm that they are a contact person.
             </p>
 
             {% from "input/macro.njk" import govukInput %}
@@ -30,9 +33,6 @@
                 label: {
                     text: "Email address"
                   },
-                hint: {
-                    text: "We will send a confirmation email to this address"
-                },
                 type: "email",
                 id: "contact-person-email",
                 name: "contact-person-email"
